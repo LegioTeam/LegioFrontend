@@ -6,13 +6,14 @@
 //  Copyright © 2019 Марат Нургалиев. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol LoginMainPresenterProtocol: class {
 	func registerTapped()
 	func facebookTapped()
 	func vkTapped()
 	func authTapped()
+    
 }
 
 class LoginMainPresenter {
@@ -41,4 +42,8 @@ extension LoginMainPresenter: LoginMainPresenterProtocol {
 		router.showAuth()
 	}
 	
+   
+
 }
+
+

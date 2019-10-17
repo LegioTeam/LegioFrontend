@@ -17,14 +17,17 @@ class BaseRouter: NSObject {
 	}
 	
 	func show(_ controller: UIViewController) {
+        controller.navigationItem.title = ""
 		self.controller.show(controller, sender: nil)
 	}
 	
 	func present(_ controller: UIViewController) {
+        controller.navigationItem.title = ""
 		self.controller.present(controller, animated: true)
 	}
 	
 	func setAsRoot(_ controller: UIViewController) {
+        controller.navigationItem.title = ""
 		UIApplication.shared.keyWindow?.rootViewController = controller
 	}
 	

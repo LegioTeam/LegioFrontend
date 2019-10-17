@@ -19,8 +19,8 @@ class RegisterRouter: BaseRouter {
 extension RegisterRouter: RegisterRouterProtocol {
 	
 	func showSingIn() {
-		let controller = UIStoryboard(name: "Preset", bundle: nil)
-			.instantiateViewController(withIdentifier: PresetView.storyboardIdentifier)
+		guard let controller = UIStoryboard(name: "Preset", bundle: nil)
+            .instantiateViewController(withIdentifier: PresetView.storyboardIdentifier) as? PresetView else { return }
 		self.present(controller)
 	}
 	

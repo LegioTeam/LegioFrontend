@@ -14,6 +14,8 @@ protocol LoginMainViewProtocol: class {
 
 class LoginMainView: UIViewController {
 	
+    
+    
 	var presenter: LoginMainPresenterProtocol!
 	
 	override func viewDidLoad() {

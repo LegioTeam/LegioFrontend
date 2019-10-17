@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0881753B2353BBB400B021EB /* ActivKetboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881753A2353BBB400B021EB /* ActivKetboard.swift */; };
+		08352A702357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */; };
 		08D896FA23526F2D0026ACBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896F923526F2D0026ACBC /* User.swift */; };
 		08D896FC2352829A0026ACBC /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896FB2352829A0026ACBC /* UserAuth.swift */; };
 		08D896FE235282E40026ACBC /* plugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896FD235282E40026ACBC /* plugs.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0881753A2353BBB400B021EB /* ActivKetboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivKetboard.swift; sourceTree = "<group>"; };
+		08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterView+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		08D896F923526F2D0026ACBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Legio/Common/Services/Network/User.swift; sourceTree = SOURCE_ROOT; };
 		08D896FB2352829A0026ACBC /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		08D896FD235282E40026ACBC /* plugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plugs.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 			children = (
 				AA2654CA234F5EFC0013B777 /* ViewControllerNavigation+Ex.swift */,
 				08D896FD235282E40026ACBC /* plugs.swift */,
-				0881753A2353BBB400B021EB /* ActivKetboard.swift */,
+				08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,11 +282,11 @@
 		AA2654D7234F64170013B777 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				AA2654DB234F66E50013B777 /* RegisterRouter.swift */,
 				AAB4B82D23564F41008273AE /* RegisterAssembler.swift */,
 				AA2654D9234F66D50013B777 /* RegisterView.swift */,
 				AAB4B82923564F29008273AE /* RegisterPresenter.swift */,
 				AAB4B82B23564F35008273AE /* RegisterInteractor.swift */,
-				AA2654DB234F66E50013B777 /* RegisterRouter.swift */,
 				AA2654DD234F66F10013B777 /* Register.storyboard */,
 			);
 			path = Register;
@@ -295,8 +295,8 @@
 		AA2654D8234F64C30013B777 /* Preset */ = {
 			isa = PBXGroup;
 			children = (
-				AA2654E5234F682D0013B777 /* PresetView.swift */,
 				AA2654E7234F68360013B777 /* PresetRouter.swift */,
+				AA2654E5234F682D0013B777 /* PresetView.swift */,
 				AA2654E9234F683F0013B777 /* Preset.storyboard */,
 			);
 			path = Preset;
@@ -415,7 +415,6 @@
 				AA2654C8234F5BA00013B777 /* RootRouter.swift in Sources */,
 				AA2654E2234F67110013B777 /* ForgotRouter.swift in Sources */,
 				AAB4B82023564423008273AE /* LoginMainAssembler.swift in Sources */,
-				0881753B2353BBB400B021EB /* ActivKetboard.swift in Sources */,
 				AAB4B81A235643FE008273AE /* LoginMainInteractor.swift in Sources */,
 				08D896FA23526F2D0026ACBC /* User.swift in Sources */,
 				AAB4B82A23564F29008273AE /* RegisterPresenter.swift in Sources */,
@@ -427,6 +426,7 @@
 				AAB4B82423564A86008273AE /* RootAssembler.swift in Sources */,
 				AA2654ED234F6B730013B777 /* EventTypesView.swift in Sources */,
 				08D896FE235282E40026ACBC /* plugs.swift in Sources */,
+				08352A702357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift in Sources */,
 				AA2654F3234F6C490013B777 /* MainView.swift in Sources */,
 				AA2654CB234F5EFC0013B777 /* ViewControllerNavigation+Ex.swift in Sources */,
 				AA2654D2234F61820013B777 /* AuthRouter.swift in Sources */,

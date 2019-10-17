@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="stg-Tk-svX">
-                                <rect key="frame" x="24" y="60" width="327" height="58.5"/>
+                                <rect key="frame" x="24" y="60" width="327" height="58"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Электропочта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eMq-Rd-aaM">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="24"/>
@@ -30,14 +30,14 @@
                                             <outlet property="delegate" destination="Qh2-oD-D26" id="dA5-6Q-VJG"/>
                                         </connections>
                                     </textField>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aBK-04-tjn">
-                                        <rect key="frame" x="0.0" y="32" width="327" height="2"/>
+                                    <progressView multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="aBK-04-tjn">
+                                        <rect key="frame" x="0.0" y="32" width="327" height="2.5"/>
                                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="progressTintColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="trackTintColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Такой почты не существует" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-rY-dEc">
-                                        <rect key="frame" x="0.0" y="42" width="327" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="41.5" width="327" height="16.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -45,13 +45,13 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sSk-6J-cuK">
-                                <rect key="frame" x="24" y="135.5" width="327" height="58.5"/>
+                                <rect key="frame" x="24" y="135" width="327" height="58.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNY-xg-C9d">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNY-xg-C9d">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="Qh2-oD-D26" id="a2m-OS-E58"/>
                                         </connections>
@@ -123,7 +123,13 @@
                         <viewLayoutGuide key="safeArea" id="ZzH-qh-B4x"/>
                     </view>
                     <connections>
+                        <outlet property="errorEmailView" destination="aBK-04-tjn" id="fhX-kP-Y5W"/>
+                        <outlet property="errorPasswordView" destination="0Nz-Bk-oVj" id="Kxv-Sr-pZE"/>
+                        <outlet property="labelFalseEmail" destination="b8Y-rY-dEc" id="Nhn-ag-p9c"/>
+                        <outlet property="labelFalsePassword" destination="MyN-Zu-0zK" id="dHR-VH-ZEt"/>
+                        <outlet property="registerButtonPressed" destination="Seu-pM-Lx5" id="efQ-Ki-0w4"/>
                         <outlet property="textFieldLogin" destination="eMq-Rd-aaM" id="2jy-t1-quY"/>
+                        <outlet property="textFieldPassword" destination="bNY-xg-C9d" id="Xp6-No-Dm6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaw-dP-Ktd" userLabel="First Responder" sceneMemberID="firstResponder"/>

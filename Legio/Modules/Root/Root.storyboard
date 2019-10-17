@@ -33,7 +33,9 @@
                         <viewLayoutGuide key="safeArea" id="OMY-1z-x43"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="vhs-dV-vsv"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="vhs-dV-vsv">
+                        <barButtonItem key="backBarButtonItem" title="go" id="G3P-5I-bYc"/>
+                    </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -47,6 +49,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pUA-nj-SSR" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sdo-Fi-9as">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -58,7 +61,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GIV-s0-sDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-148" y="60.719640179910051"/>
+            <point key="canvasLocation" x="-90" y="53"/>
         </scene>
     </scenes>
 </document>

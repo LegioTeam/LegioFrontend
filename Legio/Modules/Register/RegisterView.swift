@@ -16,8 +16,14 @@ class RegisterView: UIViewController {
 	
 	@IBOutlet weak var textFieldLogin: UITextField!
 	@IBOutlet weak var textFieldPassword: UITextField!
-	
+    @IBOutlet weak var registerButtonPressed: UIButton!
+    @IBOutlet weak var labelFalseEmail: UILabel!
+    @IBOutlet weak var errorEmailView: UIProgressView!
+    @IBOutlet weak var labelFalsePassword: UILabel!
+    @IBOutlet weak var errorPasswordView: UIProgressView!
+    
 	var presenter: RegisterPresenterProtocol!
+    var router: RegisterRouterProtocol!
 	
 	private let titleText = "Register"
 	
@@ -59,6 +65,16 @@ extension RegisterView {
 	private func configureViews() {
 		self.navigationController?.navigationBar.isHidden = false
 		self.navigationItem.title = titleText
+        self.registerButtonPressed.isUserInteractionEnabled = false
+        self.registerButtonPressed.backgroundColor = #colorLiteral(red: 0.6165822148, green: 0.8022601008, blue: 0.9945415854, alpha: 1)
+        self.labelFalseEmail.isHidden = true
+        self.labelFalsePassword.isHidden = true
+        self.errorEmailView.progress = 0.0
+        self.errorPasswordView.progress = 0.0
+        self.textFieldLogin.delegate = self
+        self.textFieldPassword.delegate = self
 	}
 	
 }
+
+
