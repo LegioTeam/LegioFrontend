@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText-Semibold.ttf">
+            <string>SFUIText-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Auth View-->
         <scene sceneID="q3Y-ag-7em">
@@ -19,13 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fgf-W8-Un0">
-                                <rect key="frame" x="24" y="119" width="366" height="55"/>
+                                <rect key="frame" x="24" y="119" width="366" height="52"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Электропочта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZE-vi-TAb">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UAg-zC-W94">
                                         <rect key="frame" x="0.0" y="25" width="366" height="2"/>
@@ -34,21 +39,21 @@
                                         <color key="trackTintColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Такой почты не существует" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmb-vE-gcp">
-                                        <rect key="frame" x="0.0" y="35" width="366" height="20"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="35" width="366" height="17"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xwk-Vb-vyr">
-                                <rect key="frame" x="24" y="194" width="366" height="55"/>
+                                <rect key="frame" x="24" y="191" width="366" height="52"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bSm-m7-94W">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="97q-dG-ZUF">
                                         <rect key="frame" x="0.0" y="25" width="366" height="2"/>
@@ -57,21 +62,21 @@
                                         <color key="trackTintColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неверный пароль" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb7-sO-Peq">
-                                        <rect key="frame" x="0.0" y="35" width="366" height="20"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="35" width="366" height="17"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsj-bz-XkE">
-                                <rect key="frame" x="44" y="333" width="327" height="64"/>
+                                <rect key="frame" x="44" y="331" width="327" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.45882352941176469" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Ket-yk-whV"/>
-                                    <constraint firstAttribute="width" constant="327" id="oT7-Ot-fYe"/>
+                                    <constraint firstAttribute="height" constant="64" id="MtW-0f-sYK"/>
+                                    <constraint firstAttribute="width" constant="327" id="OjK-aj-fuQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="20"/>
                                 <state key="normal" title="Войти">
                                     <color key="titleColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -85,8 +90,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz4-dG-8jR">
-                                <rect key="frame" x="143" y="298" width="134" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="106" y="290" width="202" height="33"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="17"/>
                                 <state key="normal" title="Напомнить пароль?"/>
                                 <connections>
                                     <action selector="buttonForgotTapped:" destination="pOD-pP-zwz" eventType="touchUpInside" id="cVG-HA-h6O"/>
@@ -95,18 +100,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xsj-bz-XkE" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="44" id="2Yf-kj-hwn"/>
                             <constraint firstItem="xwk-Vb-vyr" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="24" id="2nC-LN-0hw"/>
-                            <constraint firstItem="fz4-dG-8jR" firstAttribute="top" secondItem="xwk-Vb-vyr" secondAttribute="bottom" constant="49" id="E7A-lr-iGZ"/>
-                            <constraint firstItem="xsj-bz-XkE" firstAttribute="top" secondItem="fz4-dG-8jR" secondAttribute="bottom" constant="6" id="KRP-eL-qui"/>
+                            <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="xsj-bz-XkE" secondAttribute="trailing" constant="43" id="987-LJ-3ay"/>
+                            <constraint firstItem="fz4-dG-8jR" firstAttribute="top" secondItem="xwk-Vb-vyr" secondAttribute="bottom" constant="47" id="Jkm-qb-eEv"/>
+                            <constraint firstItem="fz4-dG-8jR" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="106" id="KSn-Pg-uhm"/>
+                            <constraint firstItem="xsj-bz-XkE" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="44" id="T1j-YH-elW"/>
                             <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="xwk-Vb-vyr" secondAttribute="trailing" constant="24" id="fIQ-zx-sZn"/>
-                            <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="xsj-bz-XkE" secondAttribute="trailing" constant="43" id="giR-5N-LMl"/>
                             <constraint firstItem="fgf-W8-Un0" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="24" id="gv6-QY-yce"/>
                             <constraint firstItem="xwk-Vb-vyr" firstAttribute="top" secondItem="fgf-W8-Un0" secondAttribute="bottom" constant="20" id="l96-o6-KqO"/>
                             <constraint firstItem="fgf-W8-Un0" firstAttribute="top" secondItem="XGe-VU-O9g" secondAttribute="top" constant="75" id="lZM-YT-anC"/>
-                            <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="fz4-dG-8jR" secondAttribute="trailing" constant="137" id="rsM-0B-OfI"/>
+                            <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="fz4-dG-8jR" secondAttribute="trailing" constant="106" id="n3N-Ib-gNU"/>
                             <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="fgf-W8-Un0" secondAttribute="trailing" constant="24" id="t1P-Ve-go5"/>
-                            <constraint firstItem="fz4-dG-8jR" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="143" id="wRd-CJ-O4k"/>
+                            <constraint firstItem="xsj-bz-XkE" firstAttribute="top" secondItem="fz4-dG-8jR" secondAttribute="bottom" constant="8" id="ycr-IT-1bc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XGe-VU-O9g"/>
                     </view>
@@ -114,6 +119,11 @@
                         <barButtonItem key="backBarButtonItem" title="back" id="FTj-ET-34c"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="errorEmailView" destination="UAg-zC-W94" id="y6M-NM-mmo"/>
+                        <outlet property="errorPasswordView" destination="97q-dG-ZUF" id="z8n-53-lHF"/>
+                        <outlet property="labelFalseEmail" destination="Xmb-vE-gcp" id="REC-29-tM7"/>
+                        <outlet property="labelFalsePassword" destination="vb7-sO-Peq" id="vbb-VH-xJK"/>
+                        <outlet property="sigInButtonPressed" destination="xsj-bz-XkE" id="C4x-i4-CeD"/>
                         <outlet property="textFieldLogin" destination="iZE-vi-TAb" id="7lx-Qu-zrN"/>
                         <outlet property="textFieldPassword" destination="bSm-m7-94W" id="GVw-Bk-PeC"/>
                     </connections>

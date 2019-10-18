@@ -15,8 +15,10 @@ protocol RegisterInteractorProtocol {
 class RegisterInteractor: RegisterInteractorProtocol {
 	
 	private let networkManager = NetworkManager.shared
-	
+   	
 	func registrate(email: String, password: String, completion: @escaping(_ userData: UserData?, _ error: Error?) -> Void) {
 		networkManager.registrate(login: email, password: password, completion: completion)
 	}
 }
+
+

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082B935F235A5881004AD930 /* EnableButtonPrototcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B935E235A5881004AD930 /* EnableButtonPrototcol.swift */; };
+		082B9361235A58FF004AD930 /* EnableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9360235A58FF004AD930 /* EnableButton.swift */; };
+		082B9364235A5EBB004AD930 /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */; };
+		082B9366235A616A004AD930 /* AuthView+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9365235A616A004AD930 /* AuthView+TextFieldDelegate.swift */; };
 		08352A702357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */; };
 		08D896FA23526F2D0026ACBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896F923526F2D0026ACBC /* User.swift */; };
 		08D896FC2352829A0026ACBC /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896FB2352829A0026ACBC /* UserAuth.swift */; };
@@ -54,6 +58,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		082B935E235A5881004AD930 /* EnableButtonPrototcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableButtonPrototcol.swift; sourceTree = "<group>"; };
+		082B9360235A58FF004AD930 /* EnableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableButton.swift; sourceTree = "<group>"; };
+		082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIText-Semibold.ttf"; path = "../../../../../../Downloads/SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
+		082B9365235A616A004AD930 /* AuthView+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthView+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterView+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		08D896F923526F2D0026ACBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Legio/Common/Services/Network/User.swift; sourceTree = SOURCE_ROOT; };
 		08D896FB2352829A0026ACBC /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -113,6 +121,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082B935D235A5856004AD930 /* enableBTForEmailAndPass */ = {
+			isa = PBXGroup;
+			children = (
+				082B935E235A5881004AD930 /* EnableButtonPrototcol.swift */,
+				082B9360235A58FF004AD930 /* EnableButton.swift */,
+			);
+			path = enableBTForEmailAndPass;
+			sourceTree = "<group>";
+		};
+		082B9362235A5E97004AD930 /* fonts  */ = {
+			isa = PBXGroup;
+			children = (
+				082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */,
+			);
+			path = "fonts ";
+			sourceTree = "<group>";
+		};
 		08D896F6235264FF0026ACBC /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +205,7 @@
 		AA2654BC234F57100013B777 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				082B9362235A5E97004AD930 /* fonts  */,
 				AA2654AB234F54DA0013B777 /* Assets.xcassets */,
 				AA2654AD234F54DA0013B777 /* LaunchScreen.storyboard */,
 				AA2654B0234F54DA0013B777 /* Info.plist */,
@@ -209,6 +235,7 @@
 		AA2654BF234F582C0013B777 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				082B935D235A5856004AD930 /* enableBTForEmailAndPass */,
 				08D896F6235264FF0026ACBC /* Network */,
 				AA2654C0234F58310013B777 /* Database */,
 			);
@@ -245,6 +272,7 @@
 				AA2654CA234F5EFC0013B777 /* ViewControllerNavigation+Ex.swift */,
 				08D896FD235282E40026ACBC /* plugs.swift */,
 				08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */,
+				082B9365235A616A004AD930 /* AuthView+TextFieldDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,11 +310,11 @@
 		AA2654D7234F64170013B777 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				AA2654DB234F66E50013B777 /* RegisterRouter.swift */,
 				AAB4B82D23564F41008273AE /* RegisterAssembler.swift */,
-				AA2654D9234F66D50013B777 /* RegisterView.swift */,
 				AAB4B82923564F29008273AE /* RegisterPresenter.swift */,
 				AAB4B82B23564F35008273AE /* RegisterInteractor.swift */,
+				AA2654DB234F66E50013B777 /* RegisterRouter.swift */,
+				AA2654D9234F66D50013B777 /* RegisterView.swift */,
 				AA2654DD234F66F10013B777 /* Register.storyboard */,
 			);
 			path = Register;
@@ -383,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082B9364235A5EBB004AD930 /* SFUIText-Semibold.ttf in Resources */,
 				AA2654D4234F618D0013B777 /* Auth.storyboard in Resources */,
 				AA2654EA234F683F0013B777 /* Preset.storyboard in Resources */,
 				AA2654E4234F671A0013B777 /* Forgot.storyboard in Resources */,
@@ -403,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082B9361235A58FF004AD930 /* EnableButton.swift in Sources */,
 				AAB4B81C23564409008273AE /* LoginMainRouter.swift in Sources */,
 				AA2654DA234F66D50013B777 /* RegisterView.swift in Sources */,
 				AA2654DC234F66E50013B777 /* RegisterRouter.swift in Sources */,
@@ -413,6 +443,7 @@
 				AAB4B818235643F3008273AE /* LoginMainPresenter.swift in Sources */,
 				08D896FC2352829A0026ACBC /* UserAuth.swift in Sources */,
 				AA2654C8234F5BA00013B777 /* RootRouter.swift in Sources */,
+				082B9366235A616A004AD930 /* AuthView+TextFieldDelegate.swift in Sources */,
 				AA2654E2234F67110013B777 /* ForgotRouter.swift in Sources */,
 				AAB4B82023564423008273AE /* LoginMainAssembler.swift in Sources */,
 				AAB4B81A235643FE008273AE /* LoginMainInteractor.swift in Sources */,
@@ -428,6 +459,7 @@
 				08D896FE235282E40026ACBC /* plugs.swift in Sources */,
 				08352A702357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift in Sources */,
 				AA2654F3234F6C490013B777 /* MainView.swift in Sources */,
+				082B935F235A5881004AD930 /* EnableButtonPrototcol.swift in Sources */,
 				AA2654CB234F5EFC0013B777 /* ViewControllerNavigation+Ex.swift in Sources */,
 				AA2654D2234F61820013B777 /* AuthRouter.swift in Sources */,
 				AA2654E6234F682D0013B777 /* PresetView.swift in Sources */,

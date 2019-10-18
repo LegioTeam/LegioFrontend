@@ -24,7 +24,8 @@ class RegisterView: UIViewController {
     
 	var presenter: RegisterPresenterProtocol!
     var router: RegisterRouterProtocol!
-	
+	let chekLoginPasswprd = EnableButton()
+    
 	private let titleText = "Register"
 	
 	
