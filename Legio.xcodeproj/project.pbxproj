@@ -11,6 +11,9 @@
 		082B9361235A58FF004AD930 /* EnableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9360235A58FF004AD930 /* EnableButton.swift */; };
 		082B9364235A5EBB004AD930 /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */; };
 		082B9366235A616A004AD930 /* AuthView+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9365235A616A004AD930 /* AuthView+TextFieldDelegate.swift */; };
+		082B9368235B9885004AD930 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9367235B9885004AD930 /* AuthPresenter.swift */; };
+		082B936A235B9B7B004AD930 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9369235B9B7B004AD930 /* AuthInteractor.swift */; };
+		082B936C235BA173004AD930 /* AuthAssemler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B936B235BA173004AD930 /* AuthAssemler.swift */; };
 		08352A702357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */; };
 		08D896FA23526F2D0026ACBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896F923526F2D0026ACBC /* User.swift */; };
 		08D896FC2352829A0026ACBC /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896FB2352829A0026ACBC /* UserAuth.swift */; };
@@ -62,6 +65,9 @@
 		082B9360235A58FF004AD930 /* EnableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableButton.swift; sourceTree = "<group>"; };
 		082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIText-Semibold.ttf"; path = "../../../../../../Downloads/SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
 		082B9365235A616A004AD930 /* AuthView+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthView+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		082B9367235B9885004AD930 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		082B9369235B9B7B004AD930 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
+		082B936B235BA173004AD930 /* AuthAssemler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssemler.swift; sourceTree = "<group>"; };
 		08352A6F2357A45C00F5C072 /* RegisterView+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterView+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		08D896F923526F2D0026ACBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Legio/Common/Services/Network/User.swift; sourceTree = SOURCE_ROOT; };
 		08D896FB2352829A0026ACBC /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -280,6 +286,9 @@
 		AA2654CE234F61640013B777 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				082B936B235BA173004AD930 /* AuthAssemler.swift */,
+				082B9369235B9B7B004AD930 /* AuthInteractor.swift */,
+				082B9367235B9885004AD930 /* AuthPresenter.swift */,
 				AA2654CF234F61740013B777 /* AuthView.swift */,
 				AA2654D1234F61820013B777 /* AuthRouter.swift */,
 				AA2654D3234F618D0013B777 /* Auth.storyboard */,
@@ -344,9 +353,9 @@
 			isa = PBXGroup;
 			children = (
 				AAB4B81F23564423008273AE /* LoginMainAssembler.swift */,
-				AAB4B815235643E6008273AE /* LoginMainView.swift */,
 				AAB4B817235643F3008273AE /* LoginMainPresenter.swift */,
 				AAB4B819235643FE008273AE /* LoginMainInteractor.swift */,
+				AAB4B815235643E6008273AE /* LoginMainView.swift */,
 				AAB4B81B23564409008273AE /* LoginMainRouter.swift */,
 				AAB4B81D23564413008273AE /* LoginMain.storyboard */,
 			);
@@ -437,6 +446,7 @@
 				AA2654DA234F66D50013B777 /* RegisterView.swift in Sources */,
 				AA2654DC234F66E50013B777 /* RegisterRouter.swift in Sources */,
 				AA2654A2234F54D60013B777 /* AppDelegate.swift in Sources */,
+				082B936A235B9B7B004AD930 /* AuthInteractor.swift in Sources */,
 				AA2654CD234F5F7F0013B777 /* BaseRouter.swift in Sources */,
 				AA2654E0234F67020013B777 /* ForgotView.swift in Sources */,
 				AA2654AA234F54D60013B777 /* Legio.xcdatamodeld in Sources */,
@@ -452,6 +462,7 @@
 				AA2654D0234F61740013B777 /* AuthView.swift in Sources */,
 				AAB4B8302356538B008273AE /* NetworkManager.swift in Sources */,
 				AAB4B82E23564F41008273AE /* RegisterAssembler.swift in Sources */,
+				082B9368235B9885004AD930 /* AuthPresenter.swift in Sources */,
 				AAB4B82823564AA1008273AE /* RootPresenter.swift in Sources */,
 				AA2654EF234F6B820013B777 /* EventTypesRouter.swift in Sources */,
 				AAB4B82423564A86008273AE /* RootAssembler.swift in Sources */,
@@ -465,6 +476,7 @@
 				AA2654E6234F682D0013B777 /* PresetView.swift in Sources */,
 				AAB4B82623564A8F008273AE /* RootInteractor.swift in Sources */,
 				AA2654BB234F57050013B777 /* RootView.swift in Sources */,
+				082B936C235BA173004AD930 /* AuthAssemler.swift in Sources */,
 				AA2654E8234F68360013B777 /* PresetRouter.swift in Sources */,
 				AAB4B82C23564F35008273AE /* RegisterInteractor.swift in Sources */,
 				AA2654F5234F6C520013B777 /* MainRouter.swift in Sources */,

@@ -28,5 +28,5 @@ class Success: Codable {
 }
 
 class UserData: Codable {
-    var token: String
+    var token: String?
 }

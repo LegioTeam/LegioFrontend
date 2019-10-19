@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AuthViewProtocol {
-    
+    func errorData()
 }
 
 class AuthView: UIViewController {
@@ -28,6 +28,7 @@ class AuthView: UIViewController {
     private let titleText = "Auth"
     
     var router: AuthRouterProtocol?
+    var presenter: AuthPresenterProtocol!
     let chekLoginPasswprd = EnableButton()
     
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class AuthView: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configureViews()
         textFieldLogin.becomeFirstResponder()
     }
     
@@ -52,7 +54,8 @@ extension AuthView {
     
     
     @IBAction func buttonSingInTapped(_ sender: Any) {
-        plugsAlert(title: "This feature is not available yet")
+        presenter.authTapped(email: textFieldLogin.text, password: textFieldPassword.text)
+        errorData()
     }
     
     @IBAction func buttonForgotTapped(_ sender: Any) {
@@ -64,7 +67,15 @@ extension AuthView {
     
 }
 
-extension AuthView {
+extension AuthView: AuthViewProtocol {
+    
+    
+    func errorData() {
+        let alert = UIAlertController(title: "Error", message: "Проверьте введенные данные", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
     
     private func configureViews() {
         self.navigationController?.navigationBar.isHidden = false

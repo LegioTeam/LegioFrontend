@@ -24,6 +24,7 @@ extension AuthRouter: AuthRouterProtocol {
 		let controller = UIStoryboard(name: "Preset", bundle: nil)
 			.instantiateViewController(withIdentifier: PresetView.storyboardIdentifier)
 		self.show(controller)
+        
 	}
 	
 	func showForgot() {

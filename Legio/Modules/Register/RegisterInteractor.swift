@@ -9,14 +9,14 @@
 import Foundation
 
 protocol RegisterInteractorProtocol {
-	func registrate(email: String, password: String, completion: @escaping(_ userData: UserData?, _ error: Error?) -> Void)
+	func registrate(email: String, password: String, completion: @escaping(_ userData: Success?, _ error: Error?) -> Void)
 }
 
 class RegisterInteractor: RegisterInteractorProtocol {
 	
 	private let networkManager = NetworkManager.shared
    	
-	func registrate(email: String, password: String, completion: @escaping(_ userData: UserData?, _ error: Error?) -> Void) {
+	func registrate(email: String, password: String, completion: @escaping(_ userData: Success?, _ error: Error?) -> Void) {
 		networkManager.registrate(login: email, password: password, completion: completion)
 	}
 }

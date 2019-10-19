@@ -10,7 +10,6 @@ import UIKit
 
 protocol RegisterPresenterProtocol: class {
     func registrateTapped(email: String?, password: String?)
-    func enableButton(actionTF: UITextField, textfield: [UITextField], alertLabel: [UILabel], alertAction: [UIProgressView], registerBT: UIButton)
 }
 
 class RegisterPresenter {
@@ -34,11 +33,6 @@ extension RegisterPresenter: RegisterPresenterProtocol {
                 return
         }
         registrate(email: email, password: password)
-    }
-    
-    func enableButton(actionTF: UITextField, textfield: [UITextField], alertLabel: [UILabel], alertAction: [UIProgressView], registerBT: UIButton) {
-        
-        
     }
 }
 

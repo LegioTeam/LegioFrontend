@@ -40,8 +40,10 @@ extension LoginMainRouter: LoginMainRouterProtocol {
 	}
 	
 	func showAuth() {
-		let controller = UIStoryboard(name: "Auth", bundle: nil)
-			.instantiateViewController(withIdentifier: AuthView.storyboardIdentifier)
+		guard let controller = UIStoryboard(name: "Auth", bundle: nil)
+            .instantiateViewController(withIdentifier: AuthView.storyboardIdentifier) as? AuthView else { return }
+        let assemler: AuthAssemblerProtocol = AuthAssembler()
+        assemler.assemble(with: controller)
 		self.show(controller)
 	}
 	

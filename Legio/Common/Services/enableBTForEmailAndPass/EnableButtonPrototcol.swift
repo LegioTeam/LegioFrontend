@@ -13,3 +13,5 @@ protocol EnableButtonPrototcol {
     func validate(email: String?) -> String?
     func validate(password: String?) -> String?
 }
+
+
