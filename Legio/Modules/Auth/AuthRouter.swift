@@ -21,10 +21,11 @@ class AuthRouter: BaseRouter {
 extension AuthRouter: AuthRouterProtocol {
 	
 	func showSingIn() {
-		let controller = UIStoryboard(name: "Preset", bundle: nil)
-			.instantiateViewController(withIdentifier: PresetView.storyboardIdentifier)
-		self.show(controller)
-        
+		guard let controller = UIStoryboard(name: "Preset", bundle: nil)
+            .instantiateViewController(withIdentifier: PresetView.storyboardIdentifier) as? PresetView else { return }
+        let assembler: PresetAssemblerProtocol = PresetAssembler()
+        assembler.assemble(with: controller)
+        self.show(controller)
 	}
 	
 	func showForgot() {

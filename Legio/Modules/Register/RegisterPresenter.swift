@@ -70,6 +70,7 @@ extension RegisterPresenter {
         // progress hud load
         interactor.registrate(email: email, password: password) { [weak self] (userData, error) in
             // self?. progress hud finish load
+            /*
             if let userData = userData {
                 //do something with data
                 self?.router.showSingIn()
@@ -77,6 +78,8 @@ extension RegisterPresenter {
                 let errorText = error?.localizedDescription ?? "some network error"
                 self?.view?.show(error: errorText)
             }
+            */
+             self?.router.showSingIn()
         }
     }
     
