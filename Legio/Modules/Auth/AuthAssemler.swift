@@ -21,6 +21,7 @@ class AuthAssembler: AuthAssemblerProtocol {
         let presenter = AuthPresenter()
         presenter.router = router
         presenter.interactor = interactor
+        presenter.view = view
         
         view.presenter = presenter
     }

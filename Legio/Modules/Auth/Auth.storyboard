@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +26,6 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Электропочта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZE-vi-TAb">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                     </textField>
@@ -51,9 +48,8 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bSm-m7-94W">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="97q-dG-ZUF">
                                         <rect key="frame" x="0.0" y="32" width="366" height="2"/>
@@ -69,7 +65,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsj-bz-XkE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz4-dG-8jR">
+                                <rect key="frame" x="16" y="304" width="382" height="29"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
+                                <state key="normal" title="Напомнить пароль?"/>
+                                <connections>
+                                    <action selector="buttonForgotTapped:" destination="pOD-pP-zwz" eventType="touchUpInside" id="cVG-HA-h6O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsj-bz-XkE" customClass="CustomButton" customModule="Legio" customModuleProvider="target">
                                 <rect key="frame" x="44" y="341" width="327" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.45882352941176469" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -89,27 +93,19 @@
                                     <action selector="buttonSingInTapped:" destination="pOD-pP-zwz" eventType="touchUpInside" id="l1m-3F-mdW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz4-dG-8jR">
-                                <rect key="frame" x="106" y="304" width="202" height="29"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
-                                <state key="normal" title="Напомнить пароль?"/>
-                                <connections>
-                                    <action selector="buttonForgotTapped:" destination="pOD-pP-zwz" eventType="touchUpInside" id="cVG-HA-h6O"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xwk-Vb-vyr" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="24" id="2nC-LN-0hw"/>
                             <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="xsj-bz-XkE" secondAttribute="trailing" constant="43" id="987-LJ-3ay"/>
                             <constraint firstItem="fz4-dG-8jR" firstAttribute="top" secondItem="xwk-Vb-vyr" secondAttribute="bottom" constant="47" id="Jkm-qb-eEv"/>
-                            <constraint firstItem="fz4-dG-8jR" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="106" id="KSn-Pg-uhm"/>
+                            <constraint firstItem="fz4-dG-8jR" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="16" id="KSn-Pg-uhm"/>
                             <constraint firstItem="xsj-bz-XkE" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="44" id="T1j-YH-elW"/>
                             <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="xwk-Vb-vyr" secondAttribute="trailing" constant="24" id="fIQ-zx-sZn"/>
                             <constraint firstItem="fgf-W8-Un0" firstAttribute="leading" secondItem="XGe-VU-O9g" secondAttribute="leading" constant="24" id="gv6-QY-yce"/>
                             <constraint firstItem="xwk-Vb-vyr" firstAttribute="top" secondItem="fgf-W8-Un0" secondAttribute="bottom" constant="20" id="l96-o6-KqO"/>
                             <constraint firstItem="fgf-W8-Un0" firstAttribute="top" secondItem="XGe-VU-O9g" secondAttribute="top" constant="75" id="lZM-YT-anC"/>
-                            <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="fz4-dG-8jR" secondAttribute="trailing" constant="106" id="n3N-Ib-gNU"/>
+                            <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="fz4-dG-8jR" secondAttribute="trailing" constant="16" id="n3N-Ib-gNU"/>
                             <constraint firstItem="XGe-VU-O9g" firstAttribute="trailing" secondItem="fgf-W8-Un0" secondAttribute="trailing" constant="24" id="t1P-Ve-go5"/>
                             <constraint firstItem="xsj-bz-XkE" firstAttribute="top" secondItem="fz4-dG-8jR" secondAttribute="bottom" constant="8" id="ycr-IT-1bc"/>
                         </constraints>
@@ -119,11 +115,11 @@
                         <barButtonItem key="backBarButtonItem" title="back" id="FTj-ET-34c"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonLogin" destination="xsj-bz-XkE" id="9EO-aj-ceg"/>
                         <outlet property="errorEmailView" destination="UAg-zC-W94" id="y6M-NM-mmo"/>
                         <outlet property="errorPasswordView" destination="97q-dG-ZUF" id="z8n-53-lHF"/>
                         <outlet property="labelFalseEmail" destination="Xmb-vE-gcp" id="REC-29-tM7"/>
                         <outlet property="labelFalsePassword" destination="vb7-sO-Peq" id="vbb-VH-xJK"/>
-                        <outlet property="sigInButtonPressed" destination="xsj-bz-XkE" id="C4x-i4-CeD"/>
                         <outlet property="textFieldLogin" destination="iZE-vi-TAb" id="7lx-Qu-zrN"/>
                         <outlet property="textFieldPassword" destination="bSm-m7-94W" id="GVw-Bk-PeC"/>
                     </connections>

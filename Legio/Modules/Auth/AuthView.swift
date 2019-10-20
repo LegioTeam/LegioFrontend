@@ -8,37 +8,42 @@
 
 import UIKit
 
-protocol AuthViewProtocol {
+protocol AuthViewProtocol: class {
     func errorData()
+    func updateButtonLogin(isEnabled: Bool)
+    func updateLoginAlert(isHidden: Bool)
+    func updateLoginProgressBar(progress: Float)
+    func updateLoginSuccess(image: UIImage?)
+    func updatePasswordAlert(isHidden: Bool)
+    func updatePasswordProgressBar(progress: Float)
+    func updatePasswordSuccess(image: UIImage?)
 }
 
 class AuthView: UIViewController {
     
     @IBOutlet weak var textFieldLogin: UITextField!
-    @IBOutlet weak var textFieldPassword: UITextField!
-   
     @IBOutlet weak var labelFalseEmail: UILabel!
     @IBOutlet weak var errorEmailView: UIProgressView!
+    private let imageViewLoginSuccess = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
     
+    @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var labelFalsePassword: UILabel!
     @IBOutlet weak var errorPasswordView: UIProgressView!
+    private let imageViewPasswordSuccess = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
     
-    @IBOutlet weak var sigInButtonPressed: UIButton!
+    @IBOutlet weak var buttonLogin: CustomButton!
     
     private let titleText = "Auth"
     
-    var router: AuthRouterProtocol?
     var presenter: AuthPresenterProtocol!
-    let chekLoginPasswprd = EnableButton()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
-        router = AuthRouter(controller: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureViews()
         textFieldLogin.becomeFirstResponder()
     }
     
@@ -51,11 +56,8 @@ class AuthView: UIViewController {
 //MARK: - Actions
 extension AuthView {
     
-    
-    
     @IBAction func buttonSingInTapped(_ sender: Any) {
-        presenter.authTapped(email: textFieldLogin.text, password: textFieldPassword.text)
-        errorData()
+        presenter.authTapped()
     }
     
     @IBAction func buttonForgotTapped(_ sender: Any) {
@@ -63,12 +65,9 @@ extension AuthView {
         //router?.showForgot()
     }
     
-    
-    
 }
 
 extension AuthView: AuthViewProtocol {
-    
     
     func errorData() {
         let alert = UIAlertController(title: "Error", message: "Проверьте введенные данные", preferredStyle: .alert)
@@ -77,17 +76,68 @@ extension AuthView: AuthViewProtocol {
         self.present(alert, animated: true)
     }
     
+    func updateButtonLogin(isEnabled: Bool) {
+        self.buttonLogin.update(isEnabled: isEnabled)
+    }
+    
+    func updateLoginAlert(isHidden: Bool) {
+        self.labelFalseEmail.isHidden = isHidden
+    }
+    
+    func updateLoginProgressBar(progress: Float) {
+        self.errorEmailView.progress = progress
+    }
+    
+    func updateLoginSuccess(image: UIImage?) {
+        imageViewLoginSuccess.image = image
+    }
+    
+    func updatePasswordAlert(isHidden: Bool) {
+       self.labelFalsePassword.isHidden = isHidden
+    }
+    
+    func updatePasswordProgressBar(progress: Float) {
+         self.errorPasswordView.progress = progress
+    }
+    
+    func updatePasswordSuccess(image: UIImage?) {
+        imageViewPasswordSuccess.image = image
+    }
+    
+}
+
+//MARK: - ConfigureData
+extension AuthView {
+    
     private func configureViews() {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.title = titleText
-        self.sigInButtonPressed.isUserInteractionEnabled = false
-        self.sigInButtonPressed.backgroundColor = #colorLiteral(red: 0.6165822148, green: 0.8022601008, blue: 0.9945415854, alpha: 1)
+        self.buttonLogin.update(isEnabled: false)
         self.labelFalseEmail.isHidden = true
         self.labelFalsePassword.isHidden = true
         self.errorEmailView.progress = 0.0
         self.errorPasswordView.progress = 0.0
-        self.textFieldLogin.delegate = self
-        self.textFieldPassword.delegate = self
+        configureTextFields()
+    }
+    
+    private func configureTextFields() {
+        textFieldLogin.addTarget(self, action: #selector(self.loginChanged(_:)), for: UIControl.Event.editingChanged)
+        textFieldLogin.rightView = imageViewLoginSuccess
+        textFieldLogin.rightViewMode = .always
+        imageViewLoginSuccess.contentMode = .scaleAspectFit
+        
+        textFieldPassword.addTarget(self, action: #selector(self.passwordChanged(_:)), for: UIControl.Event.editingChanged)
+        textFieldPassword.rightView = imageViewPasswordSuccess
+        textFieldPassword.rightViewMode = .always
+        imageViewPasswordSuccess.contentMode = .scaleAspectFit
+    }
+    
+    @objc func loginChanged(_ textField: UITextField) {
+        self.presenter.changed(login: textField.text)
+    }
+    
+    @objc func passwordChanged(_ textField: UITextField) {
+        self.presenter.changed(password: textField.text)
     }
     
 }

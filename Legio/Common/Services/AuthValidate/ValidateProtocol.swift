@@ -8,8 +8,7 @@
 
 import UIKit
 
-protocol EnableButtonPrototcol {
-    func enableButton(actionTF: UITextField, textfield: [UITextField], alertLabel: [UILabel], alertAction: [UIProgressView], registerBT: UIButton)
+protocol ValidateProtocol {
     func validate(email: String?) -> String?
     func validate(password: String?) -> String?
 }
