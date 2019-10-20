@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		082B935F235A5881004AD930 /* EnableButtonPrototcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B935E235A5881004AD930 /* EnableButtonPrototcol.swift */; };
 		082B9361235A58FF004AD930 /* EnableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9360235A58FF004AD930 /* EnableButton.swift */; };
-		082B9364235A5EBB004AD930 /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */; };
 		082B9366235A616A004AD930 /* AuthView+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9365235A616A004AD930 /* AuthView+TextFieldDelegate.swift */; };
 		082B9368235B9885004AD930 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9367235B9885004AD930 /* AuthPresenter.swift */; };
 		082B936A235B9B7B004AD930 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B9369235B9B7B004AD930 /* AuthInteractor.swift */; };
@@ -61,9 +60,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0486527F235C81A100151324 /* SFUIText-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-MediumItalic.ttf"; sourceTree = "<group>"; };
+		04865280235C81A100151324 /* SFUIText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-RegularItalic.ttf"; sourceTree = "<group>"; };
+		04865281235C81A100151324 /* SFUIText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Medium.ttf"; sourceTree = "<group>"; };
+		04865282235C81A100151324 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
+		04865283235C81A100151324 /* SFUIText-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		04865284235C81A100151324 /* SFUIText-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		04865285235C81A100151324 /* SFUIText-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-BoldItalic.ttf"; sourceTree = "<group>"; };
+		04865286235C81A100151324 /* SFUIText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Bold.ttf"; sourceTree = "<group>"; };
+		04865287235C81A100151324 /* SFUIText-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-LightItalic.ttf"; sourceTree = "<group>"; };
+		04865288235C81A100151324 /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
+		04865289235C81A200151324 /* SFUIText-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.ttf"; sourceTree = "<group>"; };
+		0486528A235C81A200151324 /* SFUIText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Light.ttf"; sourceTree = "<group>"; };
 		082B935E235A5881004AD930 /* EnableButtonPrototcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableButtonPrototcol.swift; sourceTree = "<group>"; };
 		082B9360235A58FF004AD930 /* EnableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableButton.swift; sourceTree = "<group>"; };
-		082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIText-Semibold.ttf"; path = "../../../../../../Downloads/SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
 		082B9365235A616A004AD930 /* AuthView+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthView+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		082B9367235B9885004AD930 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		082B9369235B9B7B004AD930 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
@@ -127,6 +137,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0486527E235C818F00151324 /* SFUIText */ = {
+			isa = PBXGroup;
+			children = (
+				04865286235C81A100151324 /* SFUIText-Bold.ttf */,
+				04865285235C81A100151324 /* SFUIText-BoldItalic.ttf */,
+				04865289235C81A200151324 /* SFUIText-Heavy.ttf */,
+				04865283235C81A100151324 /* SFUIText-HeavyItalic.ttf */,
+				0486528A235C81A200151324 /* SFUIText-Light.ttf */,
+				04865287235C81A100151324 /* SFUIText-LightItalic.ttf */,
+				04865281235C81A100151324 /* SFUIText-Medium.ttf */,
+				0486527F235C81A100151324 /* SFUIText-MediumItalic.ttf */,
+				04865288235C81A100151324 /* SFUIText-Regular.ttf */,
+				04865280235C81A100151324 /* SFUIText-RegularItalic.ttf */,
+				04865282235C81A100151324 /* SFUIText-Semibold.ttf */,
+				04865284235C81A100151324 /* SFUIText-SemiboldItalic.ttf */,
+			);
+			path = SFUIText;
+			sourceTree = "<group>";
+		};
 		082B935D235A5856004AD930 /* enableBTForEmailAndPass */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,12 +165,12 @@
 			path = enableBTForEmailAndPass;
 			sourceTree = "<group>";
 		};
-		082B9362235A5E97004AD930 /* fonts  */ = {
+		082B9362235A5E97004AD930 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				082B9363235A5EBA004AD930 /* SFUIText-Semibold.ttf */,
+				0486527E235C818F00151324 /* SFUIText */,
 			);
-			path = "fonts ";
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		08D896F6235264FF0026ACBC /* Network */ = {
@@ -211,7 +240,7 @@
 		AA2654BC234F57100013B777 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				082B9362235A5E97004AD930 /* fonts  */,
+				082B9362235A5E97004AD930 /* fonts */,
 				AA2654AB234F54DA0013B777 /* Assets.xcassets */,
 				AA2654AD234F54DA0013B777 /* LaunchScreen.storyboard */,
 				AA2654B0234F54DA0013B777 /* Info.plist */,
@@ -420,7 +449,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082B9364235A5EBB004AD930 /* SFUIText-Semibold.ttf in Resources */,
 				AA2654D4234F618D0013B777 /* Auth.storyboard in Resources */,
 				AA2654EA234F683F0013B777 /* Preset.storyboard in Resources */,
 				AA2654E4234F671A0013B777 /* Forgot.storyboard in Resources */,
