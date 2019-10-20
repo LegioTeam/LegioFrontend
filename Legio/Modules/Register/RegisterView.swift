@@ -10,21 +10,30 @@ import UIKit
 
 protocol RegisterViewProtocol: class {
 	func show(error: String)
+    func updateButtonRegister(isEnabled: Bool)
+    func updateLoginAlert(isHidden: Bool)
+    func updateLoginProgressBar(progress: Float)
+    func updateLoginSuccess(image: UIImage?)
+    func updatePasswordAlert(isHidden: Bool)
+    func updatePasswordProgressBar(progress: Float)
+    func updatePasswordSuccess(image: UIImage?)
 }
 
 class RegisterView: UIViewController {
 	
 	@IBOutlet weak var textFieldLogin: UITextField!
-	@IBOutlet weak var textFieldPassword: UITextField!
-    @IBOutlet weak var registerButtonPressed: UIButton!
     @IBOutlet weak var labelFalseEmail: UILabel!
     @IBOutlet weak var errorEmailView: UIProgressView!
+    private let imageViewLoginSuccess = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
+    
+	@IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var labelFalsePassword: UILabel!
     @IBOutlet weak var errorPasswordView: UIProgressView!
+    private let imageViewPasswordSuccess = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0))
+    
+    @IBOutlet weak var buttonRegister: CustomButton!
     
 	var presenter: RegisterPresenterProtocol!
-    var router: RegisterRouterProtocol!
-	let chekLoginPasswprd = EnableButton()
     
 	private let titleText = "Register"
 	
@@ -48,34 +57,93 @@ class RegisterView: UIViewController {
 extension RegisterView {
 	
 	@IBAction func buttonSingInTapped(_ sender: Any) {
-		presenter.registrateTapped(email: textFieldLogin.text,
-							 password: textFieldPassword.text)
+		presenter.registrateTapped()
 	}
 	
 }
 
 extension RegisterView: RegisterViewProtocol {
-	
+    
 	func show(error: String) {
 		plugsAlert(title: error)
 	}
+    
+    func updateButtonRegister(isEnabled: Bool) {
+        self.buttonRegister.update(isEnabled: isEnabled)
+    }
+    
+    func updateLoginAlert(isHidden: Bool) {
+        self.labelFalseEmail.isHidden = isHidden
+    }
+    
+    func updateLoginProgressBar(progress: Float) {
+        self.errorEmailView.progress = progress
+    }
+    
+    func updateLoginSuccess(image: UIImage?) {
+        imageViewLoginSuccess.image = image
+    }
+    
+    func updatePasswordAlert(isHidden: Bool) {
+       self.labelFalsePassword.isHidden = isHidden
+    }
+    
+    func updatePasswordProgressBar(progress: Float) {
+         self.errorPasswordView.progress = progress
+    }
+    
+    func updatePasswordSuccess(image: UIImage?) {
+        imageViewPasswordSuccess.image = image
+    }
+    
 }
 
 extension RegisterView {
 	
 	private func configureViews() {
-		self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false
 		self.navigationItem.title = titleText
-        self.registerButtonPressed.isUserInteractionEnabled = false
-        self.registerButtonPressed.backgroundColor = #colorLiteral(red: 0.6165822148, green: 0.8022601008, blue: 0.9945415854, alpha: 1)
+        self.buttonRegister.update(isEnabled: false)
         self.labelFalseEmail.isHidden = true
         self.labelFalsePassword.isHidden = true
         self.errorEmailView.progress = 0.0
         self.errorPasswordView.progress = 0.0
-        self.textFieldLogin.delegate = self
-        self.textFieldPassword.delegate = self
+        configureTextFields()
 	}
+    
+    private func configureTextFields() {
+        textFieldLogin.addTarget(self, action: #selector(self.loginChanged(_:)), for: UIControl.Event.editingChanged)
+        textFieldLogin.rightView = imageViewLoginSuccess
+        textFieldLogin.rightViewMode = .always
+        imageViewLoginSuccess.contentMode = .scaleAspectFit
+        
+        textFieldPassword.addTarget(self, action: #selector(self.passwordChanged(_:)), for: UIControl.Event.editingChanged)
+        textFieldPassword.rightView = imageViewPasswordSuccess
+        textFieldPassword.rightViewMode = .always
+        imageViewPasswordSuccess.contentMode = .scaleAspectFit
+    }
+    
+    @objc func loginChanged(_ textField: UITextField) {
+        self.presenter.changed(login: textField.text)
+    }
+    
+    @objc func passwordChanged(_ textField: UITextField) {
+        self.presenter.changed(password: textField.text)
+    }
 	
+}
+
+//MARK: - TextFieldDelegate
+extension RegisterView: UITextFieldDelegate {
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//
+//        chekLoginPasswprd.enableButton(actionTF: textField, textfield: [textFieldLogin, textFieldPassword], alertLabel: [labelFalseEmail, labelFalsePassword], alertAction: [errorEmailView, errorPasswordView], registerBT: registerButtonPressed)
+//        return true
+//    }
+    
+    
+    
 }
 
 

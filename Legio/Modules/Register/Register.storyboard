@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,15 +18,14 @@
             <objects>
                 <viewController storyboardIdentifier="RegisterView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qh2-oD-D26" customClass="RegisterView" customModule="Legio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aR8-3j-Qi1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="stg-Tk-svX">
-                                <rect key="frame" x="24" y="60" width="327" height="58.5"/>
+                                <rect key="frame" x="24" y="40" width="272" height="58.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Электропочта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eMq-Rd-aaM">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="24"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                         <connections>
@@ -36,13 +33,13 @@
                                         </connections>
                                     </textField>
                                     <progressView multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="aBK-04-tjn">
-                                        <rect key="frame" x="0.0" y="32" width="327" height="2.5"/>
+                                        <rect key="frame" x="0.0" y="32" width="272" height="2.5"/>
                                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="progressTintColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="trackTintColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Такой почты не существует" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-rY-dEc">
-                                        <rect key="frame" x="0.0" y="41.5" width="327" height="17"/>
+                                        <rect key="frame" x="0.0" y="41.5" width="272" height="17"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -50,11 +47,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sSk-6J-cuK">
-                                <rect key="frame" x="24" y="135.5" width="327" height="59"/>
+                                <rect key="frame" x="24" y="115.5" width="272" height="59"/>
                                 <subviews>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNY-xg-C9d">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="24"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                         <connections>
@@ -62,39 +58,41 @@
                                         </connections>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Nz-Bk-oVj">
-                                        <rect key="frame" x="0.0" y="32" width="327" height="2"/>
+                                        <rect key="frame" x="0.0" y="32" width="272" height="2"/>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="progressTintColor" red="1" green="0.0" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="trackTintColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слишком короткий пароль" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyN-Zu-0zK">
-                                        <rect key="frame" x="0.0" y="42" width="327" height="17"/>
+                                        <rect key="frame" x="0.0" y="42" width="272" height="17"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="iMp-hI-jVP">
-                                <rect key="frame" x="24" y="250.5" width="327" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zX8-7c-AIW">
+                                <rect key="frame" x="24" y="230.5" width="272" height="33.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сообщать об интересных новостях" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc4-Y7-fcL">
-                                        <rect key="frame" x="0.0" y="0.0" width="252.5" height="31"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сообщать об интересных новостях" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fE3-iC-gS6">
+                                        <rect key="frame" x="0.0" y="0.0" width="221" height="33.5"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S1u-Mu-pMd">
-                                        <rect key="frame" x="278" y="0.0" width="51" height="31"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yRS-uq-L7n">
+                                        <rect key="frame" x="223" y="1.5" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="XHo-3D-76M"/>
+                                        </constraints>
                                     </switch>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Seu-pM-Lx5">
-                                <rect key="frame" x="24" y="305.5" width="327" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Seu-pM-Lx5" customClass="CustomButton" customModule="Legio" customModuleProvider="target">
+                                <rect key="frame" x="24" y="288" width="272" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.45882352941176469" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="COt-ZL-3yJ"/>
-                                    <constraint firstAttribute="width" constant="327" id="TWj-XP-d1y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="20"/>
                                 <state key="normal" title="Зарегистрироваться">
@@ -112,27 +110,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iMp-hI-jVP" firstAttribute="leading" secondItem="ZzH-qh-B4x" secondAttribute="leading" constant="24" id="8FK-f8-sWn"/>
                             <constraint firstItem="stg-Tk-svX" firstAttribute="leading" secondItem="ZzH-qh-B4x" secondAttribute="leading" constant="24" id="8nU-XH-Py3"/>
                             <constraint firstItem="ZzH-qh-B4x" firstAttribute="trailing" secondItem="Seu-pM-Lx5" secondAttribute="trailing" constant="24" id="9PH-7f-mBI"/>
+                            <constraint firstItem="ZzH-qh-B4x" firstAttribute="trailing" secondItem="zX8-7c-AIW" secondAttribute="trailing" constant="24" id="F9I-am-VnM"/>
                             <constraint firstItem="ZzH-qh-B4x" firstAttribute="trailing" secondItem="sSk-6J-cuK" secondAttribute="trailing" constant="24" id="FLb-2R-cO0"/>
                             <constraint firstItem="stg-Tk-svX" firstAttribute="top" secondItem="ZzH-qh-B4x" secondAttribute="top" constant="40" id="Jah-zP-PSJ"/>
                             <constraint firstItem="Seu-pM-Lx5" firstAttribute="leading" secondItem="ZzH-qh-B4x" secondAttribute="leading" constant="24" id="To2-I6-b38"/>
-                            <constraint firstItem="ZzH-qh-B4x" firstAttribute="trailing" secondItem="iMp-hI-jVP" secondAttribute="trailing" constant="24" id="qdO-fb-9Up"/>
-                            <constraint firstItem="Seu-pM-Lx5" firstAttribute="top" secondItem="iMp-hI-jVP" secondAttribute="bottom" constant="24" id="s1n-ao-oOl"/>
+                            <constraint firstItem="zX8-7c-AIW" firstAttribute="top" secondItem="sSk-6J-cuK" secondAttribute="bottom" constant="56" id="Wkn-2U-AeF"/>
+                            <constraint firstItem="Seu-pM-Lx5" firstAttribute="top" secondItem="zX8-7c-AIW" secondAttribute="bottom" constant="24" id="Z91-on-nJB"/>
+                            <constraint firstItem="zX8-7c-AIW" firstAttribute="leading" secondItem="ZzH-qh-B4x" secondAttribute="leading" constant="24" id="oE3-hF-Yiq"/>
                             <constraint firstItem="ZzH-qh-B4x" firstAttribute="trailing" secondItem="stg-Tk-svX" secondAttribute="trailing" constant="24" id="sBP-uG-MeA"/>
-                            <constraint firstItem="iMp-hI-jVP" firstAttribute="top" secondItem="sSk-6J-cuK" secondAttribute="bottom" constant="56" id="vw8-DV-H09"/>
                             <constraint firstItem="sSk-6J-cuK" firstAttribute="leading" secondItem="ZzH-qh-B4x" secondAttribute="leading" constant="24" id="ykV-ST-hyD"/>
                             <constraint firstItem="sSk-6J-cuK" firstAttribute="top" secondItem="stg-Tk-svX" secondAttribute="bottom" constant="17" id="zC1-n3-a8z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZzH-qh-B4x"/>
                     </view>
                     <connections>
+                        <outlet property="buttonRegister" destination="Seu-pM-Lx5" id="F5d-bH-qEo"/>
                         <outlet property="errorEmailView" destination="aBK-04-tjn" id="fhX-kP-Y5W"/>
                         <outlet property="errorPasswordView" destination="0Nz-Bk-oVj" id="Kxv-Sr-pZE"/>
                         <outlet property="labelFalseEmail" destination="b8Y-rY-dEc" id="Nhn-ag-p9c"/>
                         <outlet property="labelFalsePassword" destination="MyN-Zu-0zK" id="dHR-VH-ZEt"/>
-                        <outlet property="registerButtonPressed" destination="Seu-pM-Lx5" id="efQ-Ki-0w4"/>
                         <outlet property="textFieldLogin" destination="eMq-Rd-aaM" id="2jy-t1-quY"/>
                         <outlet property="textFieldPassword" destination="bNY-xg-C9d" id="Xp6-No-Dm6"/>
                     </connections>

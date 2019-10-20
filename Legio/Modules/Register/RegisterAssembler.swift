@@ -21,6 +21,7 @@ class RegisterAssembler: RegisterAssemblerProtocol {
 		let presenter = RegisterPresenter()
 		presenter.router = router
 		presenter.interactor = interactor
+        presenter.view = view
 		
 		view.presenter = presenter
 	}
