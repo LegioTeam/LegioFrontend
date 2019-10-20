@@ -21,6 +21,7 @@ class RootAssembler: RootAssemblerProtocol {
 		let presenter = RootPresenter()
 		presenter.router = router
 		presenter.interactor = interactor
+        presenter.view = view
 		
 		view.presenter = presenter
 	}
