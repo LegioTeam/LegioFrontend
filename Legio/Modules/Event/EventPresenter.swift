@@ -10,17 +10,21 @@ import UIKit
 
 protocol EventPresenterProtocol: class {
     func profileTapped()
-    func detailsTapped(url: String)
+    func detailsTapped()
     func loadEvent() -> Event?
     func configureTextLabel(string: String) -> NSAttributedString
-    func correctAddress(address: String) -> String
+    func configureNameLabel() -> NSAttributedString
+    func configureDateLabel() -> NSAttributedString
+    func correctAddress() -> String
+    func loadImage() -> UIImage
 }
 
 class EventPresenter {
     weak var view: EventViewProtocol?
     var interactor: EventInteractorProtocol!
     var router: EventRouterProtocol!
-    
+    var event: Event?
+    let defaultEventImage: String = "eventImage"
 }
 
 extension EventPresenter: EventPresenterProtocol {
@@ -29,12 +33,27 @@ extension EventPresenter: EventPresenterProtocol {
         router.showPreset()
     }
     
-    func detailsTapped(url: String) {
-        router.showDetails(url: url)
+    func detailsTapped() {
+        router.showDetails(url: event?.url ?? "https://www.yandex.ru")
     }
     
     func loadEvent() -> Event? {
         return interactor.loadEvent()
+    }
+    
+    func loadImage() -> UIImage {
+        guard let eventImageUrl = event?.image,
+            let url = URL(string: eventImageUrl) else { return defaultImage() }
+        do {
+            let data = try Data(contentsOf: url)
+            return UIImage(data: data) ?? defaultImage()
+        } catch {
+            return defaultImage()
+        }
+    }
+    
+    func defaultImage() -> UIImage {
+        return UIImage(named: defaultEventImage)!
     }
     
     func configureTextLabel(string: String) -> NSAttributedString {
@@ -44,7 +63,15 @@ extension EventPresenter: EventPresenterProtocol {
         return attributedString
     }
     
-    func correctAddress(address: String) -> String {
+    func configureNameLabel() -> NSAttributedString {
+        return configureTextLabel(string: event?.name ?? "Мультимедийные выставки «Ван Гог. Письма к Тео» и «Густав Климт. Золото Модерна»")
+    }
+    
+    func configureDateLabel() -> NSAttributedString {
+        return configureTextLabel(string: event?.starts ?? "Сегодня, 20:45")
+    }
+    
+    func correctAddress() -> String {
         let dictionary: [String: String] = [
             "площадь": "пл.",
             "район": "р-н",
@@ -62,7 +89,7 @@ extension EventPresenter: EventPresenterProtocol {
             "набережная": "наб.",
             "квартира":"кв."
             ]
-        var correctAddress = address
+        guard var correctAddress = event?.location else { return "Басманный пер, 5" }
 
         for (key, value) in dictionary {
             correctAddress = correctAddress.replacingOccurrences(of: key, with: value)

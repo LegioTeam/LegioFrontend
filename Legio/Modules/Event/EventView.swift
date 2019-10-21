@@ -30,7 +30,6 @@ class EventView: UIViewController {
     @IBOutlet weak var bottomConstraintStackView: NSLayoutConstraint!
     
     var presenter: EventPresenterProtocol!
-    private var event: Event?
     
     private var isHiddenBottomButtons = true
     
@@ -61,9 +60,8 @@ extension EventView: EventViewProtocol {
         presenter.profileTapped()
     }
     
-    //тут аналогично, если в пресентер перенести "event", то вью не будет знать о том, что открывается, оно просто передает в презентер, что нажата определенная кнопка
     @IBAction func detailsButton(_ sender: UIButton) {
-        presenter.detailsTapped(url: event?.url ?? "https://www.yandex.ru")
+        presenter.detailsTapped()
     }
     
     // Перенести эту логику в пресентер
@@ -108,14 +106,10 @@ extension EventView {
     private func configureViews() {
         self.navigationController?.navigationBar.isHidden = true
         partyNerdyButtons.isHidden = true
-        
-        // Тут ты пытаешся грузить данные с сервака, если заглушка, то ок, если нет - то загрузку изображения надо убирать в интерактор, и логику отображения данных убирать в презентер
-        eventImage.downloaded(from:event?.image ?? "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg")
-        
-        //аналогично, тут остается функция принимающая значение, а ?? и по сути, сам "event" уйдут в пресентер
-        eventNameLabel.attributedText = presenter.configureTextLabel(string: event?.name ?? "Данные не загружены с сервера")
-        eventDateLabel.attributedText = presenter.configureTextLabel(string: event?.starts ?? "Нет данных")
-        eventPlaceLabel.text = presenter.correctAddress(address: event?.location ?? "Нет данных")
+        eventImage.image = presenter.loadImage()
+        eventNameLabel.attributedText = presenter.configureNameLabel()
+        eventDateLabel.attributedText = presenter.configureDateLabel()
+        eventPlaceLabel.text = presenter.correctAddress()
     }
     
 }
