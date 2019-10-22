@@ -10,7 +10,7 @@ import UIKit
 
 protocol PresetViewProtocol {
     func setupViews()
-    func updateViews(preset: PresetEntity)
+    func updateViews(preset: PresetEntity, font: UIFont)
 }
 
 class PresetView: UIViewController {
@@ -23,8 +23,6 @@ class PresetView: UIViewController {
     @IBOutlet var nextButton: UIButton!
     
     var presenter: PresetPresenterProtocol!
-    
-    //private let titleText = "Preset"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,32 +56,21 @@ extension PresetView: PresetViewProtocol{
     func setupViews() {
         emojiNerdy.text = "🤓"
         emojiParty.text = "🥳"
-        
-        //8 вывести в константу и присваивать здесь
-        nextButton.layer.cornerRadius = 8
+
         nextButton.clipsToBounds = true
         
         presetSlider.setThumbImage(UIImage(named:"OvalPreset"), for: .normal)
     }
     
-    func updateViews(preset: PresetEntity) {
-        //если подумать, чтобы во вью не было логики, можно
-        // сделать 2 функции updatePartyViews(и передавать значения)
-        //
-        
-        /*func updatePartyViews(font: UIFont, percentText: String) {
-            emojiParty.font = font
-            partyPercent.font = font
-            partyPercent.text = percentText
-         }*/
+    func updateViews(preset: PresetEntity, font: UIFont) {
         
         if(preset.typePreset == .Party){
-            emojiParty.font = UIFont(name:"ArialRoundedMTBold" , size: CGFloat(preset.size))
-            partyPercent.font = UIFont(name:"ArialRoundedMTBold" , size: CGFloat(preset.size))
+            emojiParty.font = font
+            partyPercent.font = font
             partyPercent.text = "\(preset.percent)%\nвеселее"
         }else{
-            emojiNerdy.font = UIFont(name:"ArialRoundedMTBold" , size: CGFloat(preset.size))
-            nerdyPercent.font = UIFont(name:"ArialRoundedMTBold" , size: CGFloat(preset.size))
+            emojiNerdy.font = font
+            nerdyPercent.font = font
             nerdyPercent.text = "\(preset.percent)%\nумнее"
         }
     }

@@ -31,8 +31,16 @@ class PresetInteractor: PresetInteractorProtocol {
     func getData(type: TypePreset) -> PresetEntity {
         
         // Пока временно создам со стандартными парамметрами на 50%
-        // тут тоже магические числа должны быть раскрыты
-        let preset = PresetEntity(typePreset: type, percent: 50, size: 22.02)
+        let middlePercentOfValue = 50
+        
+        let percentOfNumber: Double = Double(middlePercentOfValue / 100)
+        let valueOfMinimumFontSize = 12.0
+        let coefficientOfMaximumFontSize = 1.67
+        let outOfCoefficient = 1.0
+        
+        let middleSize: Double = valueOfMinimumFontSize * (outOfCoefficient + (coefficientOfMaximumFontSize * percentOfNumber))
+        
+        let preset = PresetEntity(typePreset: type, percent: middlePercentOfValue, size: Float(middleSize))
         return preset
     }
 

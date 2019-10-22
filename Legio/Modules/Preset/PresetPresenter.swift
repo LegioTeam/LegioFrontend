@@ -30,8 +30,8 @@ class PresetPresenter: PresetPresenterProtocol {
         party = calculatePreset(preset: party)
         nerdy = calculatePreset(preset: nerdy)
         
-        view?.updateViews(preset: party)
-        view?.updateViews(preset: nerdy)
+        view?.updateViews(preset: party, font: makeFont(fontSize: party.size))
+        view?.updateViews(preset: nerdy, font: makeFont(fontSize: nerdy.size))
     }
     
     internal func updateData(percents: Int) {
@@ -39,12 +39,12 @@ class PresetPresenter: PresetPresenterProtocol {
             var party = PresetEntity(typePreset: .Party, percent: percents, size: 0)
             party = calculatePreset(preset: party)
             interactor?.saveData(data: party)
-            view?.updateViews(preset: party)
+            view?.updateViews(preset: party, font: makeFont(fontSize: party.size))
         // nerdy
             var nerdy = PresetEntity(typePreset: .Nerdy, percent: 100 - percents, size: 0)
             nerdy = calculatePreset(preset: nerdy)
             interactor?.saveData(data: nerdy)
-            view?.updateViews(preset: nerdy)
+            view?.updateViews(preset: nerdy, font: makeFont(fontSize: nerdy.size))
     }
     
     internal func showEventTypesTapped() {
@@ -52,12 +52,21 @@ class PresetPresenter: PresetPresenterProtocol {
     }
     
     internal func calculatePreset(preset: PresetEntity) -> PresetEntity {
-        //магические числа должны быть раскрыты
-        let size: Double = Double(12 * (1 + (1.67 * (Double(preset.percent) / 100))))
+        
+        let percentOfNumber = Double(preset.percent) / 100
+        let valueOfMinimumFontSize = 12.0
+        let coefficientOfMaximumFontSize = 1.67
+        let outOfCoefficient = 1.0
+        
+        let size: Double = valueOfMinimumFontSize * (outOfCoefficient + (coefficientOfMaximumFontSize * percentOfNumber))
+        
         var presetToReturn = preset
         presetToReturn.size = Float(size)
         return presetToReturn
     }
     
+    internal func makeFont(fontSize: Float) -> UIFont {
+        return UIFont(name:"ArialRoundedMTBold" , size: CGFloat(fontSize))!
+    }
 }
 
