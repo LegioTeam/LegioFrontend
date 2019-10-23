@@ -11,7 +11,7 @@ import UIKit
 protocol EventPresenterProtocol: class {
     func profileTapped()
     func detailsTapped()
-    func loadEvent() -> Event?
+    func loadEvent()
     func configureTextLabel(string: String) -> NSAttributedString
     func configureNameLabel() -> NSAttributedString
     func configureDateLabel() -> NSAttributedString
@@ -37,8 +37,8 @@ extension EventPresenter: EventPresenterProtocol {
         router.showDetails(url: event?.url ?? "https://www.yandex.ru")
     }
     
-    func loadEvent() -> Event? {
-        return interactor.loadEvent()
+    func loadEvent() {
+        event = interactor.loadEvent()
     }
     
     func loadImage() -> UIImage {
@@ -48,7 +48,8 @@ extension EventPresenter: EventPresenterProtocol {
             let data = try Data(contentsOf: url)
             return UIImage(data: data) ?? defaultImage()
         } catch {
-            return defaultImage()
+            return UIImage(named: event!.image)!//Только для заглушки
+//            return defaultImage()
         }
     }
     

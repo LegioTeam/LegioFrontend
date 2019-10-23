@@ -35,6 +35,7 @@ class EventView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.loadEvent()
         self.configureViews()
     }
     
