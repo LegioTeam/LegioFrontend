@@ -10,6 +10,7 @@ import Foundation
 
 protocol EventAssemblerProtocol: class {
     func assemble(with view: EventView)
+    func assembleFromButton(with view: EventView)
 }
 
 class EventAssembler: EventAssemblerProtocol {
@@ -21,6 +22,17 @@ class EventAssembler: EventAssemblerProtocol {
         presenter.router = router
         presenter.interactor = interactor
         view.presenter = presenter
+        view.mainEvent = true
+    }
+    
+    func assembleFromButton(with view: EventView) {
+        let router = EventRouter(controller: view)
+        let interactor = EventInteractor()
+        let presenter = EventPresenter()
+        presenter.router = router
+        presenter.interactor = interactor
+        view.presenter = presenter
+        view.mainEvent = false
     }
 }
 

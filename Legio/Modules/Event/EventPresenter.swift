@@ -17,6 +17,7 @@ protocol EventPresenterProtocol: class {
     func configureDateLabel() -> NSAttributedString
     func correctAddress() -> String
     func loadImage() -> UIImage
+    func showParty()
 }
 
 class EventPresenter {
@@ -96,6 +97,10 @@ extension EventPresenter: EventPresenterProtocol {
             correctAddress = correctAddress.replacingOccurrences(of: key, with: value)
         }
         return correctAddress
+    }
+    
+    func showParty() {
+        router.showParty()
     }
     
 }

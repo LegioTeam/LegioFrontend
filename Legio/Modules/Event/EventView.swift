@@ -30,6 +30,7 @@ class EventView: UIViewController {
     @IBOutlet weak var bottomConstraintStackView: NSLayoutConstraint!
     
     var presenter: EventPresenterProtocol!
+    var mainEvent = true
     
     private var isHiddenBottomButtons = true
     
@@ -40,7 +41,11 @@ class EventView: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
+        if mainEvent {
+            self.navigationController?.navigationBar.isHidden = true
+        } else {
+            self.navigationController?.navigationBar.isHidden = false
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,40 +77,51 @@ extension EventView: EventViewProtocol {
             likeButton.isEnabled = false
             isHiddenBottomButtons = true
         } else {
-            if !isHiddenBottomButtons {
-                bottomConstraintStackView.constant -= 100
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.view.layoutIfNeeded()
-                }, completion: { finished in
-                    self.partyNerdyButtons.isHidden = true
-                })
-                dislikeButton.isEnabled = true
-                likeButton.isEnabled = false
-                isHiddenBottomButtons = true
+            if mainEvent {
+                if !isHiddenBottomButtons {
+                    bottomConstraintStackView.constant -= 100
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.view.layoutIfNeeded()
+                    }, completion: { finished in
+                        self.partyNerdyButtons.isHidden = true
+                    })
+                }
             }
+            dislikeButton.isEnabled = true
+            likeButton.isEnabled = false
+            isHiddenBottomButtons = true
         }
-        
     }
     
     // Перенести эту логику в пресентер
     @IBAction func dislikeButton(_ sender: UIButton) {
-        if isHiddenBottomButtons {
-            partyNerdyButtons.isHidden = false
-            bottomConstraintStackView.constant += 100
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
-            dislikeButton.isEnabled = false
-            likeButton.isEnabled = true
-            isHiddenBottomButtons = false
+        if mainEvent {
+            if isHiddenBottomButtons {
+                partyNerdyButtons.isHidden = false
+                bottomConstraintStackView.constant += 100
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.view.layoutIfNeeded()
+                })
+                isHiddenBottomButtons = false
+            }
         }
+        dislikeButton.isEnabled = false
+        likeButton.isEnabled = true
     }
+    
+    @IBAction func partyButton(_ sender: UIButton) {
+        presenter.showParty()
+    }
+    
+    @IBAction func nerdyButton(_ sender: UIButton) {
+        presenter.showParty()
+    }
+    
 }
 
 extension EventView {
     
     private func configureViews() {
-        self.navigationController?.navigationBar.isHidden = true
         partyNerdyButtons.isHidden = true
         eventImage.image = presenter.loadImage()
         eventNameLabel.attributedText = presenter.configureNameLabel()

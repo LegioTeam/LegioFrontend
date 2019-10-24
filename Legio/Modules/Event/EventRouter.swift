@@ -11,6 +11,7 @@ import UIKit
 protocol EventRouterProtocol: class {
     func showPreset()
     func showDetails(url: String)
+    func showParty()
 }
 
 class EventRouter: BaseRouter { }
@@ -29,6 +30,14 @@ extension EventRouter: EventRouterProtocol {
         let webVC = EventWebView()
         webVC.urlString = url
         self.show(webVC)
+    }
+    
+    func showParty() {
+        guard let controller = UIStoryboard(name: "Event", bundle: nil)
+            .instantiateViewController(withIdentifier: EventView.storyboardIdentifier) as? EventView else { return }
+        let assembler: EventAssemblerProtocol = EventAssembler()
+        assembler.assembleFromButton(with: controller)
+        self.show(controller)
     }
     
 }

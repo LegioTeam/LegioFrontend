@@ -130,6 +130,9 @@
                                         <state key="normal" title="🥳 веселее">
                                             <color key="titleColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="partyButton:" destination="0ju-0k-I1B" eventType="touchUpInside" id="bgy-Za-yIE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjb-1f-GGv">
                                         <rect key="frame" x="191" y="0.0" width="183" height="32"/>
@@ -140,6 +143,9 @@
                                         <state key="normal" title="умнее 🤓">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nerdyButton:" destination="0ju-0k-I1B" eventType="touchUpInside" id="gp9-9y-Wna"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
