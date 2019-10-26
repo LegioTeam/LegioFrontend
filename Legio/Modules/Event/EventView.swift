@@ -41,11 +41,7 @@ class EventView: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if mainEvent {
-            self.configureNavigationBar(state: .hide)
-        } else {
-            self.configureNavigationBar(state: .show)
-        }
+        self.configureNavigationBar(state: .hide)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
