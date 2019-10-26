@@ -32,6 +32,12 @@ extension AuthPresenter: AuthPresenterProtocol {
     func authTapped() {
         guard let email = self.login,
         let password = self.password else {
+            if self.login == nil {
+                showLoginError(isCorrect: false)
+            }
+            if self.password == nil {
+                showPasswordError(isCorrect: false)
+            }
            return
         }
         auth(email: email, password: password)
@@ -46,7 +52,8 @@ extension AuthPresenter: AuthPresenterProtocol {
             self.login = nil
         }
         updateLoginViews(isValidated: isValidated)
-        updateButtonLogin()
+        showLoginError(isCorrect: true)
+        showPasswordError(isCorrect: true)
     }
     
     func changed(password: String?) {
@@ -58,8 +65,10 @@ extension AuthPresenter: AuthPresenterProtocol {
             self.password = nil
         }
         updatePasswordViews(isValidated: isValidated)
-        updateButtonLogin()
+        showLoginError(isCorrect: true)
+        showPasswordError(isCorrect: true)
     }
+    
 }
 
 extension AuthPresenter {
@@ -81,29 +90,28 @@ extension AuthPresenter {
     }
     
     private func updateLoginViews(isValidated: Bool) {
-        view?.updateLoginAlert(isHidden: isValidated)
-        
-        let validateProgress = getProgress(isValidated: isValidated)
-        view?.updateLoginProgressBar(progress: validateProgress)
-        
         let shownImage = getValidImage(isValidated: isValidated)
         view?.updateLoginSuccess(image: shownImage)
     }
     
+    private func showLoginError(isCorrect: Bool) {
+        view?.updateLoginAlert(isHidden: isCorrect)
+        
+        let validateProgress = getProgress(isValidated: isCorrect)
+        view?.updateLoginProgressBar(progress: validateProgress)
+    }
+    
     private func updatePasswordViews(isValidated: Bool) {
-        view?.updatePasswordAlert(isHidden: isValidated)
-        
-        let validateProgress = getProgress(isValidated: isValidated)
-        view?.updatePasswordProgressBar(progress: validateProgress)
-        
         let shownImage = getValidImage(isValidated: isValidated)
         view?.updatePasswordSuccess(image: shownImage)
     }
     
-    private func updateButtonLogin() {
-           let buttonRegisterIsEnabled = isCorrectData()
-        view?.updateButtonLogin(isEnabled: buttonRegisterIsEnabled)
-       }
+    private func showPasswordError(isCorrect: Bool) {
+        view?.updatePasswordAlert(isHidden: isCorrect)
+        
+        let validateProgress = getProgress(isValidated: isCorrect)
+        view?.updatePasswordProgressBar(progress: validateProgress)
+    }
     
     private func getProgress(isValidated: Bool) -> Float {
         return isValidated

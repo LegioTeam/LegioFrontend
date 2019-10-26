@@ -111,7 +111,6 @@ extension RegisterView {
 	private func configureViews() {
         self.navigationController?.navigationBar.isHidden = false
 		self.navigationItem.title = titleText
-        self.buttonRegister.update(isEnabled: false)
         self.labelFalseEmail.isHidden = true
         self.labelFalsePassword.isHidden = true
         self.errorEmailView.progress = 0.0

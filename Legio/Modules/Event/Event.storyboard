@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventImage" translatesAutoresizingMaskIntoConstraints="NO" id="KRk-Zg-qcF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KRk-Zg-qcF">
                                 <rect key="frame" x="0.0" y="44" width="414" height="414"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KRk-Zg-qcF" secondAttribute="height" multiplier="1:1" id="XBh-Zc-slJ"/>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vv-Im-VJE">
-                                <rect key="frame" x="352" y="88" width="32" height="32"/>
+                                <rect key="frame" x="347" y="88" width="37" height="49"/>
                                 <state key="normal" image="user"/>
                                 <connections>
                                     <action selector="profileButton:" destination="0ju-0k-I1B" eventType="touchUpInside" id="Jfv-Ej-TWV"/>
@@ -130,6 +130,9 @@
                                         <state key="normal" title="🥳 веселее">
                                             <color key="titleColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="partyButton:" destination="0ju-0k-I1B" eventType="touchUpInside" id="bgy-Za-yIE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjb-1f-GGv">
                                         <rect key="frame" x="191" y="0.0" width="183" height="32"/>
@@ -140,6 +143,9 @@
                                         <state key="normal" title="умнее 🤓">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nerdyButton:" destination="0ju-0k-I1B" eventType="touchUpInside" id="gp9-9y-Wna"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -201,13 +207,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dislike" width="16" height="16"/>
-        <image name="dislikePressed" width="16" height="16"/>
-        <image name="eventImage" width="16" height="16"/>
-        <image name="ic_calendar" width="16" height="16"/>
-        <image name="ic_pin" width="16" height="16"/>
-        <image name="like" width="16" height="16"/>
-        <image name="likePressed" width="16" height="16"/>
-        <image name="user" width="16" height="16"/>
+        <image name="dislike" width="64" height="64"/>
+        <image name="dislikePressed" width="64" height="64"/>
+        <image name="ic_calendar" width="24" height="24"/>
+        <image name="ic_pin" width="24" height="24"/>
+        <image name="like" width="64" height="64"/>
+        <image name="likePressed" width="64" height="64"/>
+        <image name="user" width="18.5" height="24.5"/>
     </resources>
 </document>

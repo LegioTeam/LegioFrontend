@@ -33,7 +33,12 @@ extension RegisterPresenter: RegisterPresenterProtocol {
     func registrateTapped() {
         guard let email = login,
             let password = password else {
-                self.view?.show(error: incorrectDataError)
+                if self.login == nil {
+                    showLoginError(isCorrect: false)
+                }
+                if self.password == nil {
+                    showPasswordError(isCorrect: false)
+                }
                 return
         }
         registrate(email: email, password: password)
@@ -48,7 +53,8 @@ extension RegisterPresenter: RegisterPresenterProtocol {
             self.login = nil
         }
         updateLoginViews(isValidated: isValidated)
-        updateButtonRegister()
+        showLoginError(isCorrect: true)
+        showPasswordError(isCorrect: true)
     }
     
     func changed(password: String?) {
@@ -60,8 +66,10 @@ extension RegisterPresenter: RegisterPresenterProtocol {
             self.password = nil
         }
         updatePasswordViews(isValidated: isValidated)
-        updateButtonRegister()
+        showLoginError(isCorrect: true)
+        showPasswordError(isCorrect: true)
     }
+    
 }
 
 extension RegisterPresenter {
@@ -84,29 +92,28 @@ extension RegisterPresenter {
     }
     
     private func updateLoginViews(isValidated: Bool) {
-        view?.updateLoginAlert(isHidden: isValidated)
-        
-        let validateProgress = getProgress(isValidated: isValidated)
-        view?.updateLoginProgressBar(progress: validateProgress)
-        
         let shownImage = getValidImage(isValidated: isValidated)
         view?.updateLoginSuccess(image: shownImage)
     }
     
+    private func showLoginError(isCorrect: Bool) {
+        view?.updateLoginAlert(isHidden: isCorrect)
+        
+        let validateProgress = getProgress(isValidated: isCorrect)
+        view?.updateLoginProgressBar(progress: validateProgress)
+    }
+    
     private func updatePasswordViews(isValidated: Bool) {
-        view?.updatePasswordAlert(isHidden: isValidated)
-        
-        let validateProgress = getProgress(isValidated: isValidated)
-        view?.updatePasswordProgressBar(progress: validateProgress)
-        
         let shownImage = getValidImage(isValidated: isValidated)
         view?.updatePasswordSuccess(image: shownImage)
     }
     
-    private func updateButtonRegister() {
-           let buttonRegisterIsEnabled = isCorrectData()
-        view?.updateButtonRegister(isEnabled: buttonRegisterIsEnabled)
-       }
+    private func showPasswordError(isCorrect: Bool) {
+        view?.updatePasswordAlert(isHidden: isCorrect)
+        
+        let validateProgress = getProgress(isValidated: isCorrect)
+        view?.updatePasswordProgressBar(progress: validateProgress)
+    }
     
     private func getProgress(isValidated: Bool) -> Float {
         return isValidated
