@@ -110,7 +110,7 @@ extension EventView: EventViewProtocol {
     }
     
     @IBAction func nerdyButton(_ sender: UIButton) {
-        presenter.showParty()
+        presenter.showNerdy()
     }
     
 }

@@ -18,6 +18,7 @@ protocol EventPresenterProtocol: class {
     func correctAddress() -> String
     func loadImage() -> UIImage
     func showParty()
+    func showNerdy()
 }
 
 class EventPresenter {
@@ -101,6 +102,10 @@ extension EventPresenter: EventPresenterProtocol {
     
     func showParty() {
         router.showParty()
+    }
+    
+    func showNerdy() {
+        router.showNerdy()
     }
     
 }
