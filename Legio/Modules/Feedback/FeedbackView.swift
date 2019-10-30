@@ -20,9 +20,11 @@ class FeedbackView: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
     
     var presenter: FeedbackPresenterProtocol!
+    var nameEvent: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventNameLabel.text = nameEvent
     }
     
     override func viewWillAppear(_ animated: Bool) {

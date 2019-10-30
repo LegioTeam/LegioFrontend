@@ -88,6 +88,7 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
             .instantiateViewController(withIdentifier: FeedbackView.storyboardIdentifier) as? FeedbackView else { return }
             let assemler: FeedbackAssemblerProtocol = FeedbackAssembler()
             assemler.assemble(with: controller)
+            controller.nameEvent = response.notification.request.content.body
             UIApplication.shared.keyWindow?.rootViewController!.show(controller, sender: nil)
         case "Delete":
             print("Delete")

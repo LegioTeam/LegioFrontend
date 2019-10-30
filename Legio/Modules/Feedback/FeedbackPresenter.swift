@@ -17,7 +17,6 @@ class FeedbackPresenter {
     weak var view: FeedbackViewProtocol?
     var interactor: FeedbackInteractorProtocol!
     var router: FeedbackRouterProtocol!
-//    var event: Event?
 }
 
 extension FeedbackPresenter: FeedbackPresenterProtocol {
