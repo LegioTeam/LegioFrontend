@@ -71,6 +71,11 @@
 		AAB4B82C23564F35008273AE /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4B82B23564F35008273AE /* RegisterInteractor.swift */; };
 		AAB4B82E23564F41008273AE /* RegisterAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4B82D23564F41008273AE /* RegisterAssembler.swift */; };
 		AAB4B8302356538B008273AE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB4B82F2356538B008273AE /* NetworkManager.swift */; };
+		E171951E2369941C00376444 /* EventTypesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E171951D2369941C00376444 /* EventTypesAssembler.swift */; };
+		E17195222369943B00376444 /* EventTypesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17195212369943B00376444 /* EventTypesPresenter.swift */; };
+		E17195242369944800376444 /* EventTypesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17195232369944800376444 /* EventTypesInteractor.swift */; };
+		E17195262369ADCC00376444 /* EventTypesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17195252369ADCC00376444 /* EventTypesCell.swift */; };
+		E17195282369CBD900376444 /* EventTypesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17195272369CBD800376444 /* EventTypesEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +157,11 @@
 		AAB4B82B23564F35008273AE /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		AAB4B82D23564F41008273AE /* RegisterAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembler.swift; sourceTree = "<group>"; };
 		AAB4B82F2356538B008273AE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E171951D2369941C00376444 /* EventTypesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesAssembler.swift; sourceTree = "<group>"; };
+		E17195212369943B00376444 /* EventTypesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesPresenter.swift; sourceTree = "<group>"; };
+		E17195232369944800376444 /* EventTypesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesInteractor.swift; sourceTree = "<group>"; };
+		E17195252369ADCC00376444 /* EventTypesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesCell.swift; sourceTree = "<group>"; };
+		E17195272369CBD800376444 /* EventTypesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventTypesEntity.swift; path = Legio/Modules/EventTypes/EventTypesEntity.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +353,7 @@
 				08D896F923526F2D0026ACBC /* User.swift */,
 				0463E323235CBF55008DF20B /* PresetEntity.swift */,
 				0463E33A235CD559008DF20B /* Event.swift */,
+				E17195272369CBD800376444 /* EventTypesEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -429,9 +440,13 @@
 		AA2654EB234F6B560013B777 /* EventTypes */ = {
 			isa = PBXGroup;
 			children = (
+				E171951D2369941C00376444 /* EventTypesAssembler.swift */,
 				AA2654EC234F6B730013B777 /* EventTypesView.swift */,
+				E17195212369943B00376444 /* EventTypesPresenter.swift */,
+				E17195232369944800376444 /* EventTypesInteractor.swift */,
 				AA2654EE234F6B820013B777 /* EventTypesRouter.swift */,
 				AA2654F0234F6B8C0013B777 /* EventTypes.storyboard */,
+				E17195252369ADCC00376444 /* EventTypesCell.swift */,
 			);
 			path = EventTypes;
 			sourceTree = "<group>";
@@ -529,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				082B9361235A58FF004AD930 /* ValidateManager.swift in Sources */,
+				E171951E2369941C00376444 /* EventTypesAssembler.swift in Sources */,
 				AAB4B81C23564409008273AE /* LoginMainRouter.swift in Sources */,
 				AA2654DA234F66D50013B777 /* RegisterView.swift in Sources */,
 				AA2654DC234F66E50013B777 /* RegisterRouter.swift in Sources */,
@@ -542,6 +558,7 @@
 				AAB4B818235643F3008273AE /* LoginMainPresenter.swift in Sources */,
 				0463E33B235CD559008DF20B /* Event.swift in Sources */,
 				AA2654C8234F5BA00013B777 /* RootRouter.swift in Sources */,
+				E17195222369943B00376444 /* EventTypesPresenter.swift in Sources */,
 				AA2654E2234F67110013B777 /* ForgotRouter.swift in Sources */,
 				AAB4B82023564423008273AE /* LoginMainAssembler.swift in Sources */,
 				AAB4B81A235643FE008273AE /* LoginMainInteractor.swift in Sources */,
@@ -572,13 +589,16 @@
 				AA2654BB234F57050013B777 /* RootView.swift in Sources */,
 				082B936C235BA173004AD930 /* AuthAssemler.swift in Sources */,
 				0463E320235CBEA9008DF20B /* PresetPresenter.swift in Sources */,
+				E17195262369ADCC00376444 /* EventTypesCell.swift in Sources */,
 				0463E32A235CC16F008DF20B /* UIColor+Extension.swift in Sources */,
 				0463E331235CD3C4008DF20B /* EventPresenter.swift in Sources */,
 				AA2654E8234F68360013B777 /* PresetRouter.swift in Sources */,
 				0463E32F235CD3B9008DF20B /* EventView.swift in Sources */,
 				0463E33D235CD5E1008DF20B /* UIImageView+Extension.swift in Sources */,
+				E17195282369CBD900376444 /* EventTypesEntity.swift in Sources */,
 				AAB4B82C23564F35008273AE /* RegisterInteractor.swift in Sources */,
 				0463E326235CBFE7008DF20B /* PresetSlider.swift in Sources */,
+				E17195242369944800376444 /* EventTypesInteractor.swift in Sources */,
 				AA2654F5234F6C520013B777 /* MainRouter.swift in Sources */,
 				AAB4B816235643E6008273AE /* LoginMainView.swift in Sources */,
 			);
@@ -720,7 +740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 786FYLB3L3;
+				DEVELOPMENT_TEAM = XBW4F9AQY3;
 				INFOPLIST_FILE = "$(SRCROOT)/Legio/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -741,7 +761,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 786FYLB3L3;
+				DEVELOPMENT_TEAM = XBW4F9AQY3;
 				INFOPLIST_FILE = "$(SRCROOT)/Legio/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
