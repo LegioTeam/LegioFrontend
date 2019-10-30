@@ -37,7 +37,7 @@ extension EventTypesView: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventTypesCell", for: indexPath as IndexPath) as! EventTypesCell
-        cell.layer.borderColor = UIColor(hex: "#F4F9FF")?.cgColor
+        cell.layer.borderColor = UIColor(hex: "#DFEDFF")?.cgColor
         cell.layer.borderWidth = 2
         cell.configure(event:  presenter.getEventTypeByIndex(index: indexPath))
         return cell
