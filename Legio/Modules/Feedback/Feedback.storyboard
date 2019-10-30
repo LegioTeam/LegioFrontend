@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Feedback View-->
+        <scene sceneID="H26-zY-0kx">
+            <objects>
+                <viewController storyboardIdentifier="FeedbackView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BUb-j4-nkV" customClass="FeedbackView" customModule="Legio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TMU-sy-LPz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLG-55-WLc">
+                                <rect key="frame" x="327" y="88" width="63" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Закрыть"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="BUb-j4-nkV" eventType="touchUpInside" id="ijc-m6-TGV"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9w9-OP-pru">
+                                <rect key="frame" x="0.0" y="319.5" width="414" height="257.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вам понравилось?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy2-MS-Ypu">
+                                        <rect key="frame" x="24" y="0.0" width="366" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мультимедийные выставки «Ван Гог. Письма к Тео» и «Густав Климт. Золото Модерна»" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp9-bE-CiC">
+                                        <rect key="frame" x="24" y="54.5" width="366" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="XnF-rX-bQl">
+                                        <rect key="frame" x="125" y="193.5" width="164" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRA-pw-yFW">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="64" id="gB1-si-YIJ"/>
+                                                    <constraint firstAttribute="height" constant="64" id="ztG-cz-Xwr"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="like"/>
+                                                <state key="selected" image="likePressed"/>
+                                                <state key="highlighted" image="likePressed"/>
+                                                <connections>
+                                                    <action selector="likeButton:" destination="BUb-j4-nkV" eventType="touchUpInside" id="Zoo-3v-W18"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lR6-Cc-cqq">
+                                                <rect key="frame" x="100" y="0.0" width="64" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="HVK-QZ-tNG"/>
+                                                    <constraint firstAttribute="width" constant="64" id="NeR-Tc-JUG"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="dislike"/>
+                                                <state key="selected" image="dislikePressed"/>
+                                                <state key="highlighted" image="dislikePressed"/>
+                                                <connections>
+                                                    <action selector="dislikeButton:" destination="BUb-j4-nkV" eventType="touchUpInside" id="qVt-HF-Mg5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="DTg-ZK-0gW"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sy2-MS-Ypu" firstAttribute="top" secondItem="9w9-OP-pru" secondAttribute="top" id="VZU-Lz-WBD"/>
+                                    <constraint firstItem="lp9-bE-CiC" firstAttribute="top" secondItem="sy2-MS-Ypu" secondAttribute="bottom" constant="16" id="e5o-JI-3a0"/>
+                                    <constraint firstItem="XnF-rX-bQl" firstAttribute="centerX" secondItem="9w9-OP-pru" secondAttribute="centerX" id="jed-ED-r2T"/>
+                                    <constraint firstAttribute="trailing" secondItem="sy2-MS-Ypu" secondAttribute="trailing" constant="24" id="klS-69-NEG"/>
+                                    <constraint firstItem="sy2-MS-Ypu" firstAttribute="leading" secondItem="9w9-OP-pru" secondAttribute="leading" constant="24" id="stU-KW-Ja8"/>
+                                    <constraint firstItem="lp9-bE-CiC" firstAttribute="leading" secondItem="9w9-OP-pru" secondAttribute="leading" constant="24" id="tnk-Ji-ZlT"/>
+                                    <constraint firstItem="XnF-rX-bQl" firstAttribute="top" secondItem="lp9-bE-CiC" secondAttribute="bottom" constant="67" id="vMM-he-OFu"/>
+                                    <constraint firstAttribute="trailing" secondItem="lp9-bE-CiC" secondAttribute="trailing" constant="24" id="z6R-Bn-7fH"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9w9-OP-pru" firstAttribute="centerY" secondItem="TMU-sy-LPz" secondAttribute="centerY" id="0Rg-mU-Oof"/>
+                            <constraint firstAttribute="trailing" secondItem="9w9-OP-pru" secondAttribute="trailing" id="Qcr-8u-Jay"/>
+                            <constraint firstItem="9w9-OP-pru" firstAttribute="centerX" secondItem="fvO-a4-6wm" secondAttribute="centerX" id="SbT-a7-AXI"/>
+                            <constraint firstItem="mLG-55-WLc" firstAttribute="top" secondItem="fvO-a4-6wm" secondAttribute="top" constant="44" id="c6E-Wi-8Ug"/>
+                            <constraint firstItem="9w9-OP-pru" firstAttribute="leading" secondItem="TMU-sy-LPz" secondAttribute="leading" id="pRJ-Lu-Qv0"/>
+                            <constraint firstItem="fvO-a4-6wm" firstAttribute="trailing" secondItem="mLG-55-WLc" secondAttribute="trailing" constant="24" id="rp4-U3-iYi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fvO-a4-6wm"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="mLG-55-WLc" id="oOW-5u-iQ9"/>
+                        <outlet property="dislikeButton" destination="lR6-Cc-cqq" id="OzJ-S3-XTC"/>
+                        <outlet property="eventNameLabel" destination="lp9-bE-CiC" id="vno-HU-d12"/>
+                        <outlet property="likeButton" destination="IRA-pw-yFW" id="MGo-Wu-iWU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCK-2D-elj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130" y="59"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dislike" width="64" height="64"/>
+        <image name="dislikePressed" width="64" height="64"/>
+        <image name="like" width="64" height="64"/>
+        <image name="likePressed" width="64" height="64"/>
+    </resources>
+</document>

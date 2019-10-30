@@ -31,6 +31,13 @@
 		082B936C235BA173004AD930 /* AuthAssemler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B936B235BA173004AD930 /* AuthAssemler.swift */; };
 		08D896FA23526F2D0026ACBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896F923526F2D0026ACBC /* User.swift */; };
 		08D896FE235282E40026ACBC /* plugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896FD235282E40026ACBC /* plugs.swift */; };
+		46C8C50323687ED2004174EF /* FeedbackAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50223687ED2004174EF /* FeedbackAssembler.swift */; };
+		46C8C50523687F2E004174EF /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50423687F2E004174EF /* FeedbackView.swift */; };
+		46C8C50723687FB5004174EF /* FeedbackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50623687FB5004174EF /* FeedbackPresenter.swift */; };
+		46C8C50923688015004174EF /* FeedbackInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50823688015004174EF /* FeedbackInteractor.swift */; };
+		46C8C50B23688052004174EF /* FeedbackRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50A23688052004174EF /* FeedbackRouter.swift */; };
+		46C8C50D2368809E004174EF /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C8C50C2368809E004174EF /* Feedback.storyboard */; };
+		46C8C5112368B846004174EF /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C5102368B845004174EF /* NotificationDelegate.swift */; };
 		AA2654A2234F54D60013B777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2654A1234F54D60013B777 /* AppDelegate.swift */; };
 		AA2654AA234F54D60013B777 /* Legio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA2654A8234F54D60013B777 /* Legio.xcdatamodeld */; };
 		AA2654AC234F54DA0013B777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2654AB234F54DA0013B777 /* Assets.xcassets */; };
@@ -110,6 +117,13 @@
 		082B936B235BA173004AD930 /* AuthAssemler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssemler.swift; sourceTree = "<group>"; };
 		08D896F923526F2D0026ACBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Legio/Common/Services/Network/User.swift; sourceTree = SOURCE_ROOT; };
 		08D896FD235282E40026ACBC /* plugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plugs.swift; sourceTree = "<group>"; };
+		46C8C50223687ED2004174EF /* FeedbackAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackAssembler.swift; sourceTree = "<group>"; };
+		46C8C50423687F2E004174EF /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		46C8C50623687FB5004174EF /* FeedbackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackPresenter.swift; sourceTree = "<group>"; };
+		46C8C50823688015004174EF /* FeedbackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackInteractor.swift; sourceTree = "<group>"; };
+		46C8C50A23688052004174EF /* FeedbackRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRouter.swift; sourceTree = "<group>"; };
+		46C8C50C2368809E004174EF /* Feedback.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
+		46C8C5102368B845004174EF /* NotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		AA26549E234F54D60013B777 /* Legio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Legio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2654A1234F54D60013B777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA2654A9234F54D60013B777 /* Legio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Legio.xcdatamodel; sourceTree = "<group>"; };
@@ -232,6 +246,19 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		46C8C50123687EAF004174EF /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				46C8C50223687ED2004174EF /* FeedbackAssembler.swift */,
+				46C8C50423687F2E004174EF /* FeedbackView.swift */,
+				46C8C50623687FB5004174EF /* FeedbackPresenter.swift */,
+				46C8C50823688015004174EF /* FeedbackInteractor.swift */,
+				46C8C50A23688052004174EF /* FeedbackRouter.swift */,
+				46C8C50C2368809E004174EF /* Feedback.storyboard */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 		AA265495234F54D60013B777 = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +297,7 @@
 				AA2654D8234F64C30013B777 /* Preset */,
 				AA2654EB234F6B560013B777 /* EventTypes */,
 				0463E32B235CD386008DF20B /* Event */,
+				46C8C50123687EAF004174EF /* Feedback */,
 				AA2654D5234F64000013B777 /* Main */,
 			);
 			path = Modules;
@@ -322,6 +350,7 @@
 		AA2654BF234F582C0013B777 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				46C8C5102368B845004174EF /* NotificationDelegate.swift */,
 				082B935D235A5856004AD930 /* AuthValidate */,
 				08D896F6235264FF0026ACBC /* Network */,
 				AA2654C0234F58310013B777 /* Database */,
@@ -517,6 +546,7 @@
 				AA2654AC234F54DA0013B777 /* Assets.xcassets in Resources */,
 				AA2654F7234F6C5B0013B777 /* Main.storyboard in Resources */,
 				AA2654B9234F56E90013B777 /* Root.storyboard in Resources */,
+				46C8C50D2368809E004174EF /* Feedback.storyboard in Resources */,
 				AA2654DE234F66F10013B777 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46C8C50923688015004174EF /* FeedbackInteractor.swift in Sources */,
 				082B9361235A58FF004AD930 /* ValidateManager.swift in Sources */,
 				AAB4B81C23564409008273AE /* LoginMainRouter.swift in Sources */,
 				AA2654DA234F66D50013B777 /* RegisterView.swift in Sources */,
@@ -541,6 +572,7 @@
 				AA2654AA234F54D60013B777 /* Legio.xcdatamodeld in Sources */,
 				AAB4B818235643F3008273AE /* LoginMainPresenter.swift in Sources */,
 				0463E33B235CD559008DF20B /* Event.swift in Sources */,
+				46C8C50323687ED2004174EF /* FeedbackAssembler.swift in Sources */,
 				AA2654C8234F5BA00013B777 /* RootRouter.swift in Sources */,
 				AA2654E2234F67110013B777 /* ForgotRouter.swift in Sources */,
 				AAB4B82023564423008273AE /* LoginMainAssembler.swift in Sources */,
@@ -558,6 +590,9 @@
 				0463E328235CC142008DF20B /* Float+Extention.swift in Sources */,
 				0463E324235CBF55008DF20B /* PresetEntity.swift in Sources */,
 				0463E32D235CD3AF008DF20B /* EventAssembler.swift in Sources */,
+				46C8C50723687FB5004174EF /* FeedbackPresenter.swift in Sources */,
+				46C8C50B23688052004174EF /* FeedbackRouter.swift in Sources */,
+				46C8C50523687F2E004174EF /* FeedbackView.swift in Sources */,
 				AA2654EF234F6B820013B777 /* EventTypesRouter.swift in Sources */,
 				AAB4B82423564A86008273AE /* RootAssembler.swift in Sources */,
 				AA2654ED234F6B730013B777 /* EventTypesView.swift in Sources */,
@@ -580,6 +615,7 @@
 				AAB4B82C23564F35008273AE /* RegisterInteractor.swift in Sources */,
 				0463E326235CBFE7008DF20B /* PresetSlider.swift in Sources */,
 				AA2654F5234F6C520013B777 /* MainRouter.swift in Sources */,
+				46C8C5112368B846004174EF /* NotificationDelegate.swift in Sources */,
 				AAB4B816235643E6008273AE /* LoginMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

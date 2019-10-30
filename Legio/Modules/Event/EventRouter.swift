@@ -38,7 +38,7 @@ extension EventRouter: EventRouterProtocol {
             .instantiateViewController(withIdentifier: EventView.storyboardIdentifier) as? EventView else { return }
         let assembler: EventAssemblerProtocol = EventAssembler()
         assembler.assembleFromButton(with: controller)
-        self.presentFromLeft(controller, completion: nil)//.show(controller)
+        self.presentFromLeft(controller, completion: nil)
     }
     
     func showNerdy() {
@@ -50,4 +50,3 @@ extension EventRouter: EventRouterProtocol {
     }
     
 }
-

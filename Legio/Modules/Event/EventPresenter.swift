@@ -27,6 +27,7 @@ class EventPresenter {
     var router: EventRouterProtocol!
     var event: Event?
     let defaultEventImage: String = "eventImage"
+    var notification = NotificationDelegate()
 }
 
 extension EventPresenter: EventPresenterProtocol {
@@ -41,6 +42,10 @@ extension EventPresenter: EventPresenterProtocol {
     
     func loadEvent() {
         event = interactor.loadEvent()
+        var dateComponents = DateComponents()
+        dateComponents.hour = 11 //Уточнить формат event?.ends
+        dateComponents.minute = 15 //Уточнить формат event?.ends
+        notification.scheduleNotification(notificationType: event!.name, dateComponents: dateComponents)
     }
     
     func loadImage() -> UIImage {

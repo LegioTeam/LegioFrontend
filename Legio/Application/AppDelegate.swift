@@ -1,15 +1,18 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+    let notification = NotificationDelegate()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		return true
+        notification.notificationCenter.delegate = notification
+        notification.userRequest()
+        return true
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
@@ -27,10 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		self.saveContext()
 	}
-	
-	
-
-
 	
 	// MARK: - Core Data stack
 
@@ -59,4 +58,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 }
-
