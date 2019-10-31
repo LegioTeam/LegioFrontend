@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,8 +30,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vv-Im-VJE">
-                                <rect key="frame" x="347" y="88" width="37" height="49"/>
-                                <state key="normal" image="user"/>
+                                <rect key="frame" x="366" y="84" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="6db-BG-nQy"/>
+                                    <constraint firstAttribute="width" constant="32" id="HNZ-xp-Vm6"/>
+                                </constraints>
+                                <state key="normal" image="preset"/>
                                 <connections>
                                     <action selector="profileButton:" destination="0ju-0k-I1B" eventType="touchUpInside" id="Jfv-Ej-TWV"/>
                                 </connections>
@@ -59,17 +63,14 @@
                                     <constraint firstAttribute="height" constant="24" id="UIU-1p-eHE"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Басманный пер, 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJo-sB-a3z">
-                                <rect key="frame" x="65" y="439" width="330" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="Npy-Hw-YCo"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Басманный пер, 5" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJo-sB-a3z">
+                                <rect key="frame" x="65" y="439" width="330" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cc-M9-RJA">
-                                <rect key="frame" x="64" y="475" width="331" height="24"/>
+                                <rect key="frame" x="64" y="470.5" width="331" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="pZY-P1-J2f"/>
                                 </constraints>
@@ -163,7 +164,7 @@
                             <constraint firstItem="JLL-Jr-aTX" firstAttribute="top" secondItem="KRk-Zg-qcF" secondAttribute="bottom" constant="32" id="MHD-0k-yfX"/>
                             <constraint firstItem="KRk-Zg-qcF" firstAttribute="trailing" secondItem="hRe-wJ-Uv1" secondAttribute="trailing" id="NAX-a8-zQr"/>
                             <constraint firstItem="9cc-M9-RJA" firstAttribute="leading" secondItem="hRe-wJ-Uv1" secondAttribute="leading" constant="64" id="Nje-lP-1l4"/>
-                            <constraint firstItem="6vv-Im-VJE" firstAttribute="trailing" secondItem="KRk-Zg-qcF" secondAttribute="trailing" constant="-30" id="Obt-YI-7aF"/>
+                            <constraint firstItem="6vv-Im-VJE" firstAttribute="trailing" secondItem="KRk-Zg-qcF" secondAttribute="trailing" constant="-16" id="Obt-YI-7aF"/>
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="trailing" secondItem="bJo-sB-a3z" secondAttribute="trailing" constant="19" id="QFU-jE-uuP"/>
                             <constraint firstItem="c9o-gU-86Z" firstAttribute="centerX" secondItem="CXE-9v-FVP" secondAttribute="centerX" id="R6f-oV-4Jo"/>
                             <constraint firstItem="vnt-it-d3d" firstAttribute="leading" secondItem="CXE-9v-FVP" secondAttribute="leading" constant="20" id="TdC-tk-WHj"/>
@@ -177,7 +178,7 @@
                             <constraint firstItem="qI0-mK-0zO" firstAttribute="leading" secondItem="JLL-Jr-aTX" secondAttribute="trailing" constant="22" id="iLH-Mq-h8S"/>
                             <constraint firstItem="FwY-Ij-3hr" firstAttribute="leading" secondItem="hRe-wJ-Uv1" secondAttribute="leading" constant="19" id="lt6-na-syq"/>
                             <constraint firstItem="FwY-Ij-3hr" firstAttribute="top" secondItem="JLL-Jr-aTX" secondAttribute="bottom" constant="12" id="mgD-1R-uL4"/>
-                            <constraint firstItem="6vv-Im-VJE" firstAttribute="top" secondItem="KRk-Zg-qcF" secondAttribute="top" constant="44" id="off-6b-b5F"/>
+                            <constraint firstItem="6vv-Im-VJE" firstAttribute="top" secondItem="KRk-Zg-qcF" secondAttribute="top" constant="40" id="off-6b-b5F"/>
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="trailing" secondItem="qI0-mK-0zO" secondAttribute="trailing" constant="19" id="roW-5b-te2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hRe-wJ-Uv1"/>
@@ -211,6 +212,6 @@
         <image name="ic_pin" width="24" height="24"/>
         <image name="like" width="64" height="64"/>
         <image name="likePressed" width="64" height="64"/>
-        <image name="user" width="18.5" height="24.5"/>
+        <image name="preset" width="32" height="32"/>
     </resources>
 </document>
