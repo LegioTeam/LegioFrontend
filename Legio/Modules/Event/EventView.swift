@@ -122,6 +122,7 @@ extension EventView: EventViewProtocol {
 extension EventView {
     
     private func configureViews() {
+        self.navigationController?.navigationBar.isHidden = false
         partyNerdyButtons.isHidden = true
         eventImage.image = presenter.loadImage()
         eventNameLabel.attributedText = presenter.configureNameLabel()

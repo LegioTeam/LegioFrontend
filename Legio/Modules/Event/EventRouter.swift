@@ -9,6 +9,7 @@
 import UIKit
 
 protocol EventRouterProtocol: class {
+    func showProfile()
     func showPreset()
     func showDetails(url: String)
     func showParty()
@@ -17,6 +18,14 @@ protocol EventRouterProtocol: class {
 class EventRouter: BaseRouter { }
 
 extension EventRouter: EventRouterProtocol {
+    
+    func showProfile() {
+        guard let controller = UIStoryboard(name: "ProfileView", bundle: nil)
+            .instantiateViewController(withIdentifier: ProfileView.storyboardIdentifier) as? ProfileView else { return }
+        let assembler: ProfileAssemblerProtocol = ProfileAssembler()
+        assembler.assemble(with: controller)
+        self.show(controller)
+    }
     
     func showPreset() {
         guard let controller = UIStoryboard(name: "Preset", bundle: nil)

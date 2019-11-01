@@ -31,7 +31,7 @@ class EventPresenter {
 extension EventPresenter: EventPresenterProtocol {
     
     func profileTapped() {
-        router.showPreset()
+        router.showProfile()
     }
     
     func detailsTapped() {
