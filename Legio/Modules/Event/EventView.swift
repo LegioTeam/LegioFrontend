@@ -122,8 +122,11 @@ extension EventView {
         eventImage.image = presenter.loadImage()
         eventNameLabel.attributedText = presenter.configureNameLabel()
         eventDateLabel.attributedText = presenter.configureDateLabel()
-        eventPlaceLabel.text = presenter.correctAddress()
+        eventPlaceLabel.set(image: UIImage(named: "ic_bus")!, with: presenter.correctAddress(), and: "- мин")
+        
+        presenter.fetchLocationInfo() {expectedTravelTime in
+            self.eventPlaceLabel.set(image: UIImage(named: "ic_bus")!, with: self.presenter.correctAddress(), and: expectedTravelTime ?? "-")
+        }
     }
     
 }
-

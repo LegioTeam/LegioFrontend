@@ -12,6 +12,7 @@ extension UIColor {
     
     struct legio {
         static let legioBlue = UIColor(red: 0/255, green: 117/255, blue: 255/255, alpha: 1)
+        static let legioGray = UIColor(red: 189/255, green: 189/255, blue: 189/255, alpha: 1)
     }
     
     public convenience init?(hex: String) {

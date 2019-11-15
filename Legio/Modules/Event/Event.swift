@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Event: Codable {
     var id: Int
@@ -23,6 +24,7 @@ struct Event: Codable {
     var organization: String
     var tagName: String
     var categoryName: String
+    var coordinates: [String]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -39,6 +41,7 @@ struct Event: Codable {
         case organization
         case tagName = "tag_name"
         case categoryName = "category_name"
+        case coordinates
     }
     
 }

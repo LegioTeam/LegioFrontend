@@ -39,7 +39,7 @@ class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = userActions
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)//Для отладки
 //        var dateComponents = DateComponents()
 //        dateComponents.hour = 11
 //        dateComponents.minute = 15

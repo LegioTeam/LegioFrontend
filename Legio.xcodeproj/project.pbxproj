@@ -31,6 +31,9 @@
 		082B936C235BA173004AD930 /* AuthAssemler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082B936B235BA173004AD930 /* AuthAssemler.swift */; };
 		08D896FA23526F2D0026ACBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896F923526F2D0026ACBC /* User.swift */; };
 		08D896FE235282E40026ACBC /* plugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D896FD235282E40026ACBC /* plugs.swift */; };
+		464721CF237686C10083CEFF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464721CE237686C10083CEFF /* LocationManager.swift */; };
+		464721D1237721220083CEFF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464721D0237721220083CEFF /* UILabel+Extension.swift */; };
+		464721D32377341D0083CEFF /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464721D22377341D0083CEFF /* Double+Extension.swift */; };
 		46C8C50323687ED2004174EF /* FeedbackAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50223687ED2004174EF /* FeedbackAssembler.swift */; };
 		46C8C50523687F2E004174EF /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50423687F2E004174EF /* FeedbackView.swift */; };
 		46C8C50723687FB5004174EF /* FeedbackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8C50623687FB5004174EF /* FeedbackPresenter.swift */; };
@@ -117,6 +120,9 @@
 		082B936B235BA173004AD930 /* AuthAssemler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssemler.swift; sourceTree = "<group>"; };
 		08D896F923526F2D0026ACBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Legio/Common/Services/Network/User.swift; sourceTree = SOURCE_ROOT; };
 		08D896FD235282E40026ACBC /* plugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plugs.swift; sourceTree = "<group>"; };
+		464721CE237686C10083CEFF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		464721D0237721220083CEFF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		464721D22377341D0083CEFF /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		46C8C50223687ED2004174EF /* FeedbackAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackAssembler.swift; sourceTree = "<group>"; };
 		46C8C50423687F2E004174EF /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		46C8C50623687FB5004174EF /* FeedbackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackPresenter.swift; sourceTree = "<group>"; };
@@ -350,6 +356,7 @@
 		AA2654BF234F582C0013B777 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				464721CE237686C10083CEFF /* LocationManager.swift */,
 				46C8C5102368B845004174EF /* NotificationDelegate.swift */,
 				082B935D235A5856004AD930 /* AuthValidate */,
 				08D896F6235264FF0026ACBC /* Network */,
@@ -392,6 +399,8 @@
 				0463E327235CC142008DF20B /* Float+Extention.swift */,
 				0463E329235CC16F008DF20B /* UIColor+Extension.swift */,
 				0463E33C235CD5E1008DF20B /* UIImageView+Extension.swift */,
+				464721D0237721220083CEFF /* UILabel+Extension.swift */,
+				464721D22377341D0083CEFF /* Double+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -564,6 +573,7 @@
 				AA2654DA234F66D50013B777 /* RegisterView.swift in Sources */,
 				AA2654DC234F66E50013B777 /* RegisterRouter.swift in Sources */,
 				0486528D235C94BF00151324 /* CustomButton.swift in Sources */,
+				464721D32377341D0083CEFF /* Double+Extension.swift in Sources */,
 				0463E322235CBEC7008DF20B /* PresetInteractor.swift in Sources */,
 				AA2654A2234F54D60013B777 /* AppDelegate.swift in Sources */,
 				082B936A235B9B7B004AD930 /* AuthInteractor.swift in Sources */,
@@ -574,6 +584,7 @@
 				0463E33B235CD559008DF20B /* Event.swift in Sources */,
 				46C8C50323687ED2004174EF /* FeedbackAssembler.swift in Sources */,
 				AA2654C8234F5BA00013B777 /* RootRouter.swift in Sources */,
+				464721D1237721220083CEFF /* UILabel+Extension.swift in Sources */,
 				AA2654E2234F67110013B777 /* ForgotRouter.swift in Sources */,
 				AAB4B82023564423008273AE /* LoginMainAssembler.swift in Sources */,
 				AAB4B81A235643FE008273AE /* LoginMainInteractor.swift in Sources */,
@@ -590,6 +601,7 @@
 				0463E328235CC142008DF20B /* Float+Extention.swift in Sources */,
 				0463E324235CBF55008DF20B /* PresetEntity.swift in Sources */,
 				0463E32D235CD3AF008DF20B /* EventAssembler.swift in Sources */,
+				464721CF237686C10083CEFF /* LocationManager.swift in Sources */,
 				46C8C50723687FB5004174EF /* FeedbackPresenter.swift in Sources */,
 				46C8C50B23688052004174EF /* FeedbackRouter.swift in Sources */,
 				46C8C50523687F2E004174EF /* FeedbackView.swift in Sources */,
