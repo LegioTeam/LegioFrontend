@@ -14,11 +14,12 @@ protocol EventTypesViewProtocol {
 
 class EventTypesView: UIViewController {
 	
-	var router: EventTypesRouterProtocol?
+    @IBOutlet var collectionView: UICollectionView!
+    //var router: EventTypesRouterProtocol?
+    var presenter: EventTypesPresenter!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		router = EventTypesRouter(controller: self)
 	}
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,11 +29,49 @@ class EventTypesView: UIViewController {
 	
 }
 
+//MARK: - UICollectionViewDelegate & UICollectionViewDataSource
+extension EventTypesView: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter.getEventTypes().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventTypesCell", for: indexPath as IndexPath) as! EventTypesCell
+        cell.layer.borderColor = UIColor(hex: "#DFEDFF")?.cgColor
+        cell.layer.borderWidth = 2
+        cell.configure(event:  presenter.getEventTypeByIndex(index: indexPath))
+        return cell
+    }
+    
+}
+
+extension EventTypesView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return presenter.getEventTypeByIndex(index: indexPath).value.size(withAttributes: [
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)
+        ])
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout
+        collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15.0
+    }
+}
+
 //MARK: - Actions
 extension EventTypesView {
 	
 	@IBAction func buttonNextTapped(_ sender: Any) {
-		router?.showMain()
+        presenter.showEventTypped()
 	}
 	
 }
