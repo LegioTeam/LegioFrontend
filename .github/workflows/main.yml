@@ -1,17 +1,13 @@
 name: CI
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build:
     runs-on: macOS-latest
 
     env:
-      APPLE_ACCOUNT: ${{ secrets.APPLE_ACCOUNT }}
-      TEAM_ID: ${{ secrets.TEAM_ID }}
       MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-      FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
-      FIREBASE_ACCESS_TOKEN: ${{ secrets.FIREBASE_ACCESS_TOKEN }}
 
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +25,3 @@ jobs:
       run: |
         fastlane setup
         fastlane build_snapshot
-    - name: Deploy to firebase
-      if: github.ref == 'refs/heads/master'
-      run: |
-        fastlane upload_to_firebase
