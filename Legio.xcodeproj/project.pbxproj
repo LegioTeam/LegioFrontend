@@ -126,6 +126,8 @@
 		E14C402B2401351400C43877 /* HeaderInterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA723FDDC8400C43877 /* HeaderInterestCell.swift */; };
 		E14C402C2401351600C43877 /* HeaderInterestCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA623FDDC8400C43877 /* HeaderInterestCellPresenter.swift */; };
 		E14C402D2401351900C43877 /* HeaderInterestPrototypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA823FDDC8400C43877 /* HeaderInterestPrototypeCell.swift */; };
+		E1A607AF24216930002DDE97 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A607AE24216930002DDE97 /* LocationService.swift */; };
+		E1A607B12421697A002DDE97 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A607B02421697A002DDE97 /* LocationError.swift */; };
 		F9C518B94673FEF3995583BE /* Pods_Legio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE3A1D082D90CB0A13800D7 /* Pods_Legio.framework */; };
 /* End PBXBuildFile section */
 
@@ -253,6 +255,8 @@
 		E14C3FC123FDDC8400C43877 /* EventWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventWebView.swift; sourceTree = "<group>"; };
 		E14C3FC223FDDC8400C43877 /* EventInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInteractor.swift; sourceTree = "<group>"; };
 		E14C3FC323FDDC8400C43877 /* EventRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRouter.swift; sourceTree = "<group>"; };
+		E1A607AE24216930002DDE97 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		E1A607B02421697A002DDE97 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		FDE3A1D082D90CB0A13800D7 /* Pods_Legio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Legio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -442,6 +446,7 @@
 		E14C3F6023FDDC8400C43877 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E1A607AD2421665C002DDE97 /* Location */,
 				E14C3F6123FDDC8400C43877 /* Database */,
 				E14C3F6423FDDC8400C43877 /* NotificationDelegate.swift */,
 				E14C3F6523FDDC8400C43877 /* Network */,
@@ -685,6 +690,15 @@
 			path = Event;
 			sourceTree = "<group>";
 		};
+		E1A607AD2421665C002DDE97 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				E1A607AE24216930002DDE97 /* LocationService.swift */,
+				E1A607B02421697A002DDE97 /* LocationError.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		EAFE9539452F6889960E0065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,6 +870,7 @@
 				E14C3FE123FDDCFE00C43877 /* AuthPresenter.swift in Sources */,
 				E14C3FE423FDDCFE00C43877 /* AuthAssemler.swift in Sources */,
 				E14C3FED23FDDD0C00C43877 /* RegisterRouter.swift in Sources */,
+				E1A607AF24216930002DDE97 /* LocationService.swift in Sources */,
 				E14C3FEC23FDDD0C00C43877 /* RegisterPresenter.swift in Sources */,
 				E14C3FCB23FDDCBB00C43877 /* Double+Extension.swift in Sources */,
 				E14C3FF723FDDD1200C43877 /* ProfileInteractor.swift in Sources */,
@@ -919,6 +934,7 @@
 				E14C3FC823FDDCBB00C43877 /* UIColor+Extension.swift in Sources */,
 				E14C401823FDDD4000C43877 /* EventInteractor.swift in Sources */,
 				04208E62240AD71100FC5F36 /* AuthTarget.swift in Sources */,
+				E1A607B12421697A002DDE97 /* LocationError.swift in Sources */,
 				E14C3FFA23FDDD1700C43877 /* LoginMainRouter.swift in Sources */,
 				04CFB7E524140A030092D433 /* ProfileService.swift in Sources */,
 				E14C3FEB23FDDD0500C43877 /* FeedbackPresenter.swift in Sources */,
