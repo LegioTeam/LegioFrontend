@@ -6,22 +6,9 @@ jobs:
   build:
     runs-on: macOS-latest
 
-    env:
-      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-
     steps:
     - uses: actions/checkout@v2
-    - name: Setup SSH Keys and known_hosts
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.CERTS_REPO_CERT }}" > ~/.ssh/certs_rsa
-        chmod 600 ~/.ssh/certs_rsa
-        ssh-add ~/.ssh/certs_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-    - name: Install firebase tool
-      run: |
-        curl -sL firebase.tools | bash
     - name: Build
       run: |
-        fastlane setup
-        fastlane build_snapshot
+        pod install
+        xcodebuild -workspace Legio.xcworkspace -scheme Legio -quiet CODE_SIGNING_ALLOWED="NO"
