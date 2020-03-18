@@ -1,5 +1,5 @@
 //
-//  SubInterestCell.swift
+//  InterestPrototypeCell.swift
 //  Legio
 //
 //  Created by Mac on 10.11.2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubInterestCell: UICollectionViewCell {
+class InterestDefaultCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,6 @@ class SubInterestCell: UICollectionViewCell {
         view.layer.cornerRadius = 20
         view.layer.borderColor = UIColor.init(red: 233/255, green: 237/255, blue: 255/255, alpha: 1).cgColor
         view.layer.borderWidth = 2
-        view.backgroundColor = UIColor.white
         return view
     }()
     
@@ -34,23 +33,14 @@ class SubInterestCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
-        label.textColor = UIColor.legio.legioBlue
+        label.textColor = UIColor.darkText
         label.lineBreakMode = .byTruncatingMiddle
         return label
     }()
     
-    public func set(isSelected: Bool) {
-        labelName.textColor = isSelected
-            ? UIColor.white
-            : UIColor.legio.legioBlue
-        viewMain.backgroundColor = isSelected
-            ? UIColor.legio.legioBlue
-            : UIColor.white
-    }
-    
 }
 
-extension SubInterestCell {
+extension InterestDefaultCell {
     
     private func setupViews() {
         self.contentView.addSubview(viewMain)
@@ -60,7 +50,7 @@ extension SubInterestCell {
     
     private func activateConstraints() {
         NSLayoutConstraint.activate([
-            self.viewMain.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10),
+            self.viewMain.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 0),
             self.viewMain.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0),
             self.viewMain.heightAnchor.constraint(equalToConstant: 40),
                
@@ -68,8 +58,10 @@ extension SubInterestCell {
             self.labelName.rightAnchor.constraint(equalTo: self.viewMain.rightAnchor, constant: -16),
             self.labelName.topAnchor.constraint(equalTo: self.viewMain.topAnchor, constant: 0),
             self.labelName.bottomAnchor.constraint(equalTo: self.viewMain.bottomAnchor, constant: 0)
+            //               self.labelName.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
 }
+
 

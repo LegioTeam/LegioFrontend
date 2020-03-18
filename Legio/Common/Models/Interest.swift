@@ -8,47 +8,23 @@
 
 import UIKit
 
-//class Interest: Codable {
-//    var id: Int
-//    var name: String
-//    var isOpened: Bool = false
-//    var cellWidth: CGFloat = 0
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id = "parent_id"
-//        case name = "parent_name"
-//    }
-//
-//}
+enum InterestType: String {
+    case party
+    case nerby
+}
 
-class Interest {
+class Interest: Codable {
 
     var id: Int
     var name: String
-    var isOpened: Bool
-    var subInterests: [Interest]
-    var cellWidth: CGFloat
-
-    init(id: Int, name: String) {
-        self.id = id
-        self.name = name
-        self.isOpened = false
-        self.subInterests = []
-        self.cellWidth = 0
+    var type: InterestType.RawValue
+    var tags: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case type = "type"
+        case tags = "tags"
     }
-
-    init(id: Int, name: String, subInterests: [Interest]) {
-        self.id = id
-        self.name = name
-        self.isOpened = false
-        self.subInterests = subInterests
-        self.cellWidth = 0
-    }
-
-    func getSelectedSubinterestsCount() -> Int {
-        let selectedCount = subInterests.filter({$0.isOpened}).count
-        return selectedCount
-    }
-
 }
 

@@ -13,6 +13,11 @@
 		04208E64240BA38700FC5F36 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04208E63240BA38700FC5F36 /* NetworkSettings.swift */; };
 		04208E66240C381B00FC5F36 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04208E65240C381B00FC5F36 /* UserProfile.swift */; };
 		04208E68240C3A8100FC5F36 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04208E67240C3A8100FC5F36 /* NetworkError.swift */; };
+		04C66A1F24215A2000584A55 /* InterestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A1E24215A2000584A55 /* InterestsService.swift */; };
+		04C66A2124215A3900584A55 /* InterestsServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A2024215A3900584A55 /* InterestsServiceImplementation.swift */; };
+		04C66A2324215A4C00584A55 /* InterestsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A2224215A4C00584A55 /* InterestsTarget.swift */; };
+		04C66A25242161F600584A55 /* InterestsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A24242161F600584A55 /* InterestsResponse.swift */; };
+		04C66A262422A8CC00584A55 /* InterestCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA623FDDC8400C43877 /* InterestCellViewModel.swift */; };
 		04CFB7E524140A030092D433 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFB7E424140A030092D433 /* ProfileService.swift */; };
 		04CFB7E724140AAF0092D433 /* ProfileServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFB7E624140AAF0092D433 /* ProfileServiceImplementation.swift */; };
 		04CFB7E924140B880092D433 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFB7E824140B880092D433 /* ProfileTarget.swift */; };
@@ -121,11 +126,8 @@
 		E14C402623FDDD5C00C43877 /* SFUIText-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E14C3F4A23FDDC8400C43877 /* SFUIText-SemiboldItalic.ttf */; };
 		E14C402723FDDD5C00C43877 /* SFUIText-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E14C3F4B23FDDC8400C43877 /* SFUIText-HeavyItalic.ttf */; };
 		E14C402823FDDD5C00C43877 /* SFUIText-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E14C3F4C23FDDC8400C43877 /* SFUIText-RegularItalic.ttf */; };
-		E14C40292401350E00C43877 /* InterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA223FDDC8400C43877 /* InterestCell.swift */; };
-		E14C402A2401351100C43877 /* SubInterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA423FDDC8400C43877 /* SubInterestCell.swift */; };
-		E14C402B2401351400C43877 /* HeaderInterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA723FDDC8400C43877 /* HeaderInterestCell.swift */; };
-		E14C402C2401351600C43877 /* HeaderInterestCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA623FDDC8400C43877 /* HeaderInterestCellPresenter.swift */; };
-		E14C402D2401351900C43877 /* HeaderInterestPrototypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA823FDDC8400C43877 /* HeaderInterestPrototypeCell.swift */; };
+		E14C402B2401351400C43877 /* InterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA723FDDC8400C43877 /* InterestCell.swift */; };
+		E14C402D2401351900C43877 /* InterestPrototypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C3FA823FDDC8400C43877 /* InterestPrototypeCell.swift */; };
 		F9C518B94673FEF3995583BE /* Pods_Legio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE3A1D082D90CB0A13800D7 /* Pods_Legio.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +138,10 @@
 		04208E63240BA38700FC5F36 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		04208E65240C381B00FC5F36 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		04208E67240C3A8100FC5F36 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		04C66A1E24215A2000584A55 /* InterestsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsService.swift; sourceTree = "<group>"; };
+		04C66A2024215A3900584A55 /* InterestsServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsServiceImplementation.swift; sourceTree = "<group>"; };
+		04C66A2224215A4C00584A55 /* InterestsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsTarget.swift; sourceTree = "<group>"; };
+		04C66A24242161F600584A55 /* InterestsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsResponse.swift; sourceTree = "<group>"; };
 		04CFB7E424140A030092D433 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		04CFB7E624140AAF0092D433 /* ProfileServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceImplementation.swift; sourceTree = "<group>"; };
 		04CFB7E824140B880092D433 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
@@ -226,11 +232,9 @@
 		E14C3F9D23FDDC8400C43877 /* EventTypesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesAssembler.swift; sourceTree = "<group>"; };
 		E14C3F9E23FDDC8400C43877 /* EventTypesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesInteractor.swift; sourceTree = "<group>"; };
 		E14C3F9F23FDDC8400C43877 /* EventTypesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesEntity.swift; sourceTree = "<group>"; };
-		E14C3FA223FDDC8400C43877 /* InterestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCell.swift; sourceTree = "<group>"; };
-		E14C3FA423FDDC8400C43877 /* SubInterestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubInterestCell.swift; sourceTree = "<group>"; };
-		E14C3FA623FDDC8400C43877 /* HeaderInterestCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInterestCellPresenter.swift; sourceTree = "<group>"; };
-		E14C3FA723FDDC8400C43877 /* HeaderInterestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInterestCell.swift; sourceTree = "<group>"; };
-		E14C3FA823FDDC8400C43877 /* HeaderInterestPrototypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInterestPrototypeCell.swift; sourceTree = "<group>"; };
+		E14C3FA623FDDC8400C43877 /* InterestCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCellViewModel.swift; sourceTree = "<group>"; };
+		E14C3FA723FDDC8400C43877 /* InterestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCell.swift; sourceTree = "<group>"; };
+		E14C3FA823FDDC8400C43877 /* InterestPrototypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestPrototypeCell.swift; sourceTree = "<group>"; };
 		E14C3FA923FDDC8400C43877 /* EventTypesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesCell.swift; sourceTree = "<group>"; };
 		E14C3FAA23FDDC8400C43877 /* EventTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypesView.swift; sourceTree = "<group>"; };
 		E14C3FAB23FDDC8400C43877 /* EventTypes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventTypes.storyboard; sourceTree = "<group>"; };
@@ -276,6 +280,16 @@
 				04208E61240AD71100FC5F36 /* AuthTarget.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		04C66A1D24215A0200584A55 /* Interests */ = {
+			isa = PBXGroup;
+			children = (
+				04C66A1E24215A2000584A55 /* InterestsService.swift */,
+				04C66A2024215A3900584A55 /* InterestsServiceImplementation.swift */,
+				04C66A2224215A4C00584A55 /* InterestsTarget.swift */,
+			);
+			path = Interests;
 			sourceTree = "<group>";
 		};
 		04CFB7E1241407A30092D433 /* New Group */ = {
@@ -427,6 +441,7 @@
 			children = (
 				E14C3F5C23FDDC8400C43877 /* ResponseSetTimeInvest.swift */,
 				E14C3F5D23FDDC8400C43877 /* Interest.swift */,
+				04C66A24242161F600584A55 /* InterestsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,6 +482,7 @@
 				04CFB7E22414092B0092D433 /* Models */,
 				04208E5C240AD6E100FC5F36 /* Auth */,
 				04CFB7E3241409DB0092D433 /* Profille */,
+				04C66A1D24215A0200584A55 /* Interests */,
 				04CFB7EC241582F20092D433 /* Events */,
 			);
 			path = Network;
@@ -492,15 +508,15 @@
 		E14C3F6E23FDDC8400C43877 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E14C3F6F23FDDC8400C43877 /* Preset */,
-				E14C3F7723FDDC8400C43877 /* Auth */,
-				E14C3F7E23FDDC8400C43877 /* Feedback */,
-				E14C3F8523FDDC8400C43877 /* Register */,
-				E14C3F8C23FDDC8400C43877 /* Profile */,
-				E14C3F9323FDDC8400C43877 /* LoginMain */,
-				E14C3F9A23FDDC8400C43877 /* EventTypes */,
 				E14C3FAC23FDDC8400C43877 /* Root */,
+				E14C3F9323FDDC8400C43877 /* LoginMain */,
+				E14C3F8523FDDC8400C43877 /* Register */,
+				E14C3F7723FDDC8400C43877 /* Auth */,
 				E14C3FB323FDDC8400C43877 /* Forgot */,
+				E14C3F6F23FDDC8400C43877 /* Preset */,
+				E14C3F9A23FDDC8400C43877 /* EventTypes */,
+				E14C3F7E23FDDC8400C43877 /* Feedback */,
+				E14C3F8C23FDDC8400C43877 /* Profile */,
 				E14C3FB723FDDC8400C43877 /* Main */,
 				E14C3FBB23FDDC8400C43877 /* Event */,
 			);
@@ -589,14 +605,14 @@
 		E14C3F9A23FDDC8400C43877 /* EventTypes */ = {
 			isa = PBXGroup;
 			children = (
-				E14C3F9B23FDDC8400C43877 /* EventTypesPresenter.swift */,
-				E14C3F9C23FDDC8400C43877 /* EventTypesRouter.swift */,
 				E14C3F9D23FDDC8400C43877 /* EventTypesAssembler.swift */,
+				E14C3FAA23FDDC8400C43877 /* EventTypesView.swift */,
+				E14C3F9B23FDDC8400C43877 /* EventTypesPresenter.swift */,
 				E14C3F9E23FDDC8400C43877 /* EventTypesInteractor.swift */,
+				E14C3F9C23FDDC8400C43877 /* EventTypesRouter.swift */,
 				E14C3F9F23FDDC8400C43877 /* EventTypesEntity.swift */,
 				E14C3FA023FDDC8400C43877 /* Cell */,
 				E14C3FA923FDDC8400C43877 /* EventTypesCell.swift */,
-				E14C3FAA23FDDC8400C43877 /* EventTypesView.swift */,
 				E14C3FAB23FDDC8400C43877 /* EventTypes.storyboard */,
 			);
 			path = EventTypes;
@@ -605,37 +621,11 @@
 		E14C3FA023FDDC8400C43877 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E14C3FA123FDDC8400C43877 /* Interest */,
-				E14C3FA323FDDC8400C43877 /* SubInterest */,
-				E14C3FA523FDDC8400C43877 /* HeaderInterest */,
+				E14C3FA723FDDC8400C43877 /* InterestCell.swift */,
+				E14C3FA823FDDC8400C43877 /* InterestPrototypeCell.swift */,
+				E14C3FA623FDDC8400C43877 /* InterestCellViewModel.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		E14C3FA123FDDC8400C43877 /* Interest */ = {
-			isa = PBXGroup;
-			children = (
-				E14C3FA223FDDC8400C43877 /* InterestCell.swift */,
-			);
-			path = Interest;
-			sourceTree = "<group>";
-		};
-		E14C3FA323FDDC8400C43877 /* SubInterest */ = {
-			isa = PBXGroup;
-			children = (
-				E14C3FA423FDDC8400C43877 /* SubInterestCell.swift */,
-			);
-			path = SubInterest;
-			sourceTree = "<group>";
-		};
-		E14C3FA523FDDC8400C43877 /* HeaderInterest */ = {
-			isa = PBXGroup;
-			children = (
-				E14C3FA623FDDC8400C43877 /* HeaderInterestCellPresenter.swift */,
-				E14C3FA723FDDC8400C43877 /* HeaderInterestCell.swift */,
-				E14C3FA823FDDC8400C43877 /* HeaderInterestPrototypeCell.swift */,
-			);
-			path = HeaderInterest;
 			sourceTree = "<group>";
 		};
 		E14C3FAC23FDDC8400C43877 /* Root */ = {
@@ -857,6 +847,7 @@
 				E14C3FE423FDDCFE00C43877 /* AuthAssemler.swift in Sources */,
 				E14C3FED23FDDD0C00C43877 /* RegisterRouter.swift in Sources */,
 				E14C3FEC23FDDD0C00C43877 /* RegisterPresenter.swift in Sources */,
+				04C66A2324215A4C00584A55 /* InterestsTarget.swift in Sources */,
 				E14C3FCB23FDDCBB00C43877 /* Double+Extension.swift in Sources */,
 				E14C3FF723FDDD1200C43877 /* ProfileInteractor.swift in Sources */,
 				E14C401923FDDD4000C43877 /* EventRouter.swift in Sources */,
@@ -871,24 +862,24 @@
 				E14C3FFD23FDDD1700C43877 /* LoginMainView.swift in Sources */,
 				E14C400823FDDD2E00C43877 /* RootView.swift in Sources */,
 				E14C401723FDDD4000C43877 /* EventWebView.swift in Sources */,
-				E14C402A2401351100C43877 /* SubInterestCell.swift in Sources */,
 				E14C400423FDDD2700C43877 /* EventTypesView.swift in Sources */,
 				E14C3FE823FDDD0500C43877 /* FeedbackRouter.swift in Sources */,
 				E14C3FD323FDDCD100C43877 /* NotificationDelegate.swift in Sources */,
 				E14C3FEA23FDDD0500C43877 /* FeedbackInteractor.swift in Sources */,
 				E14C3FD023FDDCC000C43877 /* Interest.swift in Sources */,
 				E14C3FCC23FDDCBB00C43877 /* plugs.swift in Sources */,
+				04C66A2124215A3900584A55 /* InterestsServiceImplementation.swift in Sources */,
 				E14C3FC723FDDCBB00C43877 /* UIImageView+Extension.swift in Sources */,
 				E14C3FD923FDDCF200C43877 /* PresetAssembler.swift in Sources */,
 				E14C3FD123FDDCC400C43877 /* BaseRouter.swift in Sources */,
 				E14C3FE923FDDD0500C43877 /* FeedbackView.swift in Sources */,
-				E14C40292401350E00C43877 /* InterestCell.swift in Sources */,
 				E14C3FF623FDDD1200C43877 /* ProfileAssembler.swift in Sources */,
 				E14C3FDF23FDDCF200C43877 /* PresetInteractor.swift in Sources */,
 				E14C400D23FDDD3300C43877 /* ForgotView.swift in Sources */,
 				E14C3FFB23FDDD1700C43877 /* LoginMainAssembler.swift in Sources */,
+				04C66A262422A8CC00584A55 /* InterestCellViewModel.swift in Sources */,
 				E14C401523FDDD4000C43877 /* EventPresenter.swift in Sources */,
-				E14C402B2401351400C43877 /* HeaderInterestCell.swift in Sources */,
+				E14C402B2401351400C43877 /* InterestCell.swift in Sources */,
 				04CFB7F82415874A0092D433 /* Location.swift in Sources */,
 				E14C3FE223FDDCFE00C43877 /* AuthView.swift in Sources */,
 				04CFB7E724140AAF0092D433 /* ProfileServiceImplementation.swift in Sources */,
@@ -899,20 +890,21 @@
 				E14C3FF323FDDD1200C43877 /* ProfileRouter.swift in Sources */,
 				E14C3FE323FDDCFE00C43877 /* AuthRouter.swift in Sources */,
 				E14C401123FDDD3A00C43877 /* MainView.swift in Sources */,
+				04C66A25242161F600584A55 /* InterestsResponse.swift in Sources */,
 				E14C3FCD23FDDCBB00C43877 /* Float+Extention.swift in Sources */,
 				E14C3FDD23FDDCF200C43877 /* PresetView.swift in Sources */,
+				04C66A1F24215A2000584A55 /* InterestsService.swift in Sources */,
 				E14C401323FDDD4000C43877 /* EventAssembler.swift in Sources */,
 				04208E66240C381B00FC5F36 /* UserProfile.swift in Sources */,
 				04CFB7EB241580850092D433 /* Profile.swift in Sources */,
 				E14C400223FDDD1F00C43877 /* EventTypesEntity.swift in Sources */,
-				E14C402D2401351900C43877 /* HeaderInterestPrototypeCell.swift in Sources */,
+				E14C402D2401351900C43877 /* InterestPrototypeCell.swift in Sources */,
 				E14C400B23FDDD2E00C43877 /* RootAssembler.swift in Sources */,
 				E14C400A23FDDD2E00C43877 /* RootPresenter.swift in Sources */,
 				04CFB7FA241587900092D433 /* Category.swift in Sources */,
 				E14C3FFC23FDDD1700C43877 /* LoginMainPresenter.swift in Sources */,
 				E14C3FF423FDDD1200C43877 /* ProfileView.swift in Sources */,
 				E14C3FC623FDDCB400C43877 /* PresetSlider.swift in Sources */,
-				E14C402C2401351600C43877 /* HeaderInterestCellPresenter.swift in Sources */,
 				E14C3FE523FDDCFE00C43877 /* AuthInteractor.swift in Sources */,
 				04CFB7E924140B880092D433 /* ProfileTarget.swift in Sources */,
 				E14C400E23FDDD3300C43877 /* ForgotRouter.swift in Sources */,

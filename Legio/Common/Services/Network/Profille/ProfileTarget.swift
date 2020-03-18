@@ -77,11 +77,10 @@ extension ProfileTarget: TargetType {
     
     public var headers: [String: String]? {
         
-        var headers: [String: String] = [Keys.contentType: Constants.contentTypeValue]
+        var headers: [String: String] = [
+            Keys.contentType: Constants.contentTypeValue,
+            Keys.header: NetworkSettings.shared.token]
         
-        if let token = NetworkSettings.shared.token {
-            headers[Keys.header] = token
-        }
         return headers
     }
     

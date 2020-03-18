@@ -13,44 +13,40 @@ protocol EventTypesPresenterProtocol {
     func viewDidLoad()
     func set(contentWidth: CGFloat)
     func getCellSize(for row: Int) -> CGSize
-    func getInterest(for row: Int) -> Interest
+    func getCellViewModel(for row: Int) -> InterestCellViewModel
     func didSelectInterest(at row: Int)
     func didNextTapped()
-//    func EventTypesTapped()
-//    func changed(login: String?)
-//    func changed(password: String?)
 }
 
 class EventTypesPresenter {
+    
+    private enum Texts {
+        static let noSelectedInterests: String = "Вы не выбрали интересы"
+    }
     
     weak var view: EventTypesViewProtocol?
     var router: EventTypesRouterProtocol!
     var interactor: EventTypesInteractorProtocol!
     
     private var contentWidth: CGFloat = 0
-    private var interests: [Interest] = []
+    private var interests: [InterestCellViewModel] = []
     
-    private var interestCell: InterestCell? = nil
-    private var headerInterestCell: HeaderInterestDefaultCell? = nil
+    private var interestCell: InterestDefaultCell? = nil
    
 }
 
 extension EventTypesPresenter: EventTypesPresenterProtocol {
-    
+
     internal var itemsCount: Int {
         return interests.count
     }
     
     internal func didNextTapped() {
-        self.router.showEvent()
+        saveInterests()
     }
     
     internal func viewDidLoad() {
-        self.interactor.getInterestList { [weak self] interests in
-            guard let self = self else { return }
-            self.interests = interests
-            self.view?.updateData()
-        }
+        getInterests()
     }
     
     internal func set(contentWidth: CGFloat) {
@@ -58,43 +54,15 @@ extension EventTypesPresenter: EventTypesPresenterProtocol {
     }
     
     internal func getCellSize(for row: Int) -> CGSize {
-        var cellHeight: CGFloat = 50
-        var cellWidth: CGFloat = 30
-        
-        let interest: Interest = interests[row]
-//        if interest.isOpened && interest.subInterests.count > 0 {
-//            cellWidth = self.contentWidth
-//
-//            interestCell = InterestCell(frame: CGRect(x: 0, y: 0, width: self.contentWidth, height: 600))
-//            interestCell?.labelName.text = interest.name
-//            interestCell?.subInterests = interest.subInterests
-//
-//            interestCell?.contentView.layoutIfNeeded()
-//            cellHeight = 70 + (interestCell?.interestsCollectionView.contentSize.height ?? 300)
-//            print("cellHeight = \(cellHeight)")
-//        } else {
-            headerInterestCell = HeaderInterestDefaultCell(frame: CGRect(x: 0, y: 0, width: self.contentWidth, height: 600))
-            headerInterestCell?.labelName.text = interest.name
-            let widthMaximum = (self.contentWidth / 2) - 2
-            
-            headerInterestCell?.contentView.layoutIfNeeded()
-            
-            let cellMainWidth = (headerInterestCell?.viewMain.frame.width ?? widthMaximum) + 20
-            cellWidth = cellMainWidth > widthMaximum
-                ? widthMaximum
-                : cellMainWidth
-            
-            interests[row].cellWidth = cellWidth
-//        }
-        return CGSize(width: cellWidth, height: cellHeight)
+        return interests[row].cellSize
     }
     
-    internal func getInterest(for row: Int) -> Interest {
+    internal func getCellViewModel(for row: Int) -> InterestCellViewModel {
         return interests[row]
     }
     
     internal func didSelectInterest(at row: Int) {
-        interests[row].isOpened = !interests[row].isOpened
+        interests[row].isSelected = !interests[row].isSelected
         self.view?.updateData()
     }
     
@@ -102,64 +70,48 @@ extension EventTypesPresenter: EventTypesPresenterProtocol {
 
 extension EventTypesPresenter {
     
-//    private func EventTypes(email: String, password: String) {
-//        // progress hud load
-//        interactor.EventTypes(email: email, password: password) { [weak self] (userData, error) in
-//            // self?. progress hud finish load
-//            /*
-//            if let userData = userData {
-//                //do something with data
-//                self.router.showSingIn()
-//            } else {
-//                let errorText = error?.localizedDescription ?? "some network error"
-//            }
-//            */
-//            self?.router.showSingIn()
-//        }
-//    }
-//    
-//    private func updateLoginViews(isValidated: Bool) {
-//        let shownImage = getValidImage(isValidated: isValidated)
-//        view?.updateLoginSuccess(image: shownImage)
-//    }
-//    
-//    private func showLoginError(isCorrect: Bool) {
-//        view?.updateLoginAlert(isHidden: isCorrect)
-//        
-//        let validateProgress = getProgress(isValidated: isCorrect)
-//        view?.updateLoginProgressBar(progress: validateProgress)
-//    }
-//    
-//    private func updatePasswordViews(isValidated: Bool) {
-//        let shownImage = getValidImage(isValidated: isValidated)
-//        view?.updatePasswordSuccess(image: shownImage)
-//    }
-//    
-//    private func showPasswordError(isCorrect: Bool) {
-//        view?.updatePasswordAlert(isHidden: isCorrect)
-//        
-//        let validateProgress = getProgress(isValidated: isCorrect)
-//        view?.updatePasswordProgressBar(progress: validateProgress)
-//    }
-//    
-//    private func getProgress(isValidated: Bool) -> Float {
-//        return isValidated
-//            ? 0.0
-//            : 1.0
-//    }
-//    
-//    private func getValidImage(isValidated: Bool) -> UIImage? {
-//        return isValidated
-//            ? validImage
-//            : nil
-//    }
-//    
-//    private func isCorrectData() -> Bool {
-//        guard self.login != nil ,
-//            self.password != nil else {
-//                return false
-//        }
-//        return true
-//    }
+    private func getInterests() {
+        
+        self.interactor.getInterestList { [weak self] result in
+            
+            switch result {
+            case .success(let interestsList):
+                self?.handle(interestsList)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func saveInterests() {
+        
+        let idSelectedInterests: [Int] = interests.compactMap({
+            $0.isSelected
+                ? $0.id
+                : nil
+        })
+        
+        if idSelectedInterests.count > 0 {
+            interactor.updateMyInterests(idInterests: idSelectedInterests)
+        } else {
+            //TO DO: Сделать универсальный вывод алертов
+            //showError()
+            print(Texts.noSelectedInterests)
+            
+        }
+    }
+    
+    private func handle(_ interestsList: InterestsList) {
+        interests = makeInterestsViewModel(
+            interests: interestsList.interests)
+        view?.updateData()
+    }
+    
+    private func makeInterestsViewModel(interests: [Interest]) -> [InterestCellViewModel] {
+        
+        return interests.compactMap({ InterestCellViewModel(id: $0.id, name: $0.name, containerWidth: contentWidth) })
+    }
+
 }
 

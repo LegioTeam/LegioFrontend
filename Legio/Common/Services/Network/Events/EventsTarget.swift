@@ -71,9 +71,9 @@ extension EventsTarget: TargetType {
         
         var headers: [String: String] = [Keys.contentType: Constants.contentTypeValue]
         
-        if let token = NetworkSettings.shared.token {
-            headers[Keys.header] = token
-        }
+//        if let token = NetworkSettings.shared.token {
+//            headers[Keys.header] = token
+//        }
         return headers
     }
     
