@@ -23,7 +23,7 @@ class EventsServiceImplementation: EventsService {
                     completion(.success(events))
                     
                 } catch {
-                    completion(.failure(NetworkError.decodableError))
+                    completion(.failure(NetworkError.decodable))
                 }
                 
             case .failure(let error):

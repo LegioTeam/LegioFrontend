@@ -10,20 +10,26 @@ import UIKit
 
 protocol EventTypesInteractorProtocol {
     
-    func getInterestList(completion: @escaping InterestsService.InterestsResponse)
-    func updateMyInterests(idInterests: [Int]) 
+    func getInterestList(completion: @escaping InterestsService.AllInterestsResponse)
+    func getMyInterests(completion: @escaping InterestsService.MyInterestsResponse)
+    func updateMyInterests(idInterests: [Int], completion: @escaping InterestsService.MyInterestsResponse)
 }
 
 class EventTypesInteractor: EventTypesInteractorProtocol {
     
     private let interestsService: InterestsService = InterestsServiceImplementation()
     
-    func getInterestList(completion: @escaping (Result<InterestsList, Error>) -> Void) {
+    
+    func getInterestList(completion: @escaping InterestsService.AllInterestsResponse) {
         interestsService.interestsList(completion: completion)
     }
     
-    func updateMyInterests(idInterests: [Int]) {
-        interestsService.update(idMyInterests: idInterests)
+    func getMyInterests(completion: @escaping InterestsService.MyInterestsResponse) {
+        interestsService.myInterests(completion: completion)
+    }
+    
+    func updateMyInterests(idInterests: [Int], completion: @escaping InterestsService.MyInterestsResponse) {
+        interestsService.update(idMyInterests: idInterests, completion: completion)
     }
     
 }

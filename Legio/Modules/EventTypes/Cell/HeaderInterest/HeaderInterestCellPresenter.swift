@@ -1,9 +1,0 @@
-//
-//  HeaderInterestCellPresenter.swift
-//  Legio
-//
-//  Created by Mac on 10.11.2019.
-//  Copyright © 2019 Марат Нургалиев. All rights reserved.
-//
-
-import Foundation

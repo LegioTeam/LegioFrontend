@@ -16,16 +16,14 @@ enum InterestsTarget {
     case myInterests
 }
 
-extension InterestsTarget: TargetType {
+extension InterestsTarget: TargetType, AccessTokenAuthorizable {
     
     private enum Keys {
         static let contentType = "Content-Type"
-        static let authrization = "Authorization"
     }
     
     private enum Constants {
         static let contentTypeValue = "application/json"
-        static let bearer = "Bearer"
     }
     
     var baseURL: URL {
@@ -50,9 +48,9 @@ extension InterestsTarget: TargetType {
             
         case .myInterests: return .get
             
-        case .add: return .put
+        case .add: return .post
             
-        case .update: return .post
+        case .update: return .put
         }
     }
     
@@ -70,34 +68,35 @@ extension InterestsTarget: TargetType {
             return .requestPlain
         
         case .add(let idMyInterests):
-            return .requestParameters(
-                parameters: [:],
-            //Keys.identity: identity,
-//            Keys.password: password
-            encoding: URLEncoding.default)
+            guard let data = convertToData(array: idMyInterests) else {
+                fatalError("Cannot convert array to data")
+            }
+            return .requestData(data)
         
         case .update(let idMyInterests):
-            
-            return .requestParameters(
-                parameters: [: ],
-                encoding: URLEncoding.default)
-//            guard let data = convertToData(array: idMyInterests) else {
-//                fatalError("Cannot convert array to data")
-//            }
-//
-//            return .requestData(data)
+            guard let data = convertToData(array: idMyInterests) else {
+                fatalError("Cannot convert array to data")
+            }
+            return .requestData(data)
         }
     }
     
     public var headers: [String: String]? {
-        return [
-            Keys.contentType: Constants.contentTypeValue,
-            Keys.authrization: "\(Constants.bearer) \(NetworkSettings.shared.token)"
-        ]
+        return [Keys.contentType: Constants.contentTypeValue]
     }
     
     private func convertToData(array: [Int]) -> Data? {
         return try? JSONSerialization.data(withJSONObject: array, options: [])
+    }
+    
+    var authorizationType: AuthorizationType? {
+        switch self {
+        case .add, .myInterests, .update:
+            return .bearer
+            
+        case .interestsList:
+            return nil
+        }
     }
     
     

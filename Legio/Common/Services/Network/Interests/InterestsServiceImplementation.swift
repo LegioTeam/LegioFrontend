@@ -11,7 +11,11 @@ import Alamofire
 
 class InterestsServiceImplementation: InterestsService {
     
-    func interestsList(completion: @escaping InterestsResponse) {
+    private let authPlugin = AccessTokenPlugin { _ in
+        NetworkSettings.shared.token
+    }
+    
+    func interestsList(completion: @escaping AllInterestsResponse) {
         let target = MoyaProvider<InterestsTarget>()
         target.request(.interestsList) { result in
             
@@ -20,62 +24,99 @@ class InterestsServiceImplementation: InterestsService {
                 do {
                     let interestsList = try response.map(InterestsList.self)
                     completion(.success(interestsList))
-                    
                 } catch {
-                    completion(.failure(NetworkError.decodableError))
+                    completion(
+                    .failure(NetworkError.decodable))
                 }
                 
             case .failure(let error):
                 completion(.failure(error))
-                
             }
         }
     }
     
-    func myInterests(completion: @escaping InterestsResponse) {
-        let target = MoyaProvider<InterestsTarget>()
+    func myInterests(completion: @escaping MyInterestsResponse) {
+        
+        let target = MoyaProvider<InterestsTarget>(
+        plugins: [authPlugin])
         target.request(.myInterests) { result in
             
             switch result {
             case .success(let response):
+                
+                #if DEBUG
+                 let responseString = String(decoding: response.data, as: UTF8.self)
+                 print(responseString)
+                #endif
+                
                 do {
-                    let interestsList = try response.map(InterestsList.self)
+                    let interestsList = try response.map([Int].self)
                     completion(.success(interestsList))
-                    
                 } catch {
-                    completion(.failure(NetworkError.decodableError))
+                    completion(
+                    .failure(NetworkError.decodable))
                 }
                 
             case .failure(let error):
                 completion(.failure(error))
-                
             }
         }
     }
     
-    func update(idMyInterests: [Int]) {
-        let target = MoyaProvider<InterestsTarget>()
+    func update(idMyInterests: [Int], completion: @escaping MyInterestsResponse) {
+    
+        let target = MoyaProvider<InterestsTarget>(
+            plugins: [authPlugin])
         target.request(.update(idMyInterests: idMyInterests)) { result in
             
             switch result {
             case .success(let response):
                 
-                print(response.description)
-               
-                let responseString = String(decoding: response.data, as: UTF8.self)
-                print(responseString)
+                #if DEBUG
+                 let responseString = String(decoding: response.data, as: UTF8.self)
+                 print(responseString)
+                #endif
+                
                 do {
-                    let interestsList = try response.map(InterestsList.self)
-                    
-                    
+                    let userIntererests = try response.map([Int].self)
+                    completion(.success(userIntererests))
                 } catch {
-                   
+                    completion(
+                    .failure(NetworkError.decodable))
                 }
                 
             case .failure(let error):
-                print(error.localizedDescription)
-                
+                completion(.failure(error))
             }
         }
     }
+    
+    func add(idMyInterests: [Int], completion: @escaping MyInterestsResponse) {
+    
+        let target = MoyaProvider<InterestsTarget>(
+            plugins: [authPlugin])
+        target.request(.add(idMyInterests: idMyInterests)) { result in
+            
+            switch result {
+            case .success(let response):
+                
+                #if DEBUG
+                 let responseString = String(decoding: response.data, as: UTF8.self)
+                 print(responseString)
+                #endif
+                
+                do {
+                    let userIntererests = try response.map([Int].self)
+                    completion(.success(userIntererests))
+                } catch {
+                   completion(
+                    .failure(NetworkError.decodable))
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }

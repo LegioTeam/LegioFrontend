@@ -23,7 +23,7 @@ class ProfileServiceImplementation: ProfileService {
                     completion(.success(profileResponse))
                     
                 } catch {
-                    completion(.failure(NetworkError.decodableError))
+                    completion(.failure(NetworkError.decodable))
                 }
                 
             case .failure(let error):
@@ -45,7 +45,7 @@ class ProfileServiceImplementation: ProfileService {
                     completion(.success(interests))
                     
                 } catch {
-                    completion(.failure(NetworkError.decodableError))
+                    completion(.failure(NetworkError.decodable))
                 }
                 
             case .failure(let error):
@@ -67,7 +67,7 @@ class ProfileServiceImplementation: ProfileService {
                     completion(.success(interests))
                     
                 } catch {
-                    completion(.failure(NetworkError.decodableError))
+                    completion(.failure(NetworkError.decodable))
                 }
                 
             case .failure(let error):

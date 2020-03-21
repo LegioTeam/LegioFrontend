@@ -25,7 +25,7 @@ class AuthServiceImplementation: AuthService {
                         completion(.success(singInResponse))
                         
                     } catch {
-                        completion(.failure(NetworkError.decodableError))
+                        completion(.failure(NetworkError.decodable))
                     }
                     
                 case .failure(let error):
@@ -48,7 +48,7 @@ class AuthServiceImplementation: AuthService {
                         let registerResponse = try response.map(UserProfile.self)
                         completion(.success(registerResponse))
                     } catch {
-                        completion(.failure(NetworkError.decodableError))
+                        completion(.failure(NetworkError.decodable))
                     }
                     
                 case .failure(let error):

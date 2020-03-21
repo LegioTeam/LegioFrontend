@@ -63,7 +63,7 @@ extension EventTypesPresenter: EventTypesPresenterProtocol {
     
     internal func didSelectInterest(at row: Int) {
         interests[row].isSelected = !interests[row].isSelected
-        self.view?.updateData()
+        view?.updateData()
     }
     
 }
@@ -72,14 +72,50 @@ extension EventTypesPresenter {
     
     private func getInterests() {
         
-        self.interactor.getInterestList { [weak self] result in
-            
-            switch result {
-            case .success(let interestsList):
-                self?.handle(interestsList)
+        let dispatchGroup = DispatchGroup()
+        
+        var interestError: Error? = nil
+        var myInterests: [Int]? = nil
+        var interestsList: InterestsList? = nil
+        
+        dispatchGroup.enter()
+        interactor.getInterestList { response in
+            switch response {
+            case .success(let interests):
+                interestsList = interests
                 
             case .failure(let error):
+                interestError = error
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        interactor.getMyInterests { response in
+            switch response {
+            case .success(let interests):
+                myInterests = interests
+                
+            case .failure(let error):
+                interestError = error
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: DispatchQueue.main) { [weak self] in
+            if let error = interestError {
                 print(error.localizedDescription)
+                
+            } else if let interestsList = interestsList,
+                let myInterests = myInterests {
+                self?.handle(
+                    interestsList: interestsList,
+                    myInterests: myInterests)
+                
+            } else {
+                let emptyDataError = NetworkError.emptyData
+                print(emptyDataError.localizedDescription)
+                
             }
         }
     }
@@ -93,24 +129,38 @@ extension EventTypesPresenter {
         })
         
         if idSelectedInterests.count > 0 {
-            interactor.updateMyInterests(idInterests: idSelectedInterests)
+            interactor.updateMyInterests(
+            idInterests: idSelectedInterests) { [weak self] response in
+                switch response {
+                case .success:
+                    self?.router.showEvent()
+
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
         } else {
             //TO DO: Сделать универсальный вывод алертов
             //showError()
             print(Texts.noSelectedInterests)
-            
+
         }
     }
     
-    private func handle(_ interestsList: InterestsList) {
+    private func handle(interestsList: InterestsList, myInterests: [Int]) {
         interests = makeInterestsViewModel(
-            interests: interestsList.interests)
+            interests: interestsList.interests, myInterests: myInterests)
         view?.updateData()
     }
     
-    private func makeInterestsViewModel(interests: [Interest]) -> [InterestCellViewModel] {
+    private func makeInterestsViewModel(interests: [Interest], myInterests: [Int]) -> [InterestCellViewModel] {
         
-        return interests.compactMap({ InterestCellViewModel(id: $0.id, name: $0.name, containerWidth: contentWidth) })
+        return interests.compactMap({
+            InterestCellViewModel(
+                id: $0.id,
+                name: $0.name,
+                isSelected: myInterests.contains($0.id),
+                containerWidth: contentWidth) })
     }
 
 }

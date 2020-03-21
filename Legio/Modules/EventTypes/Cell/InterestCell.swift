@@ -91,6 +91,7 @@ class InterestCell: UICollectionViewCell {
 extension InterestCell {
     
     private func setupViews() {
+        
         self.contentView.addSubview(viewMain)
         self.contentView.addSubview(viewHeart)
         self.contentView.addSubview(labelSelectedCount)
@@ -99,9 +100,10 @@ extension InterestCell {
     }
     
     private func activateConstraints() {
+        
         NSLayoutConstraint.activate([
             self.viewMain.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 8),
-            self.viewMain.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -8),
+            self.viewMain.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
             self.viewMain.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0),
             self.viewMain.heightAnchor.constraint(equalToConstant: 40),
             

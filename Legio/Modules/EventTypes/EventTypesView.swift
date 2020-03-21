@@ -10,12 +10,14 @@ import UIKit
 
 protocol EventTypesViewProtocol: class {
     func updateData()
+    func updateCell(row: Int)
 }
 
 class EventTypesView: UIViewController {
     
     private enum Constants {
-        static let cellIdentifier = "InterestCell"
+        static let section: Int = 0
+        static let cellIdentifier: String = "InterestCell"
     }
 	
     @IBOutlet weak var collectionView: UICollectionView!
@@ -48,6 +50,13 @@ extension EventTypesView: EventTypesViewProtocol {
     
     internal func updateData() {
         collectionView.reloadData()
+    }
+    
+    internal func updateCell(row: Int) {
+        
+        let indexPath: IndexPath = IndexPath(
+            item: row,
+            section: Constants.section)
     }
     
 }

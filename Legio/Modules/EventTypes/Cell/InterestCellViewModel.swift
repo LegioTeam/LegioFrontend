@@ -14,7 +14,7 @@ struct InterestCellViewModel {
     private enum Constants {
         static let defaultCellWidth: CGFloat = 30
         static let defaultCellHeight: CGFloat = 50
-        static let cellRightSpace: CGFloat = 20
+        static let cellRightSpace: CGFloat = 10
     }
     
     /// Id интереса
@@ -29,10 +29,10 @@ struct InterestCellViewModel {
     /// Размер ячейки
     let cellSize: CGSize
     
-    init(id: Int, name: String, containerWidth: CGFloat) {
+    init(id: Int, name: String, isSelected: Bool, containerWidth: CGFloat) {
         self.id = id
         self.name = name
-        self.isSelected = false
+        self.isSelected = isSelected
         self.cellSize = InterestCellViewModel.configureCellSize(
             name: name,
             containerWidth: containerWidth)

@@ -9,14 +9,19 @@
 import Foundation
 
 enum NetworkError: Error {
-    case decodableError
+    case decodable
+    case emptyData
 }
 
 extension NetworkError: LocalizedError {
+    
     public var errorDescription: String? {
         switch self {
-        case .decodableError:
+        case .decodable:
             return NSLocalizedString("Некорректный ответ от сервера", comment: "Incorrect network response")
+            
+        case .emptyData:
+            return NSLocalizedString("Отсутствуют данные", comment: "Empty data")
         }
     }
 }

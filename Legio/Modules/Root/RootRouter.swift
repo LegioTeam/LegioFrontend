@@ -10,6 +10,7 @@ import UIKit
 
 protocol RootRouterProtocol: class {
 	func showLoginMain()
+    func showEventTypes()
 }
 
 class RootRouter: BaseRouter {
@@ -25,6 +26,14 @@ extension RootRouter: RootRouterProtocol {
 		}
 		let assembler: LoginMainAssemblerProtocol = LoginMainAssembler()
 		assembler.assemble(with: controller)
+        self.show(controller)
+    }
+    
+    func showEventTypes() {
+        guard let controller = UIStoryboard(name: "EventTypes", bundle: nil)
+            .instantiateViewController(withIdentifier: EventTypesView.storyboardIdentifier) as? EventTypesView else { return }
+        let assembler: EventTypesAssemblerProtocol = EventTypesAssembler()
+        assembler.assemble(with: controller)
         self.show(controller)
     }
     
