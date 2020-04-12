@@ -10,13 +10,13 @@ import Foundation
 
 class PosterImage: Codable {
     
-    let defaultUrl: String?
-    let uploadcareUrl: String?
+    let preview: String?
+    let original: String?
     
     enum CodingKeys: String, CodingKey {
         
-        case defaultUrl = "default_url"
-        case uploadcareUrl = "uploadcare_url"
+        case preview = "preview"
+        case original = "original"
     }
     
 }
