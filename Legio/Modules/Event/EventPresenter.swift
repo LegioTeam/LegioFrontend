@@ -101,7 +101,7 @@ extension EventPresenter {
      func loadImage() -> UIImage? {
             
             guard let event = event,
-                let imageUrl = event.posterImage?.defaultUrl,
+                let imageUrl = event.posterImage?.original,
                 let url = URL(string: imageUrl) else {
                     return defaultImage()
             }
