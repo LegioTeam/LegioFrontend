@@ -32,6 +32,12 @@ class EventsServiceImplementation: EventsService {
                 
                 switch result {
                 case .success(let response):
+
+                    #if DEBUG
+                     let responseString = String(decoding: response.data, as: UTF8.self)
+                     print(responseString)
+                    #endif
+                    
                     do {
                         let events = try response.map(EventsResponse.self)
                         completion(.success(events))

@@ -364,13 +364,6 @@
 			path = Interests;
 			sourceTree = "<group>";
 		};
-		04CFB7E1241407A30092D433 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		04CFB7E22414092B0092D433 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,7 +404,6 @@
 		AA265495234F54D60013B777 = {
 			isa = PBXGroup;
 			children = (
-				04CFB7E1241407A30092D433 /* New Group */,
 				AA2654A0234F54D60013B777 /* Legio */,
 				AA26549F234F54D60013B777 /* Products */,
 				F986928801C64F6F9CFE3DA0 /* Pods */,
@@ -1164,7 +1156,7 @@
 				CODE_SIGN_ENTITLEMENTS = Legio/Legio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XBW4F9AQY3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Legio/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1187,7 +1179,7 @@
 				CODE_SIGN_ENTITLEMENTS = Legio/Legio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XBW4F9AQY3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Legio/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -71,12 +71,10 @@ class InterestCell: UICollectionViewCell {
         labelName.text = viewModel.name
         
         if viewModel.isSelected {
-            viewHeart.isHidden = false
             labelName.textColor = UIColor.white
             viewMain.backgroundColor = UIColor.legio.legioBlue
             
         } else {
-            viewHeart.isHidden = true
             labelName.textColor = UIColor.darkText
             viewMain.backgroundColor = UIColor.white
         }

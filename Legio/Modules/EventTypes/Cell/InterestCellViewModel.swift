@@ -13,7 +13,7 @@ struct InterestCellViewModel {
     
     private enum Constants {
         static let defaultCellWidth: CGFloat = (UIScreen.main.bounds.width - 32) / 2 - 2
-        static let defaultCellHeight: CGFloat = 48
+        static let defaultCellHeight: CGFloat = 46
         static let cellRightSpace: CGFloat = 2
         
         static let defaultSize = CGSize(width: defaultCellWidth, height: defaultCellHeight)
@@ -45,24 +45,6 @@ struct InterestCellViewModel {
         containerWidth: CGFloat) -> CGSize {
         
         return Constants.defaultSize
-        
-//        let maxCellWidth: CGFloat = (containerWidth / 4) - 2
-//
-//        let cellHeight = Constants.defaultCellHeight
-//        var cellWidth = Constants.defaultCellWidth
-//
-//        let interestCell = InterestDefaultCell(frame: .zero)
-//
-//        interestCell.labelName.text = name
-//        interestCell.contentView.layoutIfNeeded()
-//
-//        if (interestCell.viewMain.frame.width + Constants.cellRightSpace) < maxCellWidth {
-//            cellWidth = interestCell.viewMain.frame.width + Constants.cellRightSpace
-//        } else {
-//            cellWidth = maxCellWidth
-//        }
-//
-//        return CGSize(width: cellWidth, height: cellHeight)
     }
     
 }

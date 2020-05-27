@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 protocol EventViewProtocol: class {
-    func show(error: String)
+    func showError(title: String, subtitle: String)
     func showEvents(viewModels: [EventViewModel])
 }
 
@@ -25,6 +26,20 @@ class EventView: UIViewController {
     @IBOutlet weak var likeDislikeButtons: UIStackView!
     @IBOutlet weak var partyNerdyButtons: UIStackView!
     @IBOutlet weak var bottomConstraintStackView: NSLayoutConstraint!
+    
+    private lazy var reloadButton: UIButton = {
+       let button = UIButton()
+        button.setTitle("Обновить", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor.legio.legioBlue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 8
+        button.isHidden = true
+        button.titleLabel?.font = UIFont(name: "SFUIText-Semibold", size: 20)
+        button.addTarget(self, action: #selector(didReloadButtonTap), for: .touchUpInside)
+        return button
+    }()
     
     var presenter: EventPresenterProtocol!
     var mainEvent = true
@@ -49,12 +64,17 @@ class EventView: UIViewController {
 
 extension EventView: EventViewProtocol {
     
-    func show(error: String) {
-        plugsAlert(title: error)
+    func showError(title: String, subtitle: String) {
+        updateLikeButtonsAlpha(needHide: true)
+        showNotificationBanner(title: title, subtitle: subtitle, style: .warning)
+        reloadButton.alpha = 1
+        reloadButton.isHidden = false
     }
     
     func showEvents(viewModels: [EventViewModel]) {
+        reloadButton.isHidden = true
         eventsContainerView.configure(viewModels: viewModels)
+
         if viewModels.count > 0 {
             updateLikeButtonsAlpha(needHide: false)
             likeButton.isEnabled = true
@@ -62,7 +82,6 @@ extension EventView: EventViewProtocol {
         } else {
             updateLikeButtonsAlpha(needHide: true)
         }
-        
     }
 }
 
@@ -78,27 +97,6 @@ extension EventView {
     // Перенести эту логику в пресентер
     @IBAction func likeButtonTapped(_ sender: UIButton) {
         updateLikeButtonsAlpha(needHide: true)
-//        eventsContainerView.likeHandled()
-        
-//        if likeButton.isEnabled, dislikeButton.isEnabled {
-//            dislikeButton.isEnabled = true
-//            likeButton.isEnabled = false
-//            isHiddenBottomButtons = true
-//        } else {
-//            if mainEvent {
-//                if !isHiddenBottomButtons {
-//                    bottomConstraintStackView.constant -= 100
-//                    UIView.animate(withDuration: 0.3, animations: {
-//                        self.view.layoutIfNeeded()
-//                    }, completion: { finished in
-//                        self.partyNerdyButtons.isHidden = true
-//                    })
-//                }
-//            }
-//            dislikeButton.isEnabled = true
-//            likeButton.isEnabled = false
-//            isHiddenBottomButtons = true
-//        }
     }
     
     // Перенести эту логику в пресентер
@@ -126,6 +124,11 @@ extension EventView {
         presenter.showNerdy()
     }
     
+    @objc private func didReloadButtonTap() {
+        reloadButton.alpha = 0.5
+        presenter.viewDidLoad()
+    }
+    
 }
 
 extension EventView {
@@ -135,6 +138,14 @@ extension EventView {
         partyNerdyButtons.isHidden = true
         eventsContainerView.delegate = self
         settingsButton.isHidden = true
+        
+        view.addSubview(reloadButton)
+        NSLayoutConstraint.activate([
+            reloadButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            reloadButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            reloadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24),
+            reloadButton.heightAnchor.constraint(equalToConstant: 64)
+        ])
     }
     
 }
