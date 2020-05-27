@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04075D64247C3B56007F152E /* GeoRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04075D63247C3B56007F152E /* GeoRequestEntity.swift */; };
+		04075D66247C3B67007F152E /* GeoRequestAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04075D65247C3B67007F152E /* GeoRequestAssembler.swift */; };
+		04075D68247C3B72007F152E /* GeoRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04075D67247C3B72007F152E /* GeoRequestView.swift */; };
+		04075D6A247C3B7E007F152E /* GeoRequestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04075D69247C3B7E007F152E /* GeoRequestPresenter.swift */; };
+		04075D6C247C3B8C007F152E /* GeoRequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04075D6B247C3B8C007F152E /* GeoRequestRouter.swift */; };
+		04075D6E247C3B97007F152E /* GeoRequestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04075D6D247C3B97007F152E /* GeoRequestInteractor.swift */; };
+		04075D70247C3BD3007F152E /* GeoRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04075D6F247C3BD3007F152E /* GeoRequest.storyboard */; };
 		04208E5E240AD6F700FC5F36 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04208E5D240AD6F700FC5F36 /* AuthService.swift */; };
 		04208E60240AD70500FC5F36 /* AuthServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04208E5F240AD70500FC5F36 /* AuthServiceImplementation.swift */; };
 		04208E62240AD71100FC5F36 /* AuthTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04208E61240AD71100FC5F36 /* AuthTarget.swift */; };
@@ -143,6 +150,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04075D63247C3B56007F152E /* GeoRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoRequestEntity.swift; sourceTree = "<group>"; };
+		04075D65247C3B67007F152E /* GeoRequestAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoRequestAssembler.swift; sourceTree = "<group>"; };
+		04075D67247C3B72007F152E /* GeoRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoRequestView.swift; sourceTree = "<group>"; };
+		04075D69247C3B7E007F152E /* GeoRequestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoRequestPresenter.swift; sourceTree = "<group>"; };
+		04075D6B247C3B8C007F152E /* GeoRequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoRequestRouter.swift; sourceTree = "<group>"; };
+		04075D6D247C3B97007F152E /* GeoRequestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoRequestInteractor.swift; sourceTree = "<group>"; };
+		04075D6F247C3BD3007F152E /* GeoRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeoRequest.storyboard; sourceTree = "<group>"; };
 		04208E5D240AD6F700FC5F36 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		04208E5F240AD70500FC5F36 /* AuthServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImplementation.swift; sourceTree = "<group>"; };
 		04208E61240AD71100FC5F36 /* AuthTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTarget.swift; sourceTree = "<group>"; };
@@ -295,6 +309,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04075D60247C3B01007F152E /* GeoRequest */ = {
+			isa = PBXGroup;
+			children = (
+				04075D65247C3B67007F152E /* GeoRequestAssembler.swift */,
+				04075D67247C3B72007F152E /* GeoRequestView.swift */,
+				04075D69247C3B7E007F152E /* GeoRequestPresenter.swift */,
+				04075D6D247C3B97007F152E /* GeoRequestInteractor.swift */,
+				04075D6B247C3B8C007F152E /* GeoRequestRouter.swift */,
+				04075D63247C3B56007F152E /* GeoRequestEntity.swift */,
+				04075D6F247C3BD3007F152E /* GeoRequest.storyboard */,
+			);
+			path = GeoRequest;
+			sourceTree = "<group>";
+		};
 		04208E5C240AD6E100FC5F36 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +592,7 @@
 				E14C3FB323FDDC8400C43877 /* Forgot */,
 				E14C3F6F23FDDC8400C43877 /* Preset */,
 				E14C3F9A23FDDC8400C43877 /* EventTypes */,
+				04075D60247C3B01007F152E /* GeoRequest */,
 				E14C3F7E23FDDC8400C43877 /* Feedback */,
 				E14C3F8C23FDDC8400C43877 /* Profile */,
 				E14C3FB723FDDC8400C43877 /* Main */,
@@ -680,12 +709,12 @@
 		E14C3FAC23FDDC8400C43877 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				E14C3FB023FDDC8400C43877 /* Root.storyboard */,
+				E14C3FB223FDDC8400C43877 /* RootAssembler.swift */,
+				E14C3FAF23FDDC8400C43877 /* RootView.swift */,
+				E14C3FB123FDDC8400C43877 /* RootPresenter.swift */,
 				E14C3FAD23FDDC8400C43877 /* RootInteractor.swift */,
 				E14C3FAE23FDDC8400C43877 /* RootRouter.swift */,
-				E14C3FAF23FDDC8400C43877 /* RootView.swift */,
-				E14C3FB023FDDC8400C43877 /* Root.storyboard */,
-				E14C3FB123FDDC8400C43877 /* RootPresenter.swift */,
-				E14C3FB223FDDC8400C43877 /* RootAssembler.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -819,6 +848,7 @@
 				E14C401B23FDDD4E00C43877 /* LaunchScreen.storyboard in Resources */,
 				E14C401F23FDDD5C00C43877 /* SFUIText-Heavy.ttf in Resources */,
 				E14C402123FDDD5C00C43877 /* SFUIText-Light.ttf in Resources */,
+				04075D70247C3BD3007F152E /* GeoRequest.storyboard in Resources */,
 				E14C3FF023FDDD0C00C43877 /* Register.storyboard in Resources */,
 				E14C402423FDDD5C00C43877 /* SFUIText-BoldItalic.ttf in Resources */,
 				E14C402723FDDD5C00C43877 /* SFUIText-HeavyItalic.ttf in Resources */,
@@ -883,10 +913,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04075D6A247C3B7E007F152E /* GeoRequestPresenter.swift in Sources */,
 				E14C3FFE23FDDD1F00C43877 /* EventTypesPresenter.swift in Sources */,
 				E14C3FC523FDDCB000C43877 /* CustomButton.swift in Sources */,
+				04075D66247C3B67007F152E /* GeoRequestAssembler.swift in Sources */,
 				E14C3FE723FDDD0500C43877 /* FeedbackAssembler.swift in Sources */,
 				E14C3FDC23FDDCF200C43877 /* PresetRouter.swift in Sources */,
+				04075D6C247C3B8C007F152E /* GeoRequestRouter.swift in Sources */,
 				04CFB7EE241583030092D433 /* EventsService.swift in Sources */,
 				E14C3FF123FDDD0C00C43877 /* RegisterView.swift in Sources */,
 				E14C3FCA23FDDCBB00C43877 /* UIView+Extension.swift in Sources */,
@@ -902,6 +935,7 @@
 				E14C3FED23FDDD0C00C43877 /* RegisterRouter.swift in Sources */,
 				0440E088242D1ED6005447BC /* DateStringConverter.swift in Sources */,
 				E14C3FEC23FDDD0C00C43877 /* RegisterPresenter.swift in Sources */,
+				04075D64247C3B56007F152E /* GeoRequestEntity.swift in Sources */,
 				04C66A2324215A4C00584A55 /* InterestsTarget.swift in Sources */,
 				E14C3FCB23FDDCBB00C43877 /* Double+Extension.swift in Sources */,
 				04443F30242FE478005C42DE /* EventsContainerView.swift in Sources */,
@@ -921,6 +955,7 @@
 				E14C401723FDDD4000C43877 /* EventWebView.swift in Sources */,
 				E14C400423FDDD2700C43877 /* EventTypesView.swift in Sources */,
 				E14C3FE823FDDD0500C43877 /* FeedbackRouter.swift in Sources */,
+				04075D68247C3B72007F152E /* GeoRequestView.swift in Sources */,
 				E14C3FD323FDDCD100C43877 /* NotificationDelegate.swift in Sources */,
 				E14C3FEA23FDDD0500C43877 /* FeedbackInteractor.swift in Sources */,
 				04443F37243009AA005C42DE /* EmptyEventCardView.swift in Sources */,
@@ -958,6 +993,7 @@
 				04CFB7EB241580850092D433 /* Profile.swift in Sources */,
 				E14C400223FDDD1F00C43877 /* EventTypesEntity.swift in Sources */,
 				E14C402D2401351900C43877 /* InterestPrototypeCell.swift in Sources */,
+				04075D6E247C3B97007F152E /* GeoRequestInteractor.swift in Sources */,
 				0440E07F242D072A005447BC /* EventsResponse.swift in Sources */,
 				E14C400B23FDDD2E00C43877 /* RootAssembler.swift in Sources */,
 				E14C400A23FDDD2E00C43877 /* RootPresenter.swift in Sources */,

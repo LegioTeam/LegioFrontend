@@ -6,12 +6,12 @@
 //  Copyright © 2019 Марат Нургалиев. All rights reserved.
 //
 
-import Foundation
+import CoreLocation
 
 protocol EventInteractorProtocol {
     func getEvents(
         city: String?,
-        location: String?,
+        location: CLLocation?,
         distance: Float?,
         metro: String?,
         completion: @escaping EventsService.EventsResult)
@@ -24,14 +24,20 @@ class EventInteractor: EventInteractorProtocol {
     
     internal func getEvents(
         city: String? = nil,
-        location: String? = nil,
+        location: CLLocation? = nil,
         distance: Float? = nil,
         metro: String? = nil,
         completion: @escaping EventsService.EventsResult) {
         
+        let locationString: String?
+        if let location = location {
+            locationString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        } else {
+            locationString = nil
+        }
         eventsService.getEvents(
             city: city,
-            location: location,
+            location: locationString,
             distance: distance,
             metro: metro,
             completion: completion)

@@ -9,12 +9,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
     let notification = NotificationDelegate()
-    let locationManager = LocationManager.sharedManager
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         notification.notificationCenter.delegate = notification
         notification.userRequest()
-        locationManager.start()
         if !HasRunBefore.yes {
             let keychain = KeychainSwift()
             keychain.clear()

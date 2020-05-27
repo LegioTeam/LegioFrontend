@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText-Semibold.ttf">
+            <string>SFUIText-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Geo Request View-->
+        <scene sceneID="Peg-Ux-V9N">
+            <objects>
+                <viewController storyboardIdentifier="GeoRequestView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wL7-bH-bvl" customClass="GeoRequestView" customModule="Legio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LDf-bQ-VeM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Включите геолокацию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrM-PD-bRb">
+                                <rect key="frame" x="24" y="84" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тогда будете получать события, происходящие рядом с Вами" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0b-xC-Big">
+                                <rect key="frame" x="24" y="138.5" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJe-nH-EZh">
+                                <rect key="frame" x="24" y="720" width="366" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="cU0-j9-dsC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="20"/>
+                                <state key="normal" title="Включить">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didGeoEnableTap:" destination="wL7-bH-bvl" eventType="touchUpInside" id="VhY-6L-gGh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgX-2W-ydX">
+                                <rect key="frame" x="24" y="808" width="366" height="64"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="uxJ-Ro-TCP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="20"/>
+                                <state key="normal" title="Пропустить">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didButtonSkipTap:" destination="wL7-bH-bvl" eventType="touchUpInside" id="odl-DG-YKA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="K0b-xC-Big" firstAttribute="top" secondItem="zrM-PD-bRb" secondAttribute="bottom" constant="16" id="5Sd-jS-ujP"/>
+                            <constraint firstItem="qgX-2W-ydX" firstAttribute="top" secondItem="oJe-nH-EZh" secondAttribute="bottom" constant="24" id="CZg-qN-D44"/>
+                            <constraint firstItem="qgX-2W-ydX" firstAttribute="leading" secondItem="LDf-bQ-VeM" secondAttribute="leading" constant="24" id="IH2-J6-TdB"/>
+                            <constraint firstAttribute="bottom" secondItem="qgX-2W-ydX" secondAttribute="bottom" constant="24" id="JTO-VH-ClB"/>
+                            <constraint firstItem="zrM-PD-bRb" firstAttribute="leading" secondItem="V9K-5c-Y5T" secondAttribute="leading" constant="24" id="SEO-4q-kJn"/>
+                            <constraint firstItem="zrM-PD-bRb" firstAttribute="top" secondItem="V9K-5c-Y5T" secondAttribute="top" constant="40" id="dUf-Ec-Tfj"/>
+                            <constraint firstItem="K0b-xC-Big" firstAttribute="leading" secondItem="V9K-5c-Y5T" secondAttribute="leading" constant="24" id="fzT-8a-hkm"/>
+                            <constraint firstItem="V9K-5c-Y5T" firstAttribute="trailing" secondItem="zrM-PD-bRb" secondAttribute="trailing" constant="24" id="iQI-A4-0of"/>
+                            <constraint firstItem="oJe-nH-EZh" firstAttribute="leading" secondItem="V9K-5c-Y5T" secondAttribute="leading" constant="24" id="ntQ-fL-AGA"/>
+                            <constraint firstItem="V9K-5c-Y5T" firstAttribute="trailing" secondItem="oJe-nH-EZh" secondAttribute="trailing" constant="24" id="s5u-Xg-eEh"/>
+                            <constraint firstAttribute="trailing" secondItem="qgX-2W-ydX" secondAttribute="trailing" constant="24" id="sMB-Y5-9PZ"/>
+                            <constraint firstItem="V9K-5c-Y5T" firstAttribute="trailing" secondItem="K0b-xC-Big" secondAttribute="trailing" constant="24" id="vfe-Ps-cV3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V9K-5c-Y5T"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7vM-eR-D4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-168.11594202898553" y="93.75"/>
+        </scene>
+    </scenes>
+</document>
