@@ -31,6 +31,7 @@
 		04443F39243009B7005C42DE /* EmptyEventCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04443F38243009B7005C42DE /* EmptyEventCardView.xib */; };
 		044DDC5624828CEF00923094 /* UnsafeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DDC5524828CEF00923094 /* UnsafeToken.swift */; };
 		044DDC5924828DE300923094 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DDC5824828DE300923094 /* DatabaseService.swift */; };
+		044DDC5C2482BDF000923094 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DDC5B2482BDF000923094 /* NotificationService.swift */; };
 		04C66A1F24215A2000584A55 /* InterestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A1E24215A2000584A55 /* InterestsService.swift */; };
 		04C66A2124215A3900584A55 /* InterestsServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A2024215A3900584A55 /* InterestsServiceImplementation.swift */; };
 		04C66A2324215A4C00584A55 /* InterestsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A2224215A4C00584A55 /* InterestsTarget.swift */; };
@@ -176,6 +177,7 @@
 		04443F38243009B7005C42DE /* EmptyEventCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyEventCardView.xib; sourceTree = "<group>"; };
 		044DDC5524828CEF00923094 /* UnsafeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeToken.swift; sourceTree = "<group>"; };
 		044DDC5824828DE300923094 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		044DDC5B2482BDF000923094 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		04C66A1E24215A2000584A55 /* InterestsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsService.swift; sourceTree = "<group>"; };
 		04C66A2024215A3900584A55 /* InterestsServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsServiceImplementation.swift; sourceTree = "<group>"; };
 		04C66A2224215A4C00584A55 /* InterestsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsTarget.swift; sourceTree = "<group>"; };
@@ -358,6 +360,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		044DDC5A2482BDC000923094 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				044DDC5B2482BDF000923094 /* NotificationService.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		04C66A1D24215A0200584A55 /* Interests */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +539,7 @@
 		E14C3F6023FDDC8400C43877 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				044DDC5A2482BDC000923094 /* Notification */,
 				E14C3F6123FDDC8400C43877 /* Database */,
 				E14C3F6423FDDC8400C43877 /* NotificationDelegate.swift */,
 				E14C3F6523FDDC8400C43877 /* Network */,
@@ -915,6 +926,7 @@
 				E14C3FFE23FDDD1F00C43877 /* EventTypesPresenter.swift in Sources */,
 				E14C3FC523FDDCB000C43877 /* CustomButton.swift in Sources */,
 				04075D66247C3B67007F152E /* GeoRequestAssembler.swift in Sources */,
+				044DDC5C2482BDF000923094 /* NotificationService.swift in Sources */,
 				E14C3FE723FDDD0500C43877 /* FeedbackAssembler.swift in Sources */,
 				E14C3FDC23FDDCF200C43877 /* PresetRouter.swift in Sources */,
 				04075D6C247C3B8C007F152E /* GeoRequestRouter.swift in Sources */,

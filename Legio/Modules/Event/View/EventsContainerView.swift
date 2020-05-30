@@ -38,15 +38,21 @@ class EventsContainerView: UIView {
     
     func configure(viewModels: [EventViewModel]) {
         
-        for viewModel in viewModels {
-            let eventCardView = EventCardView(frame: bounds)
-            addSubview(eventCardView)
-            eventCardView.configure(viewModel: viewModel)
-            
+        viewModels.forEach {
+            if $0.isLast {
+                let eventCardView = EmptyEventCardView(frame: bounds)
+                addSubview(eventCardView)
+                eventCardView.configure(viewModel: $0)
+                
+            } else {
+                let eventCardView = EventCardView(frame: bounds)
+                addSubview(eventCardView)
+                eventCardView.configure(viewModel: $0)
+            }
         }
-        let emptyCardView = EmptyEventCardView(frame: bounds)
-        insertSubview(emptyCardView, at: 0)
+        
         layoutIfNeeded()
+        sendAllEventsShowedIfNeeded()
     }
     
     func likeHandled() {

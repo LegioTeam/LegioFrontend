@@ -9,32 +9,42 @@
 import CoreLocation
 
 protocol EventInteractorProtocol {
+    
+    /// Метод получения списка событий
     func getEvents(
         city: String?,
         location: CLLocation?,
         distance: Float?,
         metro: String?,
         completion: @escaping EventsService.EventsResult)
+    
+    /// Лайкнуть событие
+    func like(event: Event)
+    
+    /// Дислайкнуть событие
+    func dislike(event: Event)
+    
 }
 
-class EventInteractor: EventInteractorProtocol {
+final class EventInteractor: EventInteractorProtocol {
     
-    var event: Event?
-    private let eventsService: EventsService = EventsServiceImplementation()
+    private let eventsService: EventsService
+    private let notificationService: NotificationService
     
-    internal func getEvents(
+    init(eventsService: EventsService,
+         notificationService: NotificationService) {
+        self.eventsService = eventsService
+        self.notificationService = notificationService
+    }
+    
+    func getEvents(
         city: String? = nil,
         location: CLLocation? = nil,
         distance: Float? = nil,
         metro: String? = nil,
         completion: @escaping EventsService.EventsResult) {
         
-        let locationString: String?
-        if let location = location {
-            locationString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-        } else {
-            locationString = nil
-        }
+        let locationString = makeString(from: location)
         eventsService.getEvents(
             city: city,
             location: locationString,
@@ -42,5 +52,22 @@ class EventInteractor: EventInteractorProtocol {
             metro: metro,
             completion: completion)
     }
+    
+    func like(event: Event) {
+        notificationService.addNotification(for: event)
+    }
+    
+    func dislike(event: Event) {}
+    
+    private func makeString(from location: CLLocation?) -> String? {
+        
+        let locationString: String?
+        if let location = location {
+            locationString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        } else {
+            locationString = nil
+        }
+       
+        return locationString
+    }
 }
-

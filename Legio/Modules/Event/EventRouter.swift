@@ -16,7 +16,7 @@ protocol EventRouterProtocol: class {
     func showNerdy()
 }
 
-class EventRouter: BaseRouter { }
+final class EventRouter: BaseRouter { }
 
 extension EventRouter: EventRouterProtocol {
     

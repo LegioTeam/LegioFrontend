@@ -13,11 +13,17 @@ protocol EventAssemblerProtocol: class {
     func assembleFromButton(with view: EventView)
 }
 
-class EventAssembler: EventAssemblerProtocol {
+final class EventAssembler: EventAssemblerProtocol {
     
     func assemble(with view: EventView) {
+        
         let router = EventRouter(controller: view)
-        let interactor = EventInteractor()
+        
+        let eventsService = EventsServiceImplementation()
+        let notificationService = NotificationServiceImplementation()
+        let interactor = EventInteractor(
+            eventsService: eventsService,
+            notificationService: notificationService)
         
         let presenter = EventPresenter()
         presenter.router = router
@@ -30,8 +36,15 @@ class EventAssembler: EventAssemblerProtocol {
     }
     
     func assembleFromButton(with view: EventView) {
+        
         let router = EventRouter(controller: view)
-        let interactor = EventInteractor()
+        
+        let eventsService = EventsServiceImplementation()
+        let notificationService = NotificationServiceImplementation()
+        let interactor = EventInteractor(
+            eventsService: eventsService,
+            notificationService: notificationService)
+       
         let presenter = EventPresenter()
         presenter.router = router
         presenter.interactor = interactor
