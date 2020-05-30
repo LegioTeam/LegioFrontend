@@ -22,48 +22,47 @@ class RootPresenter {
 }
 
 extension RootPresenter: RootPresenterProtocol {
+    
+    private enum Texts {
+        static let errorTitle = "Ошибка"
+    }
 	
     func viewDidLoad() {
-        
-        enterWithoutLoginView()
+        checkIsAuthorized()
     }
     
-    private func enterWithoutLoginView() {
-        let auth = AuthServiceImplementation()
-        auth.signIn(identity: NetworkSettings.defaultLogin, password: NetworkSettings.defaultPassword) { [weak self] result in
-            switch result {
-            case .success(let profile):
-                guard let token = profile.token else { return }
-                self?.authInteractor.save(token: token)
-                self?.router.showPreset()
-                
-            case .failure(let error):
-                self?.view?.showError(title: "Что-то пошло не так", subtitle: error.localizedDescription)
-            }
+    private func checkIsAuthorized() {
+        if interactor.isAuthorized() {
+            router.showEvents()
+        } else {
+            signIn()
         }
     }
     
-    private func enterDefault() {
-        let keychain = KeychainSwift()
-        guard let identity = keychain.get(Keys.identity),
-            let password = keychain.get(Keys.password) else {
-                router.showLoginMain()
+    private func signIn() {
+       
+        interactor.signIn { [weak self] error in
+            
+            guard let error = error else {
+                /// Добавим проверку, если у него есть интересы, значит уже авторизовывался
+                self?.checkInterests()
                 return
+            }
+            
+            self?.view?.showError(title: Texts.errorTitle, subtitle: error.localizedDescription)
         }
-
-        let auth = AuthServiceImplementation()
-        auth.signIn(identity: identity, password: password) { [weak self] result in
-            switch result {
-            case .success(let profile):
-                guard let token = profile.token else { return }
-                self?.authInteractor.save(token: token)
-                //self?.router.showEventTypes()
+    }
+    
+    private func checkInterests() {
+        
+        interactor.haveInterests { [weak self] haveInterests in
+            if haveInterests {
+                // TO DO: А вдруг пользователь не включил геолокацию
+                self?.router.showEvents()
+            } else {
                 self?.router.showPreset()
-
-            case .failure(let error):
-                self?.router.showLoginMain()
-                self?.view?.showError(title: "Что-то пошло не так", subtitle: error.localizedDescription)
             }
         }
     }
+    
 }

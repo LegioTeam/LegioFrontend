@@ -19,7 +19,8 @@ class AuthInteractor: AuthInteractorProtocol {
     
     private let networkService = NetworkSettings.shared
     private let validateManager: ValidateManager = ValidateManager()
-    private let authService: AuthService = AuthServiceImplementation()
+    private let authService: AuthService = AuthServiceImplementation(
+    with: KeychainDatabaseServiceImplementation.instance)
     
     func auth(email: String, password: String, completion: @escaping AuthService.AuthResponse) {
         authService.signIn(identity: email, password: password, completion: completion)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EventsResponse: Codable {
+final class EventsResponse: Codable {
     
     let events: [Event]
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InterestsResponse: Codable {
+final class InterestsResponse: Codable {
     
     let interests: [Interest]
     

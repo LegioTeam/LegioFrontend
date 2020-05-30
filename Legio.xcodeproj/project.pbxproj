@@ -22,6 +22,8 @@
 		04443F32242FE49D005C42DE /* EventsContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04443F31242FE49D005C42DE /* EventsContainerView.xib */; };
 		04443F37243009AA005C42DE /* EmptyEventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04443F36243009AA005C42DE /* EmptyEventCardView.swift */; };
 		04443F39243009B7005C42DE /* EmptyEventCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04443F38243009B7005C42DE /* EmptyEventCardView.xib */; };
+		044DDC5624828CEF00923094 /* UnsafeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DDC5524828CEF00923094 /* UnsafeToken.swift */; };
+		044DDC5924828DE300923094 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DDC5824828DE300923094 /* DatabaseService.swift */; };
 		04C66A1F24215A2000584A55 /* InterestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A1E24215A2000584A55 /* InterestsService.swift */; };
 		04C66A2124215A3900584A55 /* InterestsServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A2024215A3900584A55 /* InterestsServiceImplementation.swift */; };
 		04C66A2324215A4C00584A55 /* InterestsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C66A2224215A4C00584A55 /* InterestsTarget.swift */; };
@@ -158,6 +160,8 @@
 		04443F31242FE49D005C42DE /* EventsContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsContainerView.xib; sourceTree = "<group>"; };
 		04443F36243009AA005C42DE /* EmptyEventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEventCardView.swift; sourceTree = "<group>"; };
 		04443F38243009B7005C42DE /* EmptyEventCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyEventCardView.xib; sourceTree = "<group>"; };
+		044DDC5524828CEF00923094 /* UnsafeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeToken.swift; sourceTree = "<group>"; };
+		044DDC5824828DE300923094 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		04C66A1E24215A2000584A55 /* InterestsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsService.swift; sourceTree = "<group>"; };
 		04C66A2024215A3900584A55 /* InterestsServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsServiceImplementation.swift; sourceTree = "<group>"; };
 		04C66A2224215A4C00584A55 /* InterestsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsTarget.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 				04CFB7F72415874A0092D433 /* EventLocation.swift */,
 				04CFB7F9241587900092D433 /* Category.swift */,
 				48B95693246B137D008F6178 /* EventSource.swift */,
+				044DDC5524828CEF00923094 /* UnsafeToken.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				E14C3F6223FDDC8400C43877 /* Legio.xcdatamodeld */,
+				044DDC5824828DE300923094 /* DatabaseService.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -672,12 +678,12 @@
 		E14C3FAC23FDDC8400C43877 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				E14C3FB223FDDC8400C43877 /* RootAssembler.swift */,
+				E14C3FAF23FDDC8400C43877 /* RootView.swift */,
+				E14C3FB123FDDC8400C43877 /* RootPresenter.swift */,
 				E14C3FAD23FDDC8400C43877 /* RootInteractor.swift */,
 				E14C3FAE23FDDC8400C43877 /* RootRouter.swift */,
-				E14C3FAF23FDDC8400C43877 /* RootView.swift */,
 				E14C3FB023FDDC8400C43877 /* Root.storyboard */,
-				E14C3FB123FDDC8400C43877 /* RootPresenter.swift */,
-				E14C3FB223FDDC8400C43877 /* RootAssembler.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -905,6 +911,7 @@
 				E14C400023FDDD1F00C43877 /* EventTypesAssembler.swift in Sources */,
 				04CFB7F2241583230092D433 /* EventsTarget.swift in Sources */,
 				04CFB7F0241583190092D433 /* EventsServiceImplementation.swift in Sources */,
+				044DDC5924828DE300923094 /* DatabaseService.swift in Sources */,
 				E14C3FFF23FDDD1F00C43877 /* EventTypesRouter.swift in Sources */,
 				48B95694246B137D008F6178 /* EventSource.swift in Sources */,
 				E14C3FCF23FDDCC000C43877 /* ResponseSetTimeInvest.swift in Sources */,
@@ -963,6 +970,7 @@
 				E14C3FC823FDDCBB00C43877 /* UIColor+Extension.swift in Sources */,
 				E14C401823FDDD4000C43877 /* EventInteractor.swift in Sources */,
 				04208E62240AD71100FC5F36 /* AuthTarget.swift in Sources */,
+				044DDC5624828CEF00923094 /* UnsafeToken.swift in Sources */,
 				E14C3FFA23FDDD1700C43877 /* LoginMainRouter.swift in Sources */,
 				04CFB7E524140A030092D433 /* ProfileService.swift in Sources */,
 				E14C3FEB23FDDD0500C43877 /* FeedbackPresenter.swift in Sources */,

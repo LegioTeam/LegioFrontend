@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserProfile: Codable {
+final class UserProfile: Codable {
     
     let token: String?
     let name: String?

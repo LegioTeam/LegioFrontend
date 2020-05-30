@@ -21,7 +21,6 @@ class EventTypesInteractor: EventTypesInteractorProtocol {
     
     private let interestsService: InterestsService = InterestsServiceImplementation()
     
-    
     func getInterestList(completion: @escaping InterestsService.AllInterestsResult) {
         interestsService.interestsList(completion: completion)
     }
