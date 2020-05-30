@@ -17,6 +17,20 @@ class RootView: UIViewController {
 	
 	private let assembler: RootAssemblerProtocol = RootAssembler()
 	var presenter: RootPresenterProtocol!
+    
+    private lazy var reloadButton: UIButton = {
+       let button = UIButton()
+        button.setTitle("Обновить", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor.legio.legioBlue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 8
+        button.isHidden = true
+        button.titleLabel?.font = UIFont(name: "SFUIText-Semibold", size: 20)
+        button.addTarget(self, action: #selector(didReloadButtonTap), for: .touchUpInside)
+        return button
+    }()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -33,11 +47,18 @@ class RootView: UIViewController {
         super.viewDidAppear(animated)
         setupReturnToPreviousViewController()
     }
+    
+    @objc private func didReloadButtonTap() {
+        reloadButton.alpha = 0.5
+        presenter.viewDidLoad()
+    }
 }
 
 extension RootView: RootViewProtocol {
+    
     func showError(title: String, subtitle: String) {
         showNotificationBanner(title: title, subtitle: subtitle, style: .warning)
+        reloadButton.alpha = 1
+        reloadButton.isHidden = false
     }
-    
 }

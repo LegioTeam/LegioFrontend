@@ -62,11 +62,18 @@ extension RootPresenter: RootPresenterProtocol {
         
         interactor.haveInterests { [weak self] haveInterests in
             if haveInterests {
-                // TO DO: А вдруг пользователь не включил геолокацию
-                self?.router.showEvents()
+                self?.checkLocationEnable()
             } else {
                 self?.router.showPreset()
             }
+        }
+    }
+    
+    private func checkLocationEnable() {
+        if isLocationEnabled {
+            router.showEvents()
+        } else {
+            router.showGeoRequest()
         }
     }
     

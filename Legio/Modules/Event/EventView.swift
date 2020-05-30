@@ -89,7 +89,6 @@ extension EventView: EventViewProtocol {
 
 extension EventView {
     
-    
     @IBAction func settingsButtonTapped(_ sender: Any) {
         presenter.profileTapped()
     }
