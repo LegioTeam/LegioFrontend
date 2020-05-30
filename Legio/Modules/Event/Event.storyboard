@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,51 +67,14 @@
                                     <constraint firstAttribute="height" constant="64" id="siG-BC-eyK"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vnt-it-d3d">
-                                <rect key="frame" x="20" y="882" width="374" height="32"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGd-53-zA3">
-                                        <rect key="frame" x="0.0" y="0.0" width="183" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="gLK-kf-3yg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="🥳 веселее">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="partyButtonTapped:" destination="0ju-0k-I1B" eventType="touchDragInside" id="kx9-Wi-yZd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjb-1f-GGv">
-                                        <rect key="frame" x="191" y="0.0" width="183" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="q71-ON-vud"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="умнее 🤓">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="nerdyButtonTapped:" destination="0ju-0k-I1B" eventType="touchUpInside" id="njK-Im-3I0"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="uGd-53-zA3" firstAttribute="width" secondItem="vjb-1f-GGv" secondAttribute="width" id="6s9-nf-FhG"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vnt-it-d3d" secondAttribute="trailing" constant="20" id="0oP-ti-nCN"/>
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="bottom" secondItem="c9o-gU-86Z" secondAttribute="bottom" constant="30" id="2Uq-us-wF9"/>
                             <constraint firstItem="cOV-Lt-fni" firstAttribute="top" secondItem="hRe-wJ-Uv1" secondAttribute="top" id="3eD-h2-4AC"/>
-                            <constraint firstItem="vnt-it-d3d" firstAttribute="top" secondItem="c9o-gU-86Z" secondAttribute="bottom" constant="50" id="M52-jL-h8G"/>
                             <constraint firstItem="wrT-o9-LVI" firstAttribute="top" secondItem="hRe-wJ-Uv1" secondAttribute="top" constant="20" id="MyU-Hd-tz2"/>
                             <constraint firstItem="c9o-gU-86Z" firstAttribute="centerX" secondItem="CXE-9v-FVP" secondAttribute="centerX" id="R6f-oV-4Jo"/>
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="trailing" secondItem="wrT-o9-LVI" secondAttribute="trailing" constant="20" id="RY5-X0-z9W"/>
-                            <constraint firstItem="vnt-it-d3d" firstAttribute="leading" secondItem="CXE-9v-FVP" secondAttribute="leading" constant="20" id="TdC-tk-WHj"/>
                             <constraint firstItem="cOV-Lt-fni" firstAttribute="leading" secondItem="hRe-wJ-Uv1" secondAttribute="leading" id="caU-8F-3s1"/>
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="trailing" secondItem="cOV-Lt-fni" secondAttribute="trailing" id="h4h-CS-jsM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="cOV-Lt-fni" secondAttribute="bottom" id="yYX-Dm-vsc"/>
@@ -127,9 +89,6 @@
                         <outlet property="eventsContainerView" destination="cOV-Lt-fni" id="WTZ-Oa-l5A"/>
                         <outlet property="likeButton" destination="B85-yV-ibF" id="bty-y0-2Xo"/>
                         <outlet property="likeDislikeButtons" destination="c9o-gU-86Z" id="YEU-Eu-8hJ"/>
-                        <outlet property="nerdyButton" destination="vjb-1f-GGv" id="KRj-6r-qVf"/>
-                        <outlet property="partyButton" destination="uGd-53-zA3" id="kc7-ax-n7I"/>
-                        <outlet property="partyNerdyButtons" destination="vnt-it-d3d" id="Dd9-y7-10S"/>
                         <outlet property="settingsButton" destination="wrT-o9-LVI" id="1Y9-eN-p0m"/>
                     </connections>
                 </viewController>

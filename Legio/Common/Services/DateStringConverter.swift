@@ -10,9 +10,9 @@ import Foundation
 
 class DateStringConverter {
     
-    private enum DateFormat {
-        static let input: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        static let output: String = "dd.MM.yyyy HH:mm"
+    enum DateFormat: String {
+        case input = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        case output = "dd.MM.yyyy HH:mm"
     }
     
     private enum Constants {
@@ -22,13 +22,19 @@ class DateStringConverter {
     static func convert(input: String) -> String {
         let formatter = DateFormatter()
 //        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = DateFormat.input
+        formatter.dateFormat = DateFormat.input.rawValue
         if let date = formatter.date(from: input) {
-            formatter.dateFormat = DateFormat.output
+            formatter.dateFormat = DateFormat.output.rawValue
             return formatter.string(from: date)
             
         } else {
             return Constants.defaultDate
         }
+    }
+    
+    static func date(from input: String, format: DateFormat = .input) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format.rawValue
+        return formatter.date(from: input)
     }
 }

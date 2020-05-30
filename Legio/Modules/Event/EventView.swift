@@ -14,17 +14,14 @@ protocol EventViewProtocol: class {
     func showEvents(viewModels: [EventViewModel])
 }
 
-class EventView: UIViewController {
+final class EventView: UIViewController {
     
     @IBOutlet weak var eventsContainerView: EventsContainerView!
     
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var dislikeButton: UIButton!
-    @IBOutlet weak var partyButton: UIButton!
-    @IBOutlet weak var nerdyButton: UIButton!
     @IBOutlet weak var likeDislikeButtons: UIStackView!
-    @IBOutlet weak var partyNerdyButtons: UIStackView!
     @IBOutlet weak var bottomConstraintStackView: NSLayoutConstraint!
     
     private lazy var reloadButton: UIButton = {
@@ -73,15 +70,15 @@ extension EventView: EventViewProtocol {
     
     func showEvents(viewModels: [EventViewModel]) {
         reloadButton.isHidden = true
-        eventsContainerView.configure(viewModels: viewModels)
-
-        if viewModels.count > 0 {
-            updateLikeButtonsAlpha(needHide: false)
+        
+        if viewModels.count > 1 {
             likeButton.isEnabled = true
             dislikeButton.isEnabled = true
+            updateLikeButtonsAlpha(needHide: false, withAnimation: false)
         } else {
-            updateLikeButtonsAlpha(needHide: true)
+            updateLikeButtonsAlpha(needHide: true, withAnimation: false)
         }
+        eventsContainerView.configure(viewModels: viewModels)
     }
 }
 
@@ -89,43 +86,25 @@ extension EventView: EventViewProtocol {
 
 extension EventView {
     
-    @IBAction func settingsButtonTapped(_ sender: Any) {
+    @IBAction private func settingsButtonTapped(_ sender: Any) {
         presenter.profileTapped()
     }
     
     // Перенести эту логику в пресентер
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        updateLikeButtonsAlpha(needHide: true)
+        presenter.likedEvent()
+        eventsContainerView.likeHandled()
     }
     
     // Перенести эту логику в пресентер
     @IBAction func dislikeButtonTapped(_ sender: UIButton) {
+        presenter.dislikedEvent()
         eventsContainerView.dislikeHandled()
-        //        if mainEvent {
-//            if isHiddenBottomButtons {
-//                partyNerdyButtons.isHidden = false
-//                bottomConstraintStackView.constant += 100
-//                UIView.animate(withDuration: 0.3, animations: {
-//                    self.view.layoutIfNeeded()
-//                })
-//                isHiddenBottomButtons = false
-//            }
-//        }
-//        dislikeButton.isEnabled = false
-//        likeButton.isEnabled = true
-    }
-    
-    @IBAction func partyButtonTapped(_ sender: UIButton) {
-        presenter.showParty()
-    }
-    
-    @IBAction func nerdyButtonTapped(_ sender: UIButton) {
-        presenter.showNerdy()
     }
     
     @objc private func didReloadButtonTap() {
         reloadButton.alpha = 0.5
-        presenter.viewDidLoad()
+        presenter.reload()
     }
     
 }
@@ -134,7 +113,6 @@ extension EventView {
     
     private func configureViews() {
         navigationController?.navigationBar.isHidden = false
-        partyNerdyButtons.isHidden = true
         eventsContainerView.delegate = self
         settingsButton.isHidden = true
         
@@ -159,15 +137,22 @@ extension EventView: EventsContainerViewDelegate {
         updateLikeButtonsAlpha(needHide: true)
     }
     
-    private func updateLikeButtonsAlpha(needHide: Bool) {
-        let alpha: CGFloat = needHide
-            ? 0
-            : 1
-        UIView.animate(withDuration: 0.1, animations: {
-            self.likeButton.alpha = alpha
-            self.dislikeButton.alpha = alpha
-        })
+    private func updateLikeButtonsAlpha(
+        needHide: Bool,
+        withAnimation: Bool = true) {
+        
+        let alpha: CGFloat = needHide ? 0 : 1
+        
+        if withAnimation {
+            UIView.animate(withDuration: 0.1, animations: {
+                self.likeButton.alpha = alpha
+                self.dislikeButton.alpha = alpha
+            })
+            
+        } else {
+            likeButton.alpha = alpha
+            dislikeButton.alpha = alpha
+        }
     }
-    
     
 }

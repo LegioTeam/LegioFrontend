@@ -28,6 +28,10 @@ class EmptyEventCardView: UIView {
         commonInit()
     }
     
+    func configure(viewModel: EventViewModel) {
+        titleLabel.text = viewModel.name
+    }
+    
     private func commonInit() {
         Bundle.main.loadNibNamed(self.nibName, owner: self, options: nil)
         addSubview(containerView)

@@ -1,22 +1,20 @@
 
 import UIKit
 import CoreData
-import UserNotifications
 import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-    let notification = NotificationDelegate()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        notification.notificationCenter.delegate = notification
-        notification.userRequest()
         if !HasRunBefore.yes {
             let keychain = KeychainSwift()
             keychain.clear()
         }
+        
+        UNUserNotificationCenter.current().delegate = self
         return true
 	}
 
@@ -30,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
 	}
 
 	func applicationWillTerminate(_ application: UIApplication) {
@@ -62,4 +61,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	    }
 	}
 
+}
+
+
+// MARK: - Чтобы получать уведомления, даже когда приложение включено
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound])
+    }
 }

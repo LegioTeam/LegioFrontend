@@ -35,6 +35,7 @@ class RootView: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         assembler.assemble(with: self)
+        configureViews()
 		presenter.viewDidLoad()
 	}
     
@@ -51,6 +52,16 @@ class RootView: UIViewController {
     @objc private func didReloadButtonTap() {
         reloadButton.alpha = 0.5
         presenter.viewDidLoad()
+    }
+    
+    private func configureViews() {
+        view.addSubview(reloadButton)
+        NSLayoutConstraint.activate([
+            reloadButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            reloadButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            reloadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24),
+            reloadButton.heightAnchor.constraint(equalToConstant: 64)
+        ])
     }
 }
 
