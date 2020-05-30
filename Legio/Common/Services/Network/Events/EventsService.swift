@@ -6,7 +6,7 @@
 //  Copyright © 2020 Марат Нургалиев. All rights reserved.
 //
 
-import Foundation
+import CoreLocation
 
 protocol EventsService {
     

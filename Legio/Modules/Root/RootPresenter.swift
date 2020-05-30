@@ -24,7 +24,7 @@ class RootPresenter {
 extension RootPresenter: RootPresenterProtocol {
 	
     func viewDidLoad() {
-        
+        LocationManager.sharedManager.isEnabled()
         enterWithoutLoginView()
     }
     

@@ -74,9 +74,14 @@ extension EventView: EventViewProtocol {
     func showEvents(viewModels: [EventViewModel]) {
         reloadButton.isHidden = true
         eventsContainerView.configure(viewModels: viewModels)
-        likeButton.isEnabled = true
-        dislikeButton.isEnabled = true
-        updateLikeButtonsAlpha(needHide: false)
+
+        if viewModels.count > 0 {
+            updateLikeButtonsAlpha(needHide: false)
+            likeButton.isEnabled = true
+            dislikeButton.isEnabled = true
+        } else {
+            updateLikeButtonsAlpha(needHide: true)
+        }
     }
 }
 
