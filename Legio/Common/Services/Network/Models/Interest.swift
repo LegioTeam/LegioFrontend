@@ -13,7 +13,7 @@ enum InterestType: String {
     case nerby
 }
 
-class Interest: Codable {
+final class Interest: Codable {
 
     let id: Int
     let name: String

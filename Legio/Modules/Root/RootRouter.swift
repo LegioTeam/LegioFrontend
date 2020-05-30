@@ -13,6 +13,7 @@ protocol RootRouterProtocol: class {
     func showEventTypes()
     func showPreset()
     func showEvents()
+    func showGeoRequest()
 }
 
 class RootRouter: BaseRouter {
@@ -51,6 +52,14 @@ extension RootRouter: RootRouterProtocol {
         guard let controller = UIStoryboard(name: "Event", bundle: nil)
             .instantiateViewController(withIdentifier: EventView.storyboardIdentifier) as? EventView else { return }
         let assemler: EventAssemblerProtocol = EventAssembler()
+        assemler.assemble(with: controller)
+        self.show(controller)
+    }
+    
+    func showGeoRequest() {
+        guard let controller = UIStoryboard(name: "GeoRequest", bundle: nil)
+            .instantiateViewController(withIdentifier: GeoRequestView.storyboardIdentifier) as? GeoRequestView else { return }
+        let assemler: GeoRequestAssemblerProtocol = GeoRequestAssembler()
         assemler.assemble(with: controller)
         self.show(controller)
     }

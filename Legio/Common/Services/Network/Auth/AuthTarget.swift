@@ -12,12 +12,14 @@ import Moya
 enum AuthTarget {
     case signIn(identity: String, password: String)
     case register(identity: String, password: String)
+    case token
 }
 
 enum Keys {
     static let contentType = "Content-Type"
     static let identity = "identity"
     static let password = "password"
+    static let unsafe = "allow_unsafe_session"
 }
 
 extension AuthTarget: TargetType {
@@ -35,7 +37,7 @@ extension AuthTarget: TargetType {
     
     var path: String {
         switch self {
-        case .signIn: return "/user-sessions"
+        case .signIn, .token: return "/user-sessions"
             
         case .register: return "/users"
         }
@@ -43,9 +45,7 @@ extension AuthTarget: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .signIn: return .post
-            
-        case .register: return .post
+        case .signIn, .register, .token: return .post
         }
     }
     
@@ -73,13 +73,17 @@ extension AuthTarget: TargetType {
                     Keys.password: password],
                 encoding: JSONEncoding.default)
             
+        case .token:
+            return .requestParameters(
+                parameters: [Keys.unsafe: true],
+                encoding: JSONEncoding.default)
+            
         }
     }
     
     public var headers: [String: String]? {
         return [Keys.contentType: Constants.contentTypeValue]
     }
-    
     
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Profile: Decodable {
+final class Profile: Decodable {
     
     let name: String
     let identity: String

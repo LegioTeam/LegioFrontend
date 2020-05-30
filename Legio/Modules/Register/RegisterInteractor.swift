@@ -20,7 +20,8 @@ class RegisterInteractor: RegisterInteractorProtocol {
     
     private let networkService = NetworkSettings.shared
 	private let validateManager = ValidateManager()
-	private let authService: AuthService = AuthServiceImplementation()
+    private let authService: AuthService = AuthServiceImplementation(
+        with: KeychainDatabaseServiceImplementation.instance)
    	
 	func registrate(email: String, password: String, completion: @escaping AuthService.AuthResponse) {
         authService.register(identity: email, password: password, completion: completion)
