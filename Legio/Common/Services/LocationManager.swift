@@ -10,23 +10,32 @@ import Foundation
 import CoreLocation
 import MapKit
 
-protocol LocationManagerDelegate {
-    func locationManager(didUpdateLocations locations: [CLLocation])
-    func locationManager(didFailWithError error: NSError)
-    func locationManager(authorizationStatusChanged status: CLAuthorizationStatus)
-}
-
-extension LocationManagerDelegate {
-    func locationManager(didFailWithError error: NSError) {
-        print("locationManager:didFailWithError: " + error.description)
-    }
+/// Протокол для работы с геолокацией
+protocol LocationService {
     
-    func locationManager(authorizationStatusChanged status: CLAuthorizationStatus) {
-        print(status)
-    }
+    /// Запрос на подключение гео
+    func makeRequest()
+    
+    /// Проверяет, подключено ли гео
+    func isEnabled() -> Bool
+    
+    /// Получение последней известной геолокации
+    func getCurrentLocation() -> CLLocation?
+    
+    /// Делегат для получения инфы включилось или нет
+    var delegate: LocationManagerDelegate? { get set }
 }
 
-final class LocationManager: NSObject, CLLocationManagerDelegate {
+protocol LocationManagerDelegate {
+    
+    typealias LocationManagerResult = Result<CLAuthorizationStatus, Error>
+    
+    func locationManager(didUpdateLocations locations: [CLLocation])
+    
+    func locationManager(result: LocationManagerResult)
+}
+
+final class LocationManager: NSObject, CLLocationManagerDelegate, LocationService {
     
     private struct Constants {
         static let metresInKm: Double = 1000
@@ -40,6 +49,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     var delegate: LocationManagerDelegate?
     var authorizationStatus = CLAuthorizationStatus.notDetermined
     
+    
     private override init() {
         super.init()
         configureLocationManager()
@@ -52,12 +62,9 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
-            locationManager.requestAlwaysAuthorization()
-        }
     }
     
-    func start() -> Bool {
+    func isEnabled() -> Bool {
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways ||
             CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
             locationManager.startUpdatingLocation()
@@ -66,8 +73,26 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         return false
     }
     
+    func makeRequest() {
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        
+        case .denied, .restricted:
+            openSerrings()
+            
+        default:
+            delegate?.locationManager(result: .success(CLLocationManager.authorizationStatus()))
+        }
+    }
+    
     func stop() {
         locationManager.stopUpdatingLocation()
+    }
+    
+    func getCurrentLocation() -> CLLocation? {
+        return userLocation
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -76,26 +101,18 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         }
         else {
             let startLocation = locations.last
-            self.userLocation = startLocation
+            userLocation = startLocation
             print("latitude: " + (startLocation?.coordinate.latitude.description)! + ", longitude: " + (startLocation?.coordinate.longitude.description)!)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizationStatus = status
-        
-        if let delegate = self.delegate {
-            delegate.locationManager(authorizationStatusChanged: authorizationStatus)
-        }
+        delegate?.locationManager(result: .success(authorizationStatus))
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if let delegate = self.delegate {
-            delegate.locationManager(didFailWithError: error as NSError)
-        }
-        else {
-            print("locationManager:didFailWithError: " + error.localizedDescription)
-        }
+        delegate?.locationManager(result: .failure(error))
     }
     
     func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
@@ -168,6 +185,20 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         let minutes = Int(travelTime.truncatingRemainder(dividingBy: Constants.secondsInHour) / Constants.secondsInMinutes)
         timeString += minutes > 0 ? "\(minutes) мин" : ""
         return timeString
+    }
+    
+    private func openSerrings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { [weak self] _ in
+                self?.delegate?.locationManager(result: .success(CLLocationManager.authorizationStatus()))
+            })
+        } else {
+            delegate?.locationManager(result: .success(CLLocationManager.authorizationStatus()))
+        }
     }
 
 }

@@ -22,6 +22,7 @@ class EventTypesAssembler: EventTypesAssemblerProtocol {
         presenter.router = router
         presenter.interactor = interactor
         presenter.view = view
+        presenter.locationService = LocationManager.sharedManager
         
         view.presenter = presenter
     }

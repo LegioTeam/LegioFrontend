@@ -27,6 +27,7 @@ class EventTypesPresenter {
     weak var view: EventTypesViewProtocol?
     var router: EventTypesRouterProtocol!
     var interactor: EventTypesInteractorProtocol!
+    var locationService: LocationService!
     
     private var contentWidth: CGFloat = 0
     private var interests: [InterestCellViewModel] = []
@@ -135,10 +136,10 @@ extension EventTypesPresenter {
             idInterests: idSelectedInterests) { [weak self] response in
                 switch response {
                 case .success:
-                    self?.router.showEvent()
+                    self?.routeNextView()
 
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self?.view?.showError(title: "Ошибка", subtitle: error.localizedDescription)
                 }
             }
         } else {
@@ -162,6 +163,12 @@ extension EventTypesPresenter {
                 name: $0.name,
                 isSelected: myInterests.contains($0.id),
                 containerWidth: contentWidth) })
+    }
+    
+    private func routeNextView() {
+        locationService.isEnabled()
+            ? router.showEvents()
+            : router.showGeoRequest()
     }
 
 }

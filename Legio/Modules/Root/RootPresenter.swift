@@ -18,7 +18,9 @@ class RootPresenter {
 	var interactor: RootInteractorProtocol!
     var authInteractor: AuthInteractorProtocol!
 	var router: RootRouterProtocol!
-	
+    
+    /// Переменная отвечающая за состояние работы геолокации
+    private var isLocationEnabled: Bool = false
 }
 
 extension RootPresenter: RootPresenterProtocol {
@@ -26,8 +28,11 @@ extension RootPresenter: RootPresenterProtocol {
     private enum Texts {
         static let errorTitle = "Ошибка"
     }
+    
+    
 	
     func viewDidLoad() {
+        isLocationEnabled = LocationManager.sharedManager.isEnabled()
         checkIsAuthorized()
     }
     
