@@ -9,31 +9,20 @@
 import UIKit
 
 protocol EventRouterProtocol: class {
-    func showProfile()
-    func showPreset()
+    func showEventTypes()
     func showDetails(url: String)
-    func showParty()
-    func showNerdy()
 }
 
 final class EventRouter: BaseRouter { }
 
 extension EventRouter: EventRouterProtocol {
     
-    func showProfile() {
-        guard let controller = UIStoryboard(name: "ProfileView", bundle: nil)
-            .instantiateViewController(withIdentifier: ProfileView.storyboardIdentifier) as? ProfileView else { return }
-        let assembler: ProfileAssemblerProtocol = ProfileAssembler()
-        assembler.assemble(with: controller)
-        self.show(controller)
-    }
-    
-    func showPreset() {
-        guard let controller = UIStoryboard(name: "Preset", bundle: nil)
-            .instantiateViewController(withIdentifier:  PresetView.storyboardIdentifier) as? PresetView else {
-                return
-        }
-        self.show(controller)
+    func showEventTypes() {
+        guard let controller = UIStoryboard(name: "EventTypes", bundle: nil)
+            .instantiateViewController(withIdentifier: EventTypesView.storyboardIdentifier) as? EventTypesView else { return }
+        let assembler: EventTypesAssemblerProtocol = EventTypesAssembler()
+        assembler.assemble(with: controller, needReturn: true)
+        self.present(controller)
     }
     
     func showDetails(url: String) {
@@ -41,22 +30,4 @@ extension EventRouter: EventRouterProtocol {
         webVC.urlString = url
         self.show(webVC)
     }
-    
-    func showParty() {
-        guard let controller = UIStoryboard(name: "Event", bundle: nil)
-            .instantiateViewController(withIdentifier: EventView.storyboardIdentifier) as? EventView else { return }
-        let assembler: EventAssemblerProtocol = EventAssembler()
-        assembler.assembleFromButton(with: controller)
-        self.presentFromLeft(controller, completion: nil)
-
-    }
-    
-    func showNerdy() {
-        guard let controller = UIStoryboard(name: "Event", bundle: nil)
-            .instantiateViewController(withIdentifier: EventView.storyboardIdentifier) as? EventView else { return }
-        let assembler: EventAssemblerProtocol = EventAssembler()
-        assembler.assembleFromButton(with: controller)
-        self.show(controller)
-    }
-    
 }

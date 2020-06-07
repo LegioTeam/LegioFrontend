@@ -16,9 +16,14 @@ protocol EventsService {
         distance: Float?,
         metro: String?,
         completion: @escaping EventsResult)
+    
+    func like(eventId: String, completion: @escaping ReactionResult)
+    
+    func dislike(eventId: String, completion: @escaping ReactionResult)
 }
 
 extension EventsService {
     
     public typealias EventsResult = (Result<EventsResponse, Error>) -> Void
+    public typealias ReactionResult = (Result<Bool, Error>) -> Void
 }

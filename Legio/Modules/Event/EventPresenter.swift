@@ -32,6 +32,8 @@ final class EventPresenter {
         static let errorTitle: String = "Ошибка"
         static let errorMessage: String = "Что-то пошло не так"
         static let noEvents: String = "К сожалению, рядом с Вами не найдено событий"
+        static let likedEventTitle: String = "Не пропустите это событие!"
+        static let likedEventMessage: String = "Следующее будет доступно после окончания этого"
     }
     
     weak var view: EventViewProtocol?
@@ -55,20 +57,39 @@ extension EventPresenter: EventPresenterProtocol {
     }
     
     func profileTapped() {
-        router.showProfile()
+        router.showEventTypes()
     }
     
     func likedEvent() {
-        guard let lastEvent = events.last else { return }
-        interactor.like(event: lastEvent)
-        events.removeLast()
         
+        guard let lastEvent = events.last else { return }
+        
+        interactor.like(event: lastEvent) { [weak self] result in
+            switch result {
+            case .success:
+                self?.prepareEventMessage(for: lastEvent)
+                
+            case .failure(let error):
+                self?.view?.showError(
+                    title: Texts.errorTitle,
+                    subtitle: error.localizedDescription)
+            }
+        }
     }
     
     func dislikedEvent() {
         guard let lastEvent = events.last else { return }
-        interactor.dislike(event: lastEvent)
-        events.removeLast()
+        interactor.dislike(event: lastEvent) { [weak self] result in
+            switch result {
+            case .success:
+                self?.events.removeLast()
+                
+            case .failure(let error):
+                self?.view?.showError(
+                    title: Texts.errorTitle,
+                    subtitle: error.localizedDescription)
+            }
+        }
     }
     
     
@@ -106,6 +127,33 @@ extension EventPresenter: EventPresenterProtocol {
         return eventViewModels
     }
     
+    /// Отображение пользователю уведомления о том, что он
+    private func prepareEventMessage(for event: Event) {
+        var title = Texts.likedEventTitle
+        let message = Texts.likedEventMessage
+        
+        if let eventDate = DateStringConverter.date(from: event.startsAt) {
+            let nowDate = Date()
+
+            let difference = eventDate.timeIntervalSince(nowDate)
+
+            let hours = Int(difference) / 3600
+            let minutes = (Int(difference) / 60) % 60
+            
+            if hours > 0 || minutes > 0 {
+                title = "Начало через "
+                if hours > 0 {
+                    title += "\(hours) час."
+                }
+                if minutes > 0 {
+                    title += "\(minutes) мин."
+                }
+            }
+        }
+        
+        view?.showLiked(title: title, subtitle: message)
+    }
+    
 }
 
 // MARK: - Сетевые методы
@@ -127,7 +175,9 @@ extension EventPresenter {
                     self?.showEvents()
                     
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self?.view?.showError(
+                        title: Texts.errorTitle,
+                        subtitle: error.localizedDescription)
                 }
         }
     }

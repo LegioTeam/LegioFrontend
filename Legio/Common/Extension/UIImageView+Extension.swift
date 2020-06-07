@@ -30,7 +30,9 @@ extension UIImageView {
                 let data = data, error == nil,
                 let image = UIImage(data: data)
                 else {
-                    self?.image = placeholderImage
+                    DispatchQueue.main.async() {
+                        self?.image = placeholderImage
+                    }
                     return
                     
             }

@@ -23,7 +23,7 @@ class EventsServiceImplementation: EventsService {
         completion: @escaping EventsResult) {
         
         let target = MoyaProvider<EventsTarget>(
-        plugins: [authPlugin])
+            plugins: [authPlugin])
         target.request(.getEvents(
             city: city,
             location: location,
@@ -32,10 +32,10 @@ class EventsServiceImplementation: EventsService {
                 
                 switch result {
                 case .success(let response):
-
+                    
                     #if DEBUG
-                     let responseString = String(decoding: response.data, as: UTF8.self)
-                     print(responseString)
+                    let responseString = String(decoding: response.data, as: UTF8.self)
+                    print(responseString)
                     #endif
                     
                     do {
@@ -50,6 +50,57 @@ class EventsServiceImplementation: EventsService {
                     completion(.failure(error))
                     
                 }
+        }
+    }
+    
+    func like(eventId: String, completion: @escaping ReactionResult) {
+        let target = MoyaProvider<EventsTarget>(
+            plugins: [authPlugin])
+        target.request(.like(eventId: eventId)) { result in
+            
+            switch result {
+            case .success(let response):
+                
+                #if DEBUG
+                let responseString = String(decoding: response.data, as: UTF8.self)
+                print(responseString)
+                #endif
+                
+                if 200 ... 299 ~= response.statusCode {
+                    completion(.success(true))
+                } else {
+                    completion(.failure(NetworkError.decodable))
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+                
+            }
+        }
+    }
+    
+    func dislike(eventId: String, completion: @escaping ReactionResult) {
+        let target = MoyaProvider<EventsTarget>(plugins: [authPlugin])
+        target.request(.dislike(eventId: eventId)) { result in
+            
+            switch result {
+            case .success(let response):
+                
+                #if DEBUG
+                let responseString = String(decoding: response.data, as: UTF8.self)
+                print(responseString)
+                #endif
+                
+                if 200 ... 299 ~= response.statusCode {
+                    completion(.success(true))
+                } else {
+                    completion(.failure(NetworkError.decodable))
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+                
+            }
         }
     }
 }
