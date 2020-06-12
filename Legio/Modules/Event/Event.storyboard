@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-Lt-fni" customClass="EventsContainerView" customModule="Legio" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-o9-LVI">
@@ -71,7 +71,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="bottom" secondItem="c9o-gU-86Z" secondAttribute="bottom" constant="30" id="2Uq-us-wF9"/>
-                            <constraint firstItem="cOV-Lt-fni" firstAttribute="top" secondItem="hRe-wJ-Uv1" secondAttribute="top" id="3eD-h2-4AC"/>
+                            <constraint firstItem="cOV-Lt-fni" firstAttribute="top" secondItem="CXE-9v-FVP" secondAttribute="top" id="3eD-h2-4AC"/>
                             <constraint firstItem="wrT-o9-LVI" firstAttribute="top" secondItem="hRe-wJ-Uv1" secondAttribute="top" constant="20" id="MyU-Hd-tz2"/>
                             <constraint firstItem="c9o-gU-86Z" firstAttribute="centerX" secondItem="CXE-9v-FVP" secondAttribute="centerX" id="R6f-oV-4Jo"/>
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="trailing" secondItem="wrT-o9-LVI" secondAttribute="trailing" constant="20" id="RY5-X0-z9W"/>
@@ -79,7 +79,7 @@
                             <constraint firstItem="hRe-wJ-Uv1" firstAttribute="trailing" secondItem="cOV-Lt-fni" secondAttribute="trailing" id="h4h-CS-jsM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="cOV-Lt-fni" secondAttribute="bottom" id="yYX-Dm-vsc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hRe-wJ-Uv1"/>
+                        <viewLayoutGuide key="safeArea" id="hRe-wJ-Uv1" propertyAccessControl="all"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bp1-Co-AoQ"/>
                     <nil key="simulatedTopBarMetrics"/>
