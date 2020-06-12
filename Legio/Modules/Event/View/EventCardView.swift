@@ -42,6 +42,7 @@ class EventCardView: UIView {
     
     
     func configure(viewModel: EventViewModel) {
+        configureGradient()
         eventImageView.downloaded(
             from: viewModel.imageUrl,
             placeholderImage: viewModel.defaultImage,
@@ -53,6 +54,11 @@ class EventCardView: UIView {
         
         detailUrlString = viewModel.detailUrlString
         detailsAction = viewModel.action
+    }
+    
+    private func configureGradient() {
+        let rectGradient = CGRect(x: eventImageView.bounds.origin.x, y: eventImageView.bounds.origin.y, width: eventImageView.bounds.size.width, height: eventImageView.bounds.size.height / 2)
+        eventImageView.addBlackGradientLayerInForeground(frame: rectGradient, colors: [.black, .clear])
     }
     
     @IBAction func detailsButtonTapped(_ sender: Any) {
