@@ -10,11 +10,16 @@ import Foundation
 import Moya
 
 enum EventsTarget {
+    
     case getEvents(
         city: String?,
         location: String?,
         distance: Float?,
         metro: String?)
+    
+    case like(eventId: String)
+    
+    case dislike(eventId: String)
 }
 
 extension EventsTarget: TargetType, AccessTokenAuthorizable {
@@ -28,10 +33,15 @@ extension EventsTarget: TargetType, AccessTokenAuthorizable {
         static let location = "location"
         static let distance = "distance"
         static let metro = "metro"
+        
+        static let eventId = "eventId"
+        static let type = "type"
     }
     
     private enum Constants {
         static let contentTypeValue = "application/json"
+        static let like = "like"
+        static let dislike = "dislike"
     }
     
     var baseURL: URL {
@@ -44,20 +54,20 @@ extension EventsTarget: TargetType, AccessTokenAuthorizable {
     var path: String {
         switch self {
         case .getEvents:
-//            if dislikedEvents.count > 0 {
-//                let dislikedString = dislikedEvents.map({"\($0)"}).joined(separator: ",")
-//                return "/events?\(Keys.dislikedEvents)={\(dislikedString)}"
-//
-//            } else {
-                return "/events"
-//            }
+            return "/events"
             
+        case .like, .dislike:
+            return "/profile/reactions"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getEvents: return .get
+        case .getEvents:
+            return .get
+            
+        case .like, .dislike:
+            return .post
         }
     }
     
@@ -72,11 +82,11 @@ extension EventsTarget: TargetType, AccessTokenAuthorizable {
     public var task: Task {
         switch self {
         case .getEvents(
-        let city,
-        let location,
-        let distance,
-        let metro):
-    
+            let city,
+            let location,
+            let distance,
+            let metro):
+            
             var parameters: [String: Any] = [:]
             if let city = city {
                 parameters[Keys.city] = city
@@ -92,13 +102,37 @@ extension EventsTarget: TargetType, AccessTokenAuthorizable {
             }
             
             return .requestParameters(
-            parameters: parameters,
-            encoding: URLEncoding.default)
+                parameters: parameters,
+                encoding: URLEncoding.default)
+            
+        case .like(let eventId):
+            var parameters: [String: Any] = [:]
+            parameters[Keys.type] = Constants.like
+            parameters[Keys.eventId] = eventId
+            
+            return .requestParameters(
+                parameters: parameters,
+                encoding: URLEncoding.httpBody)
+            
+        case .dislike(let eventId):
+            var parameters: [String: Any] = [:]
+            parameters[Keys.type] = Constants.dislike
+            parameters[Keys.eventId] = eventId
+            
+            return .requestParameters(
+                parameters: parameters,
+                encoding: URLEncoding.httpBody)
         }
     }
     
     public var headers: [String: String]? {
-        return [Keys.contentType: Constants.contentTypeValue]
+        switch self {
+        case .getEvents:
+            return [Keys.contentType: Constants.contentTypeValue]
+            
+        default:
+            return nil
+        }
     }
     
     var authorizationType: AuthorizationType? {

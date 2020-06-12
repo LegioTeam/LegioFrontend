@@ -11,9 +11,11 @@ import UIKit
 protocol EventTypesRouterProtocol: class {
 	func showEvents()
     func showGeoRequest()
+    func dismiss()
 }
 
 class EventTypesRouter: BaseRouter {
+    
 }
 
 extension EventTypesRouter: EventTypesRouterProtocol {

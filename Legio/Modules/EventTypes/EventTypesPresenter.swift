@@ -28,6 +28,7 @@ class EventTypesPresenter {
     var router: EventTypesRouterProtocol!
     var interactor: EventTypesInteractorProtocol!
     var locationService: LocationService!
+    var needReturn: Bool = false
     
     private var contentWidth: CGFloat = 0
     private var interests: [InterestCellViewModel] = []
@@ -166,6 +167,11 @@ extension EventTypesPresenter {
     }
     
     private func routeNextView() {
+        guard !needReturn else {
+            router.dismiss()
+            return
+        }
+        
         locationService.isEnabled()
             ? router.showEvents()
             : router.showGeoRequest()

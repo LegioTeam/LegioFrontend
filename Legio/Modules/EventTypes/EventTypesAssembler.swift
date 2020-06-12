@@ -9,12 +9,18 @@
 import UIKit
 
 protocol EventTypesAssemblerProtocol {
-    func assemble(with view: EventTypesView)
+    func assemble(with view: EventTypesView, needReturn: Bool)
+}
+
+extension EventTypesAssemblerProtocol {
+    func assemble(with view: EventTypesView, needReturn: Bool = false) {
+        assemble(with: view, needReturn: needReturn)
+    }
 }
 
 class EventTypesAssembler: EventTypesAssemblerProtocol {
     
-    func assemble(with view: EventTypesView) {
+    func assemble(with view: EventTypesView, needReturn: Bool) {
         let router = EventTypesRouter(controller: view)
         let interactor = EventTypesInteractor()
         
@@ -22,6 +28,7 @@ class EventTypesAssembler: EventTypesAssemblerProtocol {
         presenter.router = router
         presenter.interactor = interactor
         presenter.view = view
+        presenter.needReturn = needReturn
         presenter.locationService = LocationManager.sharedManager
         
         view.presenter = presenter

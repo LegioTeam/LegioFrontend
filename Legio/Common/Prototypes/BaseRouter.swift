@@ -43,11 +43,15 @@ class BaseRouter: NSObject {
 		UIApplication.shared.keyWindow?.rootViewController = controller
 	}
     
+    func dismiss() {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     private func removeBackWord() {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         controller.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
     }
+
 	
 }

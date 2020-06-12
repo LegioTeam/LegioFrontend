@@ -19,10 +19,10 @@ protocol EventInteractorProtocol {
         completion: @escaping EventsService.EventsResult)
     
     /// Лайкнуть событие
-    func like(event: Event)
+    func like(event: Event, completion: @escaping EventsService.ReactionResult)
     
     /// Дислайкнуть событие
-    func dislike(event: Event)
+    func dislike(event: Event, completion: @escaping EventsService.ReactionResult)
     
 }
 
@@ -53,11 +53,25 @@ final class EventInteractor: EventInteractorProtocol {
             completion: completion)
     }
     
-    func like(event: Event) {
-        notificationService.addNotification(for: event)
+    func like(event: Event, completion: @escaping EventsService.ReactionResult) {
+        
+        eventsService.like(eventId: event.id, completion: { [weak self] result in
+            switch result {
+            case .success:
+                self?.notificationService.addNotification(for: event)
+            
+            case.failure:
+                break
+                
+            }
+            completion(result)
+        })
     }
     
-    func dislike(event: Event) {}
+    func dislike(event: Event, completion: @escaping EventsService.ReactionResult) {
+        
+        eventsService.dislike(eventId: event.id, completion: completion)
+    }
     
     private func makeString(from location: CLLocation?) -> String? {
         

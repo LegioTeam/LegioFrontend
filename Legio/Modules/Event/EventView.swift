@@ -12,6 +12,7 @@ import NotificationBannerSwift
 protocol EventViewProtocol: class {
     func showError(title: String, subtitle: String)
     func showEvents(viewModels: [EventViewModel])
+    func showLiked(title: String, subtitle: String)
 }
 
 final class EventView: UIViewController {
@@ -50,11 +51,11 @@ final class EventView: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.configureNavigationBar(state: .hide)
+        configureNavigationBar(state: .hide)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
 }
@@ -75,14 +76,24 @@ extension EventView: EventViewProtocol {
             likeButton.isEnabled = true
             dislikeButton.isEnabled = true
             updateLikeButtonsAlpha(needHide: false, withAnimation: false)
+            
         } else {
             updateLikeButtonsAlpha(needHide: true, withAnimation: false)
         }
         eventsContainerView.configure(viewModels: viewModels)
     }
+    
+    func showLiked(title: String, subtitle: String) {
+        showNotificationBanner(
+            title: title,
+            subtitle: subtitle,
+            style: .success)
+        
+        updateLikeButtonsAlpha(needHide: true, withAnimation: true)
+    }
 }
 
-//MARK: - Actions
+// MARK: - Actions
 
 extension EventView {
     
@@ -93,7 +104,6 @@ extension EventView {
     // Перенести эту логику в пресентер
     @IBAction func likeButtonTapped(_ sender: UIButton) {
         presenter.likedEvent()
-        eventsContainerView.likeHandled()
     }
     
     // Перенести эту логику в пресентер
@@ -114,7 +124,6 @@ extension EventView {
     private func configureViews() {
         navigationController?.navigationBar.isHidden = false
         eventsContainerView.delegate = self
-        settingsButton.isHidden = true
         
         view.addSubview(reloadButton)
         NSLayoutConstraint.activate([
