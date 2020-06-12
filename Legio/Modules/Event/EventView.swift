@@ -56,7 +56,7 @@ final class EventView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar(state: .hide)
-        updateStatusBackground(isDefault: false)
+        updateStatusBackground(isDefault: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
