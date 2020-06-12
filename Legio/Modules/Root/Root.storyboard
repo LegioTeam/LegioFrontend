@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pUA-nj-SSR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pUA-nj-SSR">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,17 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxi-4B-hc4">
-                                <rect key="frame" x="152" y="305.5" width="71.5" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="KjX-oD-eq8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kxi-4B-hc4" firstAttribute="centerY" secondItem="OMY-1z-x43" secondAttribute="centerY" id="j6X-xO-UyQ"/>
-                            <constraint firstItem="kxi-4B-hc4" firstAttribute="centerX" secondItem="OMY-1z-x43" secondAttribute="centerX" id="xcP-2b-Qe5"/>
+                            <constraint firstItem="KjX-oD-eq8" firstAttribute="top" secondItem="wFg-C4-o6u" secondAttribute="top" id="6C9-Zs-SUn"/>
+                            <constraint firstItem="KjX-oD-eq8" firstAttribute="leading" secondItem="wFg-C4-o6u" secondAttribute="leading" id="HPc-1q-vcK"/>
+                            <constraint firstAttribute="bottom" secondItem="KjX-oD-eq8" secondAttribute="bottom" id="RQl-5u-52S"/>
+                            <constraint firstAttribute="trailing" secondItem="KjX-oD-eq8" secondAttribute="trailing" id="sGJ-7t-0FK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OMY-1z-x43"/>
                     </view>
@@ -62,4 +61,7 @@
             <point key="canvasLocation" x="-90" y="53"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash" width="375" height="812"/>
+    </resources>
 </document>

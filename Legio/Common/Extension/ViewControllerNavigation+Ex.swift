@@ -22,7 +22,7 @@ enum NavigationBarState {
 
 extension UIViewController {
     
-    internal func configureNavigationBar(state: NavigationBarState) {
+    func configureNavigationBar(state: NavigationBarState) {
         switch state {
         case .hide:
             self.navigationController?.navigationBar.isHidden = true
@@ -39,7 +39,7 @@ extension UIViewController {
     }
     
     // TO DO: Придумать решение лучше
-    internal func setupReturnToPreviousViewController() {
+    func setupReturnToPreviousViewController() {
         guard let previousViewController = self.navigationController?.previousViewController() else {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
             return
@@ -62,9 +62,37 @@ extension UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
-    internal func showNotificationBanner(title: String, subtitle: String, style: BannerStyle) {
+    func showNotificationBanner(title: String, subtitle: String, style: BannerStyle) {
         let banner = NotificationBanner(title: title, subtitle: subtitle, style: style)
         banner.show()
+    }
+    
+    func updateStatusBackground(isDefault: Bool) {
+        
+        let backgroundColor: UIColor = isDefault ? .clear : UIColor.black.withAlphaComponent(0.3)
+        
+        if #available(iOS 13.0, *) {
+            let app = UIApplication.shared
+            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+            
+            let statusbarView = UIView()
+            statusbarView.backgroundColor = backgroundColor
+            view.addSubview(statusbarView)
+          
+            statusbarView.translatesAutoresizingMaskIntoConstraints = false
+            statusbarView.heightAnchor
+                .constraint(equalToConstant: statusBarHeight).isActive = true
+            statusbarView.widthAnchor
+                .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
+            statusbarView.topAnchor
+                .constraint(equalTo: view.topAnchor).isActive = true
+            statusbarView.centerXAnchor
+                .constraint(equalTo: view.centerXAnchor).isActive = true
+          
+        } else {
+            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+            statusBar?.backgroundColor = backgroundColor
+        }
     }
 
 }
@@ -79,6 +107,11 @@ extension UINavigationController {
         let previousViewController: UIViewController? = lenght >= 2 ? self.viewControllers[lenght-2] : nil
         
         return previousViewController
+    }
+    
+    /// Override для использования насктроек статусбара из контроллера, отображаемого на экране
+    override open var childForStatusBarStyle: UIViewController? {
+        return self.topViewController
     }
     
 }

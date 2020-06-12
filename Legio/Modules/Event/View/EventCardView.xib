@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,13 +26,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1mS-7H-1vX">
-                    <rect key="frame" x="0.0" y="44" width="414" height="312"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="312"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="312" id="wWl-VY-lvy"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Event Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fT-0B-du1">
-                    <rect key="frame" x="24" y="236" width="366" height="96"/>
+                    <rect key="frame" x="24" y="192" width="366" height="96"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="96" id="ygV-3F-059"/>
                     </constraints>
@@ -55,14 +55,14 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="yUO-9x-NrA">
-                    <rect key="frame" x="20" y="388" width="24" height="24"/>
+                    <rect key="frame" x="20" y="344" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="Ojb-cv-eIa"/>
                         <constraint firstAttribute="height" constant="24" id="kQN-nw-gWs"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDS-p1-9Az">
-                    <rect key="frame" x="66" y="388" width="74.5" height="24"/>
+                    <rect key="frame" x="66" y="344" width="74.5" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="caX-0M-82W"/>
                     </constraints>
@@ -85,20 +85,20 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_pin" translatesAutoresizingMaskIntoConstraints="NO" id="GIN-qr-uji">
-                    <rect key="frame" x="20" y="424" width="24" height="24"/>
+                    <rect key="frame" x="20" y="380" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="XQg-Sh-aYO"/>
                         <constraint firstAttribute="width" constant="24" id="tk7-eH-434"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Басманный пер, 5" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCt-3w-j2f">
-                    <rect key="frame" x="66" y="424" width="328" height="19.5"/>
+                    <rect key="frame" x="66" y="380" width="328" height="19.5"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPQ-a6-MDu">
-                    <rect key="frame" x="66" y="455.5" width="55" height="24"/>
+                    <rect key="frame" x="66" y="411.5" width="55" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="kAJ-3C-CTM"/>
                     </constraints>
@@ -112,7 +112,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <accessibility key="accessibilityConfiguration" identifier="EventCardView"/>
             <constraints>
-                <constraint firstItem="1mS-7H-1vX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="1F3-RW-1HI"/>
+                <constraint firstItem="1mS-7H-1vX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1F3-RW-1HI"/>
                 <constraint firstItem="GIN-qr-uji" firstAttribute="top" secondItem="yUO-9x-NrA" secondAttribute="bottom" constant="12" id="1Ql-E6-OaS"/>
                 <constraint firstItem="sDS-p1-9Az" firstAttribute="top" secondItem="1mS-7H-1vX" secondAttribute="bottom" constant="32" id="Dlg-L6-ePF"/>
                 <constraint firstItem="yUO-9x-NrA" firstAttribute="top" secondItem="1mS-7H-1vX" secondAttribute="bottom" constant="32" id="Km5-ZV-SKZ"/>

@@ -44,6 +44,10 @@ final class EventView: UIViewController {
     
     private var isHiddenBottomButtons = true
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
@@ -52,6 +56,11 @@ final class EventView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar(state: .hide)
+        updateStatusBackground(isDefault: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        updateStatusBackground(isDefault: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
